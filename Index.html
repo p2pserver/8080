@@ -1014,33 +1014,129 @@
                   <button class="match-btn" id="matchBtn">
                     Match with a Tutor <i class="fa-solid fa-wand-magic-sparkles"></i>
                   </button>
-                </div>
+                </<!-- SESSIONS -->
+<div class="page" id="pageSessions">
+  <div class="hello">
+    <h5>Sessions</h5>
+    <p>Upcoming lessons and test prep goals.</p>
+  </div>
 
-                <!-- SESSIONS -->
-                <div class="page" id="pageSessions">
-                  <div class="hello">
-                    <h5>Sessions</h5>
-                    <p>Upcoming lessons and test prep goals.</p>
-                  </div>
+  <div class="list">
+    <div class="row">
+      <div>
+        <strong>Algebra II — Homework Review</strong>
+        <small>Today • 7:30 PM • 30 min</small>
+      </div>
+      <span class="pill">Join</span>
+    </div>
 
-                  <div class="list">
-                    <div class="row">
-                      <div>
-                        <strong>Algebra II — Homework Review</strong>
-                        <small>Today • 7:30 PM • 30 min</small>
-                      </div>
-                      <span class="pill">Join</span>
-                    </div>
+    <div class="row">
+      <div>
+        <strong>SAT Math — Timed Practice</strong>
+        <small>Tomorrow • 5:00 PM • 45 min</small>
+      </div>
+      <span class="pill">Booked</span>
+    </div>
 
-                    <div class="row">
-                      <div>
-                        <strong>SAT Math — Timed Practice</strong>
-                        <small>Tomorrow • 5:00 PM • 45 min</small>
-                      </div>
-                      <span class="pill">Booked
-                              </div>
+    <div class="row">
+      <div>
+        <strong>Chemistry — Lab Report Help</strong>
+        <small>Fri • 6:15 PM • 40 min</small>
+      </div>
+      <span class="pill">Reschedule</span>
     </div>
   </div>
+</div>
+
+<!-- MESSAGES -->
+<div class="page" id="pageMessages">
+  <div class="hello">
+    <h5>Messages</h5>
+    <p>Chat with tutors and get quick homework help.</p>
+  </div>
+
+  <div class="chat">
+    <div class="chatlog" id="chatLog" aria-label="Chat log">
+      <div class="msg them">Hi! Share the problem and I’ll help you solve it.</div>
+    </div>
+
+    <div class="composer">
+      <input id="chatInput" type="text" placeholder="Type a message…" autocomplete="off" />
+      <button class="send" id="sendBtn" aria-label="Send message">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div class="page" id="pageProfile">
+  <div class="hello">
+    <h5>Profile</h5>
+    <p>Your learning goals and quick settings.</p>
+  </div>
+
+  <div class="profile">
+    <div class="ptop">
+      <div class="tavatar" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
+      <div>
+        <h6>Sarah Johnson</h6>
+        <p>Student • SAT + Algebra Focus</p>
+      </div>
+    </div>
+
+    <div class="kv">
+      <div class="k">Goal<span>+120 SAT points</span></div>
+      <div class="k">Weekly Plan<span>2 sessions</span></div>
+      <div class="k">Next Exam<span>March 16</span></div>
+      <div class="k">Preferred Time<span>Evenings</span></div>
+    </div>
+  </div>
+</div>
+                  <!-- Overlay sheet (tutor details) -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Tutor details">
+    <div class="sheethead">
+      <strong id="sheetTitle">Tutor</strong>
+      <button class="closeSheet" id="closeSheet" aria-label="Close tutor details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="about" id="sheetAbout"></div>
+
+    <div class="sheetgrid" id="sheetGrid"></div>
+
+    <div class="sheetactions">
+      <button class="btn ghost" id="sheetAsk">
+        Ask a Question <i class="fa-regular fa-message"></i>
+      </button>
+      <button class="btn primary" id="sheetMatch">
+        Confirm Match <i class="fa-solid fa-check"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom nav -->
+<div class="bottomnav" aria-label="Bottom navigation">
+  <div class="navitem active" data-page="Home">
+    <i class="fa-solid fa-house"></i>
+    Home
+  </div>
+  <div class="navitem" data-page="Sessions">
+    <i class="fa-regular fa-calendar"></i>
+    Sessions
+  </div>
+  <div class="navitem" data-page="Messages">
+    <i class="fa-regular fa-message"></i>
+    Messages
+  </div>
+  <div class="navitem" data-page="Profile">
+    <i class="fa-regular fa-user"></i>
+    Profile
+  </div>
+</div>
 
   <footer id="pricing">
     © <span id="year"></span> Accesstutors • Online homework, textbook, and test support • 24/7
@@ -1143,52 +1239,37 @@
       }
     ];
 
-    const tutorListEl = $("#tutorList");
-    const searchEl = $("#tutorSearch");
+    tutorListEl?.addEventListener("click", (e) => {
+  const card = e.target.closest(".tcard");
+  if(!card) return;
 
-    function starString(r){
-      // render 5 stars (rounded)
-      const rounded = Math.round(r);
-      return "★".repeat(rounded) + "☆".repeat(Math.max(0, 5-rounded));
+  const t = tutors.find(x => x.id === card.dataset.id);
+  if(!t) return;
+
+  const actionBtn = e.target.closest("button[data-action]");
+  if(actionBtn){
+    const action = actionBtn.dataset.action;
+
+    if(action === "view"){
+      openSheet(t);
+      toast(`Viewing ${t.name}`);
+    }
+    if(action === "chat"){
+      showPage("Messages");
+      prefillChat(`Hi ${t.name.split(" ")[0]}, I need help with ${t.tags[0]}.`);
+      toast(`Messaging ${t.name}`);
+    }
+    if(action === "book"){
+      toast(`Booked a session with ${t.name} (demo)`);
+      showPage("Sessions");
     }
 
-    function tutorCard(t){
-      const tags = t.tags.slice(0,3).map(x => `<span class="badge">${x}</span>`).join("");
-      const dot = t.online ? `<span style="display:inline-flex;align-items:center;gap:6px;"><span class="dot"></span>Online</span>` : "Offline";
-      return `
-        <div class="tcard" data-id="${t.id}" data-filter="${t.filter.join(",")}"
-             data-hay="${(t.name+" "+t.role+" "+t.tags.join(" ")).toLowerCase()}">
-          <div class="tavatar" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
-          <div class="tmeta">
-            <div class="trow1">
-              <div>
-                <h6>${t.name}</h6>
-                <div class="tsub">${t.role}</div>
-              </div>
-              <div class="tright">
-                <div class="stars" title="${t.rating.toFixed(1)}">${starString(t.rating)}</div>
-                <div>${dot}</div>
-                <div>${t.price}</div>
-              </div>
-            </div>
+    e.stopPropagation();
+    return;
+  }
 
-            <div class="tbadges">${tags}</div>
-
-            <div class="ticons">
-              <button class="miniicon" data-action="view" title="View profile" aria-label="View profile">
-                <i class="fa-regular fa-id-card"></i>
-              </button>
-              <button class="miniicon" data-action="chat" title="Message" aria-label="Message">
-                <i class="fa-regular fa-message"></i>
-              </button>
-              <button class="miniicon" data-action="book" title="Book session" aria-label="Book">
-                <i class="fa-regular fa-calendar"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
+  openSheet(t);
+});
 
     function renderTutors(list){
       tutorListEl.innerHTML = list.map(tutorCard).join("");
