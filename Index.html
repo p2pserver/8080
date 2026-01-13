@@ -1,4 +1,4 @@
-<<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,56 +7,59 @@
 
   <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     /* =========================================================
-      Accesstutors Landing Page
-      - Layout matches reference: phone mockup RIGHT, content LEFT
-      - Minimalist + AU-inspired color scheme (red/navy/neutral)
-      - Distinct, readable sections + buttons
-      - Interactive iPhone mockup with Home/Sessions/Messages/Profile
+      Accesstutors Landing (Layout mirrors provided image):
+      - Top nav
+      - Hero: LEFT copy + CTA, RIGHT iPhone mockup
+      - 3 icon features row
+      - "Get Homework Help Anytime, Anywhere" section
+      - 3 feature cards row
+      - Big CTA
+      - Testimonial
+      - Bottom mini features row
+      Color vibe: American University-ish (red + navy + light gray)
     ========================================================= */
 
     :root{
-      --au-red:#C8102E;
-      --au-blue:#003A70;
-      --bg:#F3F4F6;
+      --au-red:#B3142B;
+      --au-red-2:#C8102E;
+      --au-blue:#0A2C57;
+      --au-blue-2:#123A70;
+      --bg:#F4F6FA;
       --card:#FFFFFF;
       --ink:#0F172A;
-      --muted:#64748B;
-      --line:#E5E7EB;
-      --shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
-      --shadow-soft: 0 6px 18px rgba(2, 6, 23, 0.08);
+      --muted:#5B677A;
+      --line:#E3E8F2;
+      --shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+      --shadow-soft: 0 8px 18px rgba(2, 6, 23, 0.08);
       --radius: 18px;
       --radius-sm: 14px;
       --max: 1120px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--ink);
       background:
-        radial-gradient(900px 420px at 18% -10%, rgba(0,58,112,.10), transparent 60%),
-        radial-gradient(700px 340px at 86% 22%, rgba(200,16,46,.10), transparent 60%),
+        radial-gradient(900px 500px at 10% 0%, rgba(10,44,87,.12), transparent 55%),
+        radial-gradient(700px 420px at 90% 18%, rgba(179,20,43,.10), transparent 60%),
         var(--bg);
       line-height:1.35;
     }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
 
-    a{color:inherit;text-decoration:none}
-    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
-
-    /* ========================= Header ========================= */
+    /* ===================== NAV ===================== */
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(243,244,246,.80);
+      background: rgba(244,246,250,.78);
       border-bottom:1px solid var(--line);
     }
     .nav{
@@ -66,740 +69,898 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:900; letter-spacing:.2px;
+      font-weight:900;
+      letter-spacing:.2px;
+      user-select:none;
     }
-    .brand i{color:var(--au-blue)}
-    .brand span{font-size:18px}
-    .brand .accent{color:var(--au-red)}
+    .brand i{ color:var(--au-blue); }
+    .brand span{
+      font-size:20px;
+      font-weight:1000;
+    }
+    .brand span b{ color:var(--au-red); font-weight:1000; }
+
     .navlinks{
       display:flex; align-items:center; gap:18px;
+      font-weight:800;
       color:var(--muted);
-      font-weight:700;
       font-size:14px;
     }
     .navlinks a{
-      padding:10px 10px;border-radius:12px;
-      border:1px solid transparent;
+      padding:10px 10px;
+      border-radius:12px;
     }
+    .navlinks a.active,
     .navlinks a:hover{
-      background:#fff; color:var(--ink);
-      border-color: var(--line);
+      background:#fff;
+      color:var(--ink);
       box-shadow: var(--shadow-soft);
     }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
-      border:1px solid transparent;
       padding:11px 14px;
       border-radius:14px;
-      font-weight:900;
+      border:1px solid transparent;
+      font-weight:1000;
       font-size:14px;
       cursor:pointer;
       transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
       white-space:nowrap;
+      user-select:none;
     }
-    .btn:active{transform: translateY(1px)}
+    .btn:active{ transform: translateY(1px); }
     .btn.primary{
-      background: var(--au-red);
+      background: linear-gradient(180deg, var(--au-red-2), var(--au-red));
       color:#fff;
-      box-shadow: 0 10px 24px rgba(200,16,46,.20);
+      box-shadow: 0 14px 26px rgba(200,16,46,.20);
     }
-    .btn.primary:hover{box-shadow: 0 14px 30px rgba(200,16,46,.26)}
+    .btn.primary:hover{ box-shadow: 0 18px 34px rgba(200,16,46,.24); }
     .btn.ghost{
       background:#fff;
+      color:var(--ink);
       border-color: var(--line);
-      color: var(--ink);
       box-shadow: var(--shadow-soft);
     }
-    .btn.ghost:hover{border-color:#D1D5DB}
+    .btn.ghost:hover{ border-color:#D6DCEC; }
 
-    /* ========================= HERO (Layout like image) ========================= */
+    /* ===================== HERO (MATCH IMAGE: left copy, right phone) ===================== */
     .hero{
-      padding:32px 0 10px;
+      padding: 34px 0 8px;
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.05fr .95fr; /* content left, phone right */
-      gap:28px;
+      grid-template-columns: 1.05fr .95fr; /* keep phone right, copy left */
+      gap: 34px;
       align-items:start;
     }
 
-    .h-title{
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height:1.04;
+    .hero-copy h1{
+      margin: 10px 0 10px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.05;
       letter-spacing:-.9px;
-      margin:18px 0 12px;
+      color: var(--au-blue);
     }
-    .h-title .blue{color:var(--au-blue)}
-    .h-sub{
-      font-size:16px;
-      color: var(--muted);
-      max-width: 58ch;
+    .hero-copy h1 .accent{ color: var(--au-red); }
+    .hero-copy p{
       margin: 0 0 18px;
-      font-weight:650;
+      font-size: 16px;
+      font-weight: 750;
+      color: var(--muted);
+      max-width: 56ch;
     }
-    .cta-row{
+    .hero-cta{
       display:flex; gap:12px; flex-wrap:wrap;
-      margin:16px 0 18px;
+      margin: 14px 0 16px;
     }
 
-    .feature-row{
+    /* ===================== 3 ICON FEATURES ROW (distinct & readable) ===================== */
+    .trio{
+      margin-top: 18px;
+      background: rgba(255,255,255,.55);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+    }
+    .trio-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top: 10px;
+      gap: 12px;
     }
     .mini-card{
       background:#fff;
       border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-soft);
-      padding:16px;
-      min-height: 120px;
+      border-radius: var(--radius-sm);
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 18px rgba(2,6,23,.06);
+      min-height: 106px;
     }
-    .mini-card .icon{
-      width:44px;height:44px;border-radius:14px;
-      display:grid;place-items:center;
-      border:1px solid rgba(0,58,112,.18);
-      background: rgba(0,58,112,.08);
-      color: var(--au-blue);
-      margin-bottom:10px;
+    .mini-top{
+      display:flex; align-items:center; gap:10px;
+      margin-bottom: 8px;
     }
-    .mini-card .icon.red{
-      border-color: rgba(200,16,46,.18);
-      background: rgba(200,16,46,.08);
+    .bubble{
+      width:42px; height:42px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(179,20,43,.18);
+      background: rgba(179,20,43,.08);
       color: var(--au-red);
     }
+    .bubble.blue{
+      border-color: rgba(10,44,87,.18);
+      background: rgba(10,44,87,.08);
+      color: var(--au-blue);
+    }
     .mini-card h3{
-      margin:0 0 6px;
-      font-size:15px;
+      margin:0;
+      font-size:14px;
+      font-weight:1000;
+      color: var(--ink);
       letter-spacing:-.2px;
     }
     .mini-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      font-weight:650;
-    }
-
-    /* ========================= Section Title ========================= */
-    .section{
-      padding: 26px 0;
-    }
-    .section h2{
-      margin:0;
-      font-size: 26px;
-      letter-spacing:-.4px;
-      text-align:center;
-    }
-    .section p.lead{
-      margin: 10px auto 0;
-      max-width: 70ch;
+      margin: 0;
+      font-size: 12.8px;
+      font-weight: 750;
       color: var(--muted);
-      font-weight:650;
-      text-align:center;
     }
 
-    /* ========================= Mid cards row (Pick subject / Match / Support) ========================= */
-    .big-row{
-      margin-top:18px;
+    /* ===================== SECTION TITLE ===================== */
+    .section-title{
+      text-align:center;
+      padding: 26px 0 10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 32px;
+      letter-spacing:-.6px;
+      color: var(--au-blue);
+      font-weight:1000;
+    }
+    .section-title p{
+      margin: 8px auto 0;
+      max-width: 76ch;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* ===================== 3 FEATURE CARDS ROW ===================== */
+    .features-row{
+      padding: 10px 0 6px;
+    }
+    .features-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      gap: 14px;
     }
-    .big-card{
+    .feature-card{
       background:#fff;
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
-      padding:18px;
-      min-height: 132px;
+      padding: 16px;
+      min-height: 122px;
     }
-    .big-card .head{
+    .feature-card .ftop{
       display:flex; gap:10px; align-items:center;
-      font-weight:950;
-      letter-spacing:-.2px;
-      margin-bottom:8px;
-    }
-    .big-card .head i{
-      width:38px;height:38px;border-radius:14px;
-      display:grid;place-items:center;
-      border:1px solid rgba(200,16,46,.18);
-      background: rgba(200,16,46,.08);
-      color: var(--au-red);
-    }
-    .big-card p{
-      margin:0;
-      color:var(--muted);
-      font-weight:650;
-      font-size:13.5px;
-    }
-
-    .center-cta{
-      display:flex;
-      justify-content:center;
-      margin-top: 16px;
-    }
-    .center-cta .btn{
-      padding: 12px 18px;
-      border-radius: 14px;
-    }
-
-    /* ========================= Testimonial ========================= */
-    .testimonial{
-      margin-top: 18px;
-      padding: 22px 0 8px;
-    }
-    .stars{
-      display:flex;
-      justify-content:center;
-      gap:6px;
-      color: var(--au-red);
-      font-size:16px;
       margin-bottom: 10px;
     }
+    .feature-card .ftop i{
+      font-size: 16px;
+      color: var(--au-red);
+    }
+    .feature-card h4{
+      margin:0;
+      font-size: 14.5px;
+      font-weight:1000;
+      letter-spacing:-.2px;
+    }
+    .feature-card p{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* Big CTA */
+    .big-cta{
+      display:flex;
+      justify-content:center;
+      padding: 16px 0 6px;
+    }
+    .big-cta .btn.primary{
+      padding: 12px 18px;
+      border-radius: 16px;
+      min-width: 260px;
+    }
+
+    /* Testimonial */
+    .testimonial{
+      text-align:center;
+      padding: 10px 0 18px;
+    }
+    .stars{
+      color:#F59E0B;
+      letter-spacing: 2px;
+      font-size: 18px;
+      margin: 4px 0 10px;
+    }
     .quote{
-      background:#fff;
+      width:min(820px, 100%);
+      margin:0 auto;
+      background: rgba(255,255,255,.65);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
-      padding:18px 18px;
-      max-width: 900px;
-      margin:0 auto;
+      padding: 16px 18px;
       position:relative;
     }
-    .quote .qmark{
+    .quote:before{
+      content:"\f10d";
+      font-family:"Font Awesome 6 Free";
+      font-weight:900;
       position:absolute;
-      left:16px; top:12px;
-      color: rgba(200,16,46,.20);
-      font-size: 34px;
+      left:18px; top:14px;
+      color: rgba(179,20,43,.25);
+      font-size: 20px;
     }
     .quote p{
-      margin:0;
-      padding-left: 36px;
+      margin: 0;
+      padding-left: 26px;
+      font-weight: 850;
       color: var(--ink);
-      font-weight:750;
-      font-size: 15px;
     }
     .quote small{
       display:block;
-      margin-top: 10px;
-      padding-left: 36px;
+      margin-top: 8px;
       color: var(--muted);
-      font-weight:750;
+      font-weight: 900;
     }
 
-    /* ========================= Footer strip ========================= */
-    .footer-strip{
-      margin-top: 18px;
+    /* Bottom mini features row */
+    .bottom-strip{
+      margin-top: 12px;
       background:#fff;
       border-top:1px solid var(--line);
-      padding: 16px 0;
-      color: var(--muted);
-      font-weight:700;
-      font-size:13px;
+      border-bottom:1px solid var(--line);
+      box-shadow: var(--shadow-soft);
     }
-    .footer-row{
-      display:flex;
-      justify-content:space-between;
+    .bottom-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 14px 0;
       align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
+      text-align:left;
     }
-    .footer-badges{
-      display:flex; gap:14px; flex-wrap:wrap;
-    }
-    .badge{
-      display:flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border:1px solid var(--line);
+    .bitem{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 10px 10px;
       border-radius: 14px;
-      background: var(--bg);
-      color: var(--ink);
-      font-weight:850;
     }
-    .badge i{color:var(--au-blue)}
-    .badge span{display:block; font-weight:650; color:var(--muted); font-size:12px}
+    .bitem i{ color: var(--au-blue); font-size: 18px; margin-top:2px; }
+    .bitem strong{ display:block; font-weight:1000; }
+    .bitem span{ display:block; color:var(--muted); font-weight:800; font-size: 12.2px; margin-top:2px; }
 
-    /* =========================================================
-      iPhone X Mockup (Interactive)
-    ========================================================= */
-    .phone-wrap{display:flex; justify-content:flex-end;}
+    footer{
+      padding: 16px 0 26px;
+      text-align:center;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12.5px;
+    }
+
+    /* ===================== iPhone X mockup (interactive) ===================== */
+    .phone-wrap{ display:flex; justify-content:flex-end; }
     .phone{
       width: 360px;
       height: 720px;
-      background: #0b1220;
       border-radius: 52px;
-      box-shadow: 0 28px 60px rgba(2,6,23,.24);
-      position:relative;
+      background: #0B1220;
       padding: 14px;
+      box-shadow: 0 26px 70px rgba(2,6,23,.26);
       border: 1px solid rgba(255,255,255,.12);
+      position:relative;
     }
-    .phone::before{
+    .phone:before{
       content:"";
-      position:absolute; inset: 10px;
-      border-radius: 46px;
+      position:absolute;
+      inset: 10px;
+      border-radius: 44px;
       border: 1px solid rgba(255,255,255,.08);
       pointer-events:none;
     }
     .screen{
       width:100%;
       height:100%;
-      border-radius: 44px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FBFCFF 55%, #F6F8FC 100%);
+      border-radius: 42px;
       overflow:hidden;
       position:relative;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FBFBFD 55%, #F3F4F6 100%);
     }
     .notch{
-      position:absolute; top:0; left:50%; transform:translateX(-50%);
-      width: 220px; height: 34px;
-      background:#0b1220;
+      position:absolute;
+      top:0; left:50%;
+      transform:translateX(-50%);
+      width: 210px;
+      height: 34px;
+      background:#0B1220;
       border-bottom-left-radius: 18px;
       border-bottom-right-radius: 18px;
       z-index: 10;
     }
-
     .statusbar{
-      display:flex; justify-content:space-between; align-items:center;
-      padding: 12px 16px 0;
-      font-weight:900;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding: 10px 16px 0;
+      font-weight: 1000;
+      font-size: 12px;
       color:#111827;
-      font-size:12px;
-      user-select:none;
     }
-    .statusbar .right{display:flex; gap:10px; align-items:center;}
-
-    .appbar{
-      display:flex; justify-content:space-between; align-items:center;
-      padding: 12px 16px 10px;
-    }
-    .appbrand{
-      display:flex; align-items:center; gap:8px;
-      font-weight:950;
-      letter-spacing:-.2px;
-      color: var(--au-blue);
-    }
-    .appbrand i{color: var(--au-red)}
-    .app-actions{
+    .statusbar .right{
       display:flex; gap:10px; align-items:center;
     }
-    .chip{
-      width:36px;height:36px;border-radius:14px;
-      display:grid;place-items:center;
-      border:1px solid var(--line);
-      background:#fff;
-      cursor:pointer;
-      color: var(--ink);
-      transition: box-shadow .12s ease, transform .12s ease;
+    .appbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding: 10px 16px 10px;
+    }
+    .appbar .logo{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight: 1000;
+      color: var(--au-blue);
+      letter-spacing:-.2px;
       user-select:none;
     }
-    .chip:hover{box-shadow: var(--shadow-soft)}
-    .chip:active{transform: translateY(1px)}
+    .appbar .logo i{ color: var(--au-red); }
+    .appbar .actions{
+      display:flex; gap:10px;
+    }
+    .iconbtn{
+      width:38px; height:38px;
+      border-radius: 14px;
+      background:#fff;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      cursor:pointer;
+      box-shadow: 0 10px 16px rgba(2,6,23,.06);
+    }
+    .iconbtn:hover{ border-color:#D0D8EC; }
+    .iconbtn:active{ transform: translateY(1px); }
 
-    .screen-body{padding: 0 16px 86px;}
-    .hello{margin: 8px 0 8px;}
-    .hello h4{margin:0;font-size:16px;letter-spacing:-.2px}
-    .hello p{margin:6px 0 0;color:var(--muted);font-weight:750;font-size:12.5px}
+    .screen-body{
+      padding: 0 16px 86px; /* space for bottom nav */
+    }
+
+    /* Pages */
+    .page{ display:none; }
+    .page.active{ display:block; }
+
+    .hello{
+      margin: 6px 0 8px;
+    }
+    .hello h5{
+      margin:0;
+      font-size: 16px;
+      font-weight: 1000;
+      letter-spacing:-.2px;
+      color: var(--ink);
+    }
+    .hello p{
+      margin: 6px 0 0;
+      font-size: 12.8px;
+      font-weight: 850;
+      color: var(--muted);
+    }
 
     .search{
-      margin:10px 0 10px;
-      display:flex; gap:10px;
+      display:flex;
+      gap:10px;
+      align-items:center;
       background:#fff;
       border:1px solid var(--line);
       border-radius: 16px;
-      padding:10px 12px;
-      align-items:center;
-      box-shadow: var(--shadow-soft);
+      padding: 10px 12px;
+      box-shadow: 0 10px 16px rgba(2,6,23,.06);
+      margin: 10px 0 10px;
     }
-    .search i{color:var(--muted)}
+    .search i{ color: var(--muted); }
     .search input{
-      border:0; outline:0; background:transparent;
       width:100%;
-      font-weight:850;
-      color:var(--ink);
-      font-size:13px;
+      border:0;
+      outline:0;
+      font-weight: 900;
+      font-size: 13px;
+      color: var(--ink);
+      background: transparent;
     }
 
     .tabs{
-      display:flex; gap:10px;
-      margin: 6px 0 10px;
+      display:flex;
+      gap:8px;
       overflow:auto;
-      padding-bottom: 2px;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .tag{
+    .chip{
       border:1px solid var(--line);
       background:#fff;
-      color:var(--ink);
-      font-weight:950;
-      font-size:12px;
-      padding:8px 10px;
-      border-radius:999px;
+      color: var(--ink);
+      font-weight: 1000;
+      font-size: 11.8px;
+      padding: 8px 10px;
+      border-radius: 999px;
       cursor:pointer;
       white-space:nowrap;
-      transition: background .12s ease, border-color .12s ease;
       user-select:none;
     }
-    .tag.active{
-      background: rgba(0,58,112,.10);
-      border-color: rgba(0,58,112,.18);
+    .chip.active{
+      border-color: rgba(10,44,87,.20);
+      background: rgba(10,44,87,.08);
       color: var(--au-blue);
     }
 
-    .panel-title{
-      display:flex; align-items:center; justify-content:space-between;
-      margin: 8px 0 8px;
-    }
-    .panel-title strong{font-size:13px; letter-spacing:-.1px}
-    .panel-title small{color:var(--muted); font-weight:900; user-select:none}
-
-    /* Tutor list (HOME) */
-    .tutors{
+    .panel-head{
       display:flex;
-      flex-direction:column;
-      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+      margin: 6px 0 8px;
     }
-    .tutor-card{
+    .panel-head strong{
+      font-size: 12.8px;
+      font-weight: 1000;
+      color: var(--ink);
+    }
+    .panel-head small{
+      font-size: 11.5px;
+      font-weight: 1000;
+      color: var(--muted);
+      display:flex; gap:6px; align-items:center;
+    }
+    .dot{
+      width:8px; height:8px;
+      border-radius:999px;
+      background:#22C55E;
+      display:inline-block;
+    }
+
+    /* Tutor list (HOME must actually show tutors) */
+    .tlist{ display:flex; flex-direction:column; gap:10px; }
+    .tcard{
       background:#fff;
       border:1px solid var(--line);
       border-radius: 18px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 10px 16px rgba(2,6,23,.06);
       padding: 12px;
       display:flex;
-      gap:12px;
+      gap: 12px;
       align-items:flex-start;
       cursor:pointer;
-      transition: transform .12s ease, box-shadow .12s ease;
     }
-    .tutor-card:hover{transform: translateY(-1px); box-shadow: var(--shadow);}
-    .avatar{
-      width:44px;height:44px;border-radius: 14px;
-      background: linear-gradient(135deg, rgba(0,58,112,.22), rgba(200,16,46,.18));
+    .tavatar{
+      width:46px; height:46px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(10,44,87,.22), rgba(179,20,43,.16));
       border:1px solid rgba(15,23,42,.08);
       display:grid; place-items:center;
       color: var(--au-blue);
-      font-weight:1000;
+      font-weight: 1000;
       flex: 0 0 auto;
     }
-    .avatar i{color:#0F172A}
-    .tmeta{flex:1}
-    .tmeta .row1{
-      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
+    .tavatar i{ color:#0A2C57; opacity:.95; }
+    .tmeta{ flex:1; }
+    .trow1{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
     }
-    .tmeta h5{margin:0;font-size:13px;letter-spacing:-.1px}
-    .tmeta .spec{margin:3px 0 8px;color:var(--muted);font-weight:850;font-size:12px}
-    .badges{
-      display:flex; gap:6px; flex-wrap:wrap;
+    .tmeta h6{
+      margin:0;
+      font-size: 13px;
+      font-weight:1000;
+      letter-spacing:-.1px;
+    }
+    .tsub{
+      margin: 3px 0 8px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .tbadges{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
       margin-bottom: 8px;
     }
-    .pillbadge{
-      font-size:11px;
-      font-weight:950;
-      padding:6px 8px;
-      border-radius: 999px;
+    .badge{
       border:1px solid var(--line);
       background: #fff;
       color: var(--ink);
-      user-select:none;
+      border-radius: 999px;
+      padding: 6px 8px;
+      font-size: 10.8px;
+      font-weight: 1000;
     }
-    .rating{
-      color:#F59E0B;
-      font-size:12px;
+    .tright{
+      text-align:right;
       white-space:nowrap;
-      font-weight:950;
-      user-select:none;
+      font-weight: 1000;
+      font-size: 11.5px;
+      color: var(--muted);
     }
-    .tactions{
-      display:flex; gap:8px; align-items:center; justify-content:flex-end;
+    .tright .stars{ color:#F59E0B; font-size: 12px; letter-spacing:0; margin:0; }
+    .ticons{
+      display:flex;
+      gap:8px;
+      justify-content:flex-end;
+      margin-top: 6px;
     }
-    .mini-btn{
-      width:36px;height:36px;border-radius:14px;
-      display:grid; place-items:center;
-      border:1px solid var(--line);
+    .miniicon{
+      width:36px; height:36px;
+      border-radius: 14px;
       background:#fff;
-      cursor:pointer;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
       color: var(--au-blue);
-      transition: box-shadow .12s ease, transform .12s ease;
+      cursor:pointer;
     }
-    .mini-btn:hover{box-shadow: var(--shadow-soft)}
-    .mini-btn:active{transform: translateY(1px)}
+    .miniicon:hover{ border-color:#D0D8EC; }
+    .miniicon:active{ transform: translateY(1px); }
 
-    .cta-match{
-      margin-top: 10px;
+    .match-btn{
       width:100%;
       border:0;
+      margin-top: 10px;
+      background: linear-gradient(180deg, var(--au-blue-2), var(--au-blue));
+      color:#fff;
       border-radius: 16px;
       padding: 11px 12px;
-      background: var(--au-blue);
-      color:#fff;
-      font-weight:1000;
+      font-weight: 1000;
       cursor:pointer;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
-      box-shadow: 0 12px 26px rgba(0,58,112,.18);
+      box-shadow: 0 14px 24px rgba(10,44,87,.20);
+      display:flex; justify-content:center; align-items:center; gap:10px;
+      user-select:none;
     }
-    .cta-match:hover{box-shadow: 0 16px 32px rgba(0,58,112,.22)}
-    .cta-match:active{transform: translateY(1px)}
+    .match-btn:hover{ box-shadow: 0 18px 28px rgba(10,44,87,.24); }
+    .match-btn:active{ transform: translateY(1px); }
 
-    /* Pages */
-    .app-page{display:none}
-    .app-page.active{display:block}
-
+    /* Sessions / Messages / Profile pages */
     .list{
-      margin: 10px 0 0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+      display:flex; flex-direction:column; gap:10px;
+      margin-top: 10px;
     }
     .row{
       background:#fff;
       border:1px solid var(--line);
       border-radius: 16px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 10px 16px rgba(2,6,23,.06);
       padding: 12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display:flex; justify-content:space-between; align-items:center;
       gap:10px;
-      cursor:pointer;
-      transition: transform .12s ease, box-shadow .12s ease;
     }
-    .row:hover{transform: translateY(-1px); box-shadow: var(--shadow);}
-    .row strong{font-size:12.5px}
-    .row small{display:block;color:var(--muted);font-weight:900;margin-top:2px}
-    .chip-pill{
-      font-size:11px;
-      font-weight:1000;
-      padding:6px 10px;
+    .row strong{ font-size:12.6px; font-weight:1000; }
+    .row small{ display:block; color:var(--muted); font-weight:900; margin-top:2px; font-size:11.5px; }
+    .pill{
+      font-size: 11px;
+      font-weight: 1000;
+      padding: 7px 9px;
       border-radius: 999px;
-      background: rgba(200,16,46,.08);
-      border: 1px solid rgba(200,16,46,.14);
+      border: 1px solid rgba(179,20,43,.18);
+      background: rgba(179,20,43,.08);
       color: var(--au-red);
       white-space:nowrap;
-      user-select:none;
     }
 
-    .profile-card{
+    .chat{
+      margin-top: 10px;
       background:#fff;
       border:1px solid var(--line);
       border-radius: 18px;
-      box-shadow: var(--shadow-soft);
-      padding: 14px;
-      margin: 10px 0 0;
+      box-shadow: 0 10px 16px rgba(2,6,23,.06);
+      overflow:hidden;
     }
-    .profile-top{display:flex; gap:12px; align-items:center;}
-    .profile-top .avatar{width:54px;height:54px;border-radius:18px}
-    .profile-top h5{margin:0;font-size:14px}
-    .profile-top p{margin:4px 0 0;color:var(--muted);font-weight:850;font-size:12.5px}
+    .chatlog{
+      padding: 12px;
+      height: 240px;
+      overflow:auto;
+      background: linear-gradient(180deg, #fff, #fbfcff);
+    }
+    .msg{
+      max-width: 82%;
+      padding: 10px 10px;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 12px;
+      margin-bottom: 10px;
+      line-height:1.25;
+    }
+    .msg.them{
+      background: rgba(10,44,87,.08);
+      border: 1px solid rgba(10,44,87,.14);
+      color: var(--au-blue);
+      border-top-left-radius: 10px;
+    }
+    .msg.me{
+      background: rgba(179,20,43,.08);
+      border: 1px solid rgba(179,20,43,.14);
+      color: var(--au-red);
+      margin-left:auto;
+      border-top-right-radius: 10px;
+    }
+    .composer{
+      display:flex;
+      gap:10px;
+      padding: 10px;
+      border-top: 1px solid var(--line);
+      background:#fff;
+    }
+    .composer input{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 10px;
+      font-weight: 900;
+      outline:none;
+    }
+    .send{
+      width:42px; height:42px;
+      border:0;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--au-red-2), var(--au-red));
+      color:#fff;
+      cursor:pointer;
+      box-shadow: 0 10px 16px rgba(200,16,46,.18);
+    }
+    .send:active{ transform: translateY(1px); }
+
+    .profile{
+      margin-top: 10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 16px rgba(2,6,23,.06);
+      padding: 14px;
+    }
+    .ptop{ display:flex; gap:12px; align-items:center; }
+    .ptop .tavatar{ width:56px; height:56px; border-radius: 18px; }
+    .ptop h6{ margin:0; font-size: 14px; font-weight:1000; }
+    .ptop p{ margin:4px 0 0; color:var(--muted); font-weight:900; font-size: 12px; }
     .kv{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:10px;
       margin-top: 12px;
     }
-    .kv .item{
-      border:1px solid var(--line);
+    .kv .k{
+      background: rgba(244,246,250,.8);
+      border: 1px solid var(--line);
       border-radius: 16px;
-      padding:10px;
-      background: #F8FAFC;
-      font-weight:950;
-      font-size:12px;
-      color: var(--ink);
-      user-select:none;
+      padding: 10px;
+      font-weight: 1000;
+      font-size: 12px;
     }
-    .kv .item span{display:block;color:var(--muted);font-size:11px;margin-top:4px;font-weight:850}
+    .kv .k span{
+      display:block;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 11px;
+      margin-top: 4px;
+    }
 
-    /* Bottom nav */
-    .bottom-nav{
+    /* Bottom nav inside phone */
+    .bottomnav{
       position:absolute;
       left:0; right:0; bottom:0;
       background: rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
       border-top:1px solid var(--line);
-      padding: 10px 8px 14px;
+      backdrop-filter: blur(10px);
+      padding: 10px 10px 14px;
       display:flex;
       justify-content:space-around;
-      z-index: 20;
+      z-index: 12;
     }
     .navitem{
-      width: 76px;
+      width: 74px;
+      border-radius: 16px;
+      padding: 8px 6px;
       display:flex;
       flex-direction:column;
-      align-items:center;
       gap:6px;
-      color: var(--muted);
-      font-weight:950;
-      font-size:10.5px;
-      cursor:pointer;
-      padding: 8px 8px;
-      border-radius: 16px;
-      user-select:none;
-      border:1px solid transparent;
-      transition: background .12s ease, border-color .12s ease;
-    }
-    .navitem i{font-size:16px}
-    .navitem.active{
-      color: var(--au-blue);
-      background: rgba(0,58,112,.08);
-      border-color: rgba(0,58,112,.14);
-    }
-
-    /* ========================= Modal (phone interactions) ========================= */
-    .modal-backdrop{
-      position:fixed; inset:0;
-      background: rgba(2,6,23,.55);
-      display:none;
       align-items:center;
       justify-content:center;
-      padding: 16px;
-      z-index: 1000;
+      cursor:pointer;
+      color: var(--muted);
+      font-weight: 1000;
+      font-size: 10.8px;
+      user-select:none;
+      border: 1px solid transparent;
     }
-    .modal{
-      width:min(560px, 100%);
+    .navitem i{ font-size: 16px; }
+    .navitem.active{
+      color: var(--au-blue);
+      background: rgba(10,44,87,.08);
+      border-color: rgba(10,44,87,.14);
+    }
+
+    /* In-phone overlay (profile card) */
+    .overlay{
+      position:absolute;
+      inset:0;
+      background: rgba(2,6,23,.48);
+      display:none;
+      align-items:flex-end;
+      z-index: 30;
+    }
+    .sheet{
+      width:100%;
       background:#fff;
-      border-radius: 20px;
-      border:1px solid var(--line);
-      box-shadow: 0 40px 80px rgba(2,6,23,.26);
-      overflow:hidden;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: 0 -18px 40px rgba(2,6,23,.22);
+      padding: 14px 14px 12px;
+      max-height: 82%;
+      overflow:auto;
     }
-    .modal .mhead{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 16px;
+    .sheethead{
+      display:flex; justify-content:space-between; align-items:center;
       gap:10px;
-      border-bottom:1px solid var(--line);
-      background:#fff;
+      margin-bottom: 10px;
     }
-    .modal .mhead strong{font-size:14px}
-    .modal .close{
-      width:40px;height:40px;border-radius:14px;
+    .sheethead strong{ font-weight:1000; }
+    .closeSheet{
+      width:40px; height:40px;
+      border-radius: 14px;
       border:1px solid var(--line);
       background:#fff;
       cursor:pointer;
     }
-    .modal .body{
-      padding: 14px 16px 16px;
+    .sheet .about{
       color: var(--muted);
-      font-weight:750;
-      font-size:13.5px;
+      font-weight: 850;
+      font-size: 12.5px;
+      margin: 6px 0 12px;
     }
-    .modal .body .grid{
+    .sheetgrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin: 12px 0 14px;
+      gap:10px;
+      margin-bottom: 12px;
     }
-    .modal .body .box{
+    .sheetbox{
       border:1px solid var(--line);
       border-radius: 16px;
-      padding: 12px;
-      background: #F8FAFC;
-      color: var(--ink);
-      font-weight:950;
-      font-size:12.5px;
+      padding: 10px;
+      background: rgba(244,246,250,.8);
+      font-weight: 1000;
+      font-size: 12px;
     }
-    .modal .body .box span{
+    .sheetbox span{
       display:block;
-      margin-top:4px;
-      color:var(--muted);
-      font-weight:850;
-      font-size:11.5px;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 11px;
     }
-    .modal .foot{
-      display:flex; justify-content:flex-end; gap:10px;
-      padding: 0 16px 16px;
+    .sheetactions{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      padding-bottom: 8px;
     }
 
-    /* ========================= Responsive ========================= */
+    /* ===================== Responsive ===================== */
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr; }
-      .phone-wrap{justify-content:flex-start}
-      .feature-row{grid-template-columns: 1fr;}
-      .big-row{grid-template-columns: 1fr;}
+      .hero-grid{ grid-template-columns: 1fr; }
+      .phone-wrap{ justify-content:flex-start; }
+      .trio-grid{ grid-template-columns: 1fr; }
+      .features-grid{ grid-template-columns: 1fr; }
+      .bottom-grid{ grid-template-columns: 1fr 1fr; }
+      .navlinks{ display:none; }
     }
     @media (max-width: 520px){
-      .navlinks{display:none}
-      .phone{width: 340px; height: 700px;}
+      .container{ width: min(var(--max), calc(100% - 28px)); }
+      .phone{ width: 340px; height: 690px; }
+      .bottom-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <!-- ===================== Header ===================== -->
+  <!-- ===================== NAV ===================== -->
   <header>
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="Accesstutors home">
           <i class="fa-solid fa-graduation-cap"></i>
-          <span><span class="accent">Access</span>tutors</span>
+          <span>Access<b>tutors</b></span>
         </a>
 
-        <nav class="navlinks" aria-label="Primary">
-          <a href="#top">Home</a>
-          <a href="#subjects">Subjects</a>
-          <a href="#how">How It Works</a>
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#top" class="active" data-nav="home">Home</a>
+          <a href="#subjects" data-nav="subjects">Subjects</a>
+          <a href="#how" data-nav="how">How it Works</a>
         </nav>
 
-        <div style="display:flex; gap:10px; align-items:center;">
-          <button class="btn ghost" id="btnDemo"><i class="fa-solid fa-mobile-screen"></i> Live Demo</button>
-          <button class="btn primary" id="btnGetStartedTop">Get Started</button>
-        </div>
+        <button class="btn primary" id="btnGetStartedTop">
+          Get Started <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ===================== HERO (Matches attached layout) ===================== -->
-  <main id="top" class="hero">
+  <!-- ===================== HERO ===================== -->
+  <main class="hero" id="top">
     <div class="container">
       <div class="hero-grid">
 
-        <!-- LEFT CONTENT -->
-        <div>
-          <h1 class="h-title">
-            <span class="blue">Expert Tutors.</span><br/>
-            24/7 Homework Help.
-          </h1>
-
-          <p class="h-sub">
-            Access top subject experts for personalized homework, textbook walkthroughs,
-            and testing support for learners of all ages—anytime, anywhere.
+        <!-- LEFT COPY -->
+        <div class="hero-copy">
+          <h1>Expert Tutors.<br><span class="accent">24/7</span> Homework Help.</h1>
+          <p>
+            Access top subject experts for personalized homework, textbook, and testing support—
+            anytime, anywhere, for learners of all ages.
           </p>
 
-          <div class="cta-row">
-            <button class="btn primary" id="btnFindTutor">Find Your Tutor</button>
+          <div class="hero-cta">
+            <button class="btn primary" id="btnFindTutor">
+              Find Your Tutor <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button class="btn ghost" id="btnScrollSubjects">
+              View Subjects <i class="fa-solid fa-book-open"></i>
+            </button>
           </div>
 
-          <!-- Three icon cards under hero copy (like image) -->
-          <div class="feature-row" aria-label="Key benefits">
-            <div class="mini-card">
-              <div class="icon red"><i class="fa-solid fa-user-check"></i></div>
-              <h3>Expert Tutors</h3>
-              <p>Top-rated tutors ready to help anytime.</p>
-            </div>
-            <div class="mini-card">
-              <div class="icon"><i class="fa-solid fa-clock"></i></div>
-              <h3>24/7 Homework Help</h3>
-              <p>Get instant support day or night.</p>
-            </div>
-            <div class="mini-card">
-              <div class="icon"><i class="fa-solid fa-books"></i></div>
-              <h3>All Subjects, All Ages</h3>
-              <p>Tutoring available in any subject, for any grade.</p>
+          <!-- 3 ICON FEATURES row (distinct) -->
+          <div class="trio" aria-label="Top features">
+            <div class="trio-grid">
+              <div class="mini-card">
+                <div class="mini-top">
+                  <div class="bubble"><i class="fa-solid fa-user-check"></i></div>
+                  <h3>Expert Tutors</h3>
+                </div>
+                <p>Top-rated subject specialists ready to help anytime.</p>
+              </div>
+
+              <div class="mini-card">
+                <div class="mini-top">
+                  <div class="bubble blue"><i class="fa-solid fa-clock"></i></div>
+                  <h3>24/7 Homework Help</h3>
+                </div>
+                <p>Get instant support day or night—chat or book a session.</p>
+              </div>
+
+              <div class="mini-card">
+                <div class="mini-top">
+                  <div class="bubble blue"><i class="fa-solid fa-books"></i></div>
+                  <h3>All Subjects, All Ages</h3>
+                </div>
+                <p>Any subject, any grade—personalized plans that fit your goals.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT PHONE MOCKUP -->
-        <div class="phone-wrap" aria-label="Interactive iPhone X mockup of Accesstutors">
-          <div class="phone">
+        <!-- RIGHT PHONE MOCKUP (interactive) -->
+        <div class="phone-wrap">
+          <div class="phone" aria-label="Accesstutors app mockup (interactive)">
             <div class="screen">
               <div class="notch"></div>
 
-              <!-- Status bar -->
               <div class="statusbar" aria-hidden="true">
-                <div class="left">4:44</div>
+                <div>4:44</div>
                 <div class="right">
                   <i class="fa-solid fa-signal"></i>
                   <i class="fa-solid fa-wifi"></i>
@@ -807,391 +968,219 @@
                 </div>
               </div>
 
-              <!-- App bar -->
               <div class="appbar">
-                <div class="appbrand">
+                <div class="logo">
                   <i class="fa-solid fa-graduation-cap"></i>
                   <span>Accesstutors</span>
                 </div>
-                <div class="app-actions">
-                  <div class="chip" id="chipNotif" title="Notifications"><i class="fa-regular fa-bell"></i></div>
-                  <div class="chip" id="chipMenu" title="Menu"><i class="fa-solid fa-bars"></i></div>
+                <div class="actions">
+                  <button class="iconbtn" id="appBell" title="Notifications"><i class="fa-regular fa-bell"></i></button>
+                  <button class="iconbtn" id="appMenu" title="Menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                 </div>
               </div>
 
               <div class="screen-body">
-
                 <!-- HOME -->
-                <div class="app-page active" id="pageHome">
+                <div class="page active" id="pageHome">
                   <div class="hello">
-                    <h4>Hi Sarah!</h4>
-                    <p>Need homework help?</p>
+                    <h5>Hi Sarah!</h5>
+                    <p>Need homework help? Browse experts and match instantly.</p>
                   </div>
 
-                  <div class="search" title="Search tutors">
+                  <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input id="tutorSearch" type="text" placeholder="Search a subject or tutor..." autocomplete="off" />
-                    <i class="fa-solid fa-sliders" id="chipFilters" title="Filters"></i>
+                    <input id="tutorSearch" type="text" placeholder="Search a subject or tutor (Algebra, SAT…)" autocomplete="off">
+                    <button class="miniicon" id="filterBtn" title="Filters" aria-label="Filters">
+                      <i class="fa-solid fa-sliders"></i>
+                    </button>
                   </div>
 
                   <div class="tabs" role="tablist" aria-label="Subject filters">
-                    <button class="tag active" data-filter="all">All</button>
-                    <button class="tag" data-filter="math">Math</button>
-                    <button class="tag" data-filter="sat">SAT/ACT</button>
-                    <button class="tag" data-filter="science">Science</button>
-                    <button class="tag" data-filter="english">English</button>
-                    <button class="tag" data-filter="coding">Coding</button>
+                    <button class="chip active" data-filter="all">All</button>
+                    <button class="chip" data-filter="math">Math</button>
+                    <button class="chip" data-filter="sat">SAT/ACT</button>
+                    <button class="chip" data-filter="science">Science</button>
+                    <button class="chip" data-filter="english">English</button>
+                    <button class="chip" data-filter="coding">Coding</button>
                   </div>
 
-                  <div class="panel-title">
+                  <div class="panel-head">
                     <strong>Top Experts for You</strong>
-                    <small><span style="color:#22C55E">●</span> Online now</small>
+                    <small><span class="dot"></span> Online now</small>
                   </div>
 
-                  <!-- Tutor list MUST display tutors -->
-                  <div class="tutors" id="tutorList"></div>
+                  <div class="tlist" id="tutorList"></div>
 
-                  <button class="cta-match" id="btnMatch">
+                  <button class="match-btn" id="matchBtn">
                     Match with a Tutor <i class="fa-solid fa-wand-magic-sparkles"></i>
                   </button>
                 </div>
 
                 <!-- SESSIONS -->
-                <div class="app-page" id="pageSessions">
+                <div class="page" id="pageSessions">
                   <div class="hello">
-                    <h4>Sessions</h4>
-                    <p>Upcoming tutoring and study goals.</p>
+                    <h5>Sessions</h5>
+                    <p>Upcoming lessons and test prep goals.</p>
                   </div>
 
                   <div class="list">
-                    <div class="row" data-row="join">
+                    <div class="row">
                       <div>
                         <strong>Algebra II — Homework Review</strong>
                         <small>Today • 7:30 PM • 30 min</small>
                       </div>
-                      <div class="chip-pill">Join</div>
+                      <span class="pill">Join</span>
                     </div>
 
-                    <div class="row" data-row="details">
+                    <div class="row">
                       <div>
                         <strong>SAT Math — Timed Practice</strong>
                         <small>Tomorrow • 5:00 PM • 45 min</small>
                       </div>
-                      <div class="chip-pill">Booked</div>
-                    </div>
-
-                    <div class="row" data-row="details">
-                      <div>
-                        <strong>Chemistry — Textbook Concepts</strong>
-                        <small>Fri • 6:15 PM • 30 min</small>
-                      </div>
-                      <div class="chip-pill">Booked</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- MESSAGES -->
-                <div class="app-page" id="pageMessages">
-                  <div class="hello">
-                    <h4>Messages</h4>
-                    <p>Chat with tutors + 24/7 support.</p>
-                  </div>
-
-                  <div class="list">
-                    <div class="row" data-row="support">
-                      <div>
-                        <strong>Support</strong>
-                        <small>“Share your problem and we’ll match you.”</small>
-                      </div>
-                      <div class="chip-pill">24/7</div>
-                    </div>
-
-                    <div class="row" data-row="tutorchat">
-                      <div>
-                        <strong>Jessica M. (Math)</strong>
-                        <small>“Send a photo of the worksheet.”</small>
-                      </div>
-                      <div class="chip-pill">New</div>
-                    </div>
-
-                    <div class="row" data-row="tutorchat">
-                      <div>
-                        <strong>Daniel W. (SAT)</strong>
-                        <small>“Let’s review your missed questions.”</small>
-                      </div>
-                      <div class="chip-pill">1</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- PROFILE -->
-                <div class="app-page" id="pageProfile">
-                  <div class="hello">
-                    <h4>Profile</h4>
-                    <p>Goals, preferences, progress.</p>
-                  </div>
-
-                  <div class="profile-card">
-                    <div class="profile-top">
-                      <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                      <div>
-                        <h5>Sarah K.</h5>
-                        <p>Grade 10 • SAT goal: 1350 • Prefers evenings</p>
-                      </div>
-                    </div>
-
-                    <div class="kv">
-                      <div class="item">Goals <span>SAT Math +150 • Algebra mastery</span></div>
-                      <div class="item">Support <span>24/7 help • Priority matching</span></div>
-                      <div class="item">Subjects <span>Math • Science • Test Prep</span></div>
-                      <div class="item">Progress <span>Streak: 9 days • Accuracy: 83%</span></div>
-                    </div>
-
-                    <div class="list" style="margin-top:12px;">
-                      <div class="row" data-row="billing">
-                        <div>
-                          <strong>Billing & Plan</strong>
-                          <small>Manage subscription and payment</small>
-                        </div>
-                        <div class="chip-pill">View</div>
-                      </div>
-                      <div class="row" data-row="settings">
-                        <div>
-                          <strong>Settings</strong>
-                          <small>Notifications, privacy, preferences</small>
-                        </div>
-                        <div class="chip-pill">Open</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Bottom Navigation -->
-              <nav class="bottom-nav" aria-label="App bottom navigation">
-                <div class="navitem active" data-page="Home">
-                  <i class="fa-solid fa-house"></i>
-                  <div>Home</div>
-                </div>
-                <div class="navitem" data-page="Sessions">
-                  <i class="fa-regular fa-calendar"></i>
-                  <div>Sessions</div>
-                </div>
-                <div class="navitem" data-page="Messages">
-                  <i class="fa-regular fa-message"></i>
-                  <div>Messages</div>
-                </div>
-                <div class="navitem" data-page="Profile">
-                  <i class="fa-regular fa-user"></i>
-                  <div>Profile</div>
-                </div>
-              </nav>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- ===================== Mid Section (Matches image sections below hero) ===================== -->
-  <section class="section" id="subjects">
-    <div class="container">
-      <h2>Get Homework Help Anytime, Anywhere</h2>
-      <p class="lead">
-        Personalized help with homework, studies, textbook questions, and test prep—anytime, anywhere.
-      </p>
-
-      <div class="big-row" style="margin-top:18px;">
-        <div class="big-card">
-          <div class="head"><i class="fa-solid fa-magnifying-glass"></i> Pick Your Subject</div>
-          <p>Help with math, science, English, SAT prep, and more.</p>
-        </div>
-        <div class="big-card">
-          <div class="head"><i class="fa-solid fa-user-group"></i> Match with Your Expert</div>
-          <p>Choose from vetted tutors to find your perfect match.</p>
-        </div>
-        <div class="big-card">
-          <div class="head"><i class="fa-solid fa-headset"></i> Instant 24/7 Support</div>
-          <p>Connect with a subject expert whenever you need help.</p>
-        </div>
-      </div>
-
-      <div class="center-cta">
-        <button class="btn primary" id="btnGetHelpNow">
-          Get Homework Help Now <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars" aria-label="Rating">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <div class="quote">
-          <div class="qmark"><i class="fa-solid fa-quote-left"></i></div>
-          <p>
-            Accesstutors is a lifesaver. My son gets immediate help with his homework and test prep, no matter the hour.
-          </p>
-          <small>— Mark S., Parent</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer-strip">
-    <div class="container">
-      <div class="footer-row">
-        <div style="display:flex; align-items:center; gap:10px; font-weight:950; color:var(--ink);">
-          <i class="fa-solid fa-graduation-cap" style="color:var(--au-blue)"></i>
-          <span><span style="color:var(--au-red)">Access</span>tutors</span>
-        </div>
-
-        <div class="footer-badges" aria-label="Highlights">
-          <div class="badge"><i class="fa-solid fa-book"></i> 200+ Subjects <span>All grades</span></div>
-          <div class="badge"><i class="fa-solid fa-stopwatch"></i> Fast Matching <span>Minutes</span></div>
-          <div class="badge"><i class="fa-solid fa-shield-halved"></i> Secure & Safe <span>Private</span></div>
-          <div class="badge"><i class="fa-solid fa-coins"></i> Affordable Plans <span>Flexible</span></div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===================== Modal ===================== -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="mhead">
-        <strong id="modalTitle">Details</strong>
-        <button class="close" id="modalClose" aria-label="Close">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <div class="body">
-        <div id="modalBodyText"></div>
-
-        <div class="grid" id="modalGrid"></div>
-
-        <div style="display:flex; gap:10px; align-items:center; color:var(--muted); font-weight:900;">
-          <i class="fa-solid fa-headset" style="color:var(--au-red)"></i>
-          24/7 support is available if you need help choosing the right expert.
-        </div>
-      </div>
-
-      <div class="foot">
-        <button class="btn ghost" id="modalSecondary">
-          Message <i class="fa-regular fa-message"></i>
-        </button>
-        <button class="btn primary" id="modalPrimary">
-          Match Now <i class="fa-solid fa-wand-magic-sparkles"></i>
-        </button>
-      </div>
+                      <span class="pill">Booked  </div>
     </div>
   </div>
 
+  <footer id="pricing">
+    © <span id="year"></span> Accesstutors • Online homework, textbook, and test support • 24/7
+  </footer>
+
   <script>
-    // =========================================================
-    // Tutor data (generic avatar icon; Home actually displays tutors)
-    // =========================================================
+    // =============================
+    // Utilities
+    // =============================
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+    // Year
+    $("#year").textContent = new Date().getFullYear();
+
+    // Smooth scroll buttons (landing)
+    $("#btnScrollSubjects")?.addEventListener("click", () => {
+      document.querySelector("#subjects")?.scrollIntoView({ behavior:"smooth" });
+    });
+    $("#btnHelpNow")?.addEventListener("click", () => {
+      document.querySelector("#top")?.scrollIntoView({ behavior:"smooth" });
+      // also focus the in-app search for effect on desktop
+      setTimeout(() => $("#tutorSearch")?.focus(), 350);
+    });
+    $("#btnFindTutor")?.addEventListener("click", () => {
+      document.querySelector("#top")?.scrollIntoView({ behavior:"smooth" });
+      setTimeout(() => $("#tutorSearch")?.focus(), 350);
+    });
+    $("#btnGetStartedTop")?.addEventListener("click", () => {
+      document.querySelector("#top")?.scrollIntoView({ behavior:"smooth" });
+      toast("Welcome! Explore the app mockup → browse tutors and match in seconds.");
+    });
+
+    // Nav active state on click (top nav)
+    $$("header .navlinks a").forEach(a => {
+      a.addEventListener("click", () => {
+        $$("header .navlinks a").forEach(x => x.classList.remove("active"));
+        a.classList.add("active");
+      });
+    });
+
+    // =============================
+    // In-App Data (Tutors) — HOME DISPLAYS TUTORS
+    // =============================
     const tutors = [
       {
-        id: "jessica",
-        name: "Jessica M.",
-        spec: "Math Specialist",
-        tags: ["Algebra", "Geometry", "Calculus"],
-        rating: 4.9,
-        price: "$85/hr",
-        online: true,
-        filter: ["math"],
-        about: "Step-by-step explanations, confidence-building practice, and fast homework support."
+        id:"jessica",
+        name:"Jessica M.",
+        role:"Math Specialist",
+        tags:["Algebra","Geometry","Calculus"],
+        filter:["math"],
+        rating:4.9,
+        price:"$85/hr",
+        online:true,
+        about:"Step-by-step explanations, confidence-building practice, and fast homework support."
       },
       {
-        id: "daniel",
-        name: "Daniel W.",
-        spec: "SAT/ACT Prep Expert",
-        tags: ["SAT Math", "ACT Strategy", "Timed Drills"],
-        rating: 4.8,
-        price: "$95/hr",
-        online: true,
-        filter: ["sat","math"],
-        about: "Error-pattern coaching, timing strategies, and score-boosting practice plans."
+        id:"daniel",
+        name:"Daniel W.",
+        role:"SAT/ACT Prep Expert",
+        tags:["SAT Math","ACT Strategy","Timed Drills"],
+        filter:["sat","math"],
+        rating:4.8,
+        price:"$95/hr",
+        online:true,
+        about:"Error-pattern analysis, timed practice, and score-boosting strategies for tests."
       },
       {
-        id: "emily",
-        name: "Emily R.",
-        spec: "Science Tutor",
-        tags: ["Chemistry", "Biology", "Physics"],
-        rating: 4.9,
-        price: "$90/hr",
-        online: true,
-        filter: ["science"],
-        about: "Concept clarity + textbook walkthroughs that help you understand, not memorize."
+        id:"emily",
+        name:"Emily R.",
+        role:"Science Tutor",
+        tags:["Chemistry","Biology","Physics"],
+        filter:["science"],
+        rating:4.9,
+        price:"$90/hr",
+        online:true,
+        about:"Concept clarity through examples + textbook walkthroughs that make hard topics simple."
       },
       {
-        id: "sam",
-        name: "Sam K.",
-        spec: "English & Writing Coach",
-        tags: ["Essays", "Grammar", "Reading"],
-        rating: 4.7,
-        price: "$75/hr",
-        online: true,
-        filter: ["english"],
-        about: "Stronger writing structure, clearer arguments, and better reading comprehension."
+        id:"sam",
+        name:"Sam K.",
+        role:"English & Writing Coach",
+        tags:["Essays","Grammar","Reading"],
+        filter:["english"],
+        rating:4.7,
+        price:"$75/hr",
+        online:true,
+        about:"Clear feedback, better structure, and stronger writing confidence for any assignment."
       },
       {
-        id: "maya",
-        name: "Maya T.",
-        spec: "Coding Tutor",
-        tags: ["Python", "JavaScript", "AP CS"],
-        rating: 4.8,
-        price: "$110/hr",
-        online: true,
-        filter: ["coding"],
-        about: "Learn by building projects, debugging help, and fundamentals that stick."
+        id:"maya",
+        name:"Maya T.",
+        role:"Coding Tutor",
+        tags:["Python","JavaScript","AP CS"],
+        filter:["coding"],
+        rating:4.8,
+        price:"$110/hr",
+        online:true,
+        about:"Learn by building projects, debugging help, and fundamentals you can reuse."
       }
     ];
 
-    // =========================================================
-    // DOM helpers
-    // =========================================================
-    const $ = (sel) => document.querySelector(sel);
-    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+    const tutorListEl = $("#tutorList");
+    const searchEl = $("#tutorSearch");
 
-    function compactStars(r){
-      const full = Math.round(r);
-      return "★".repeat(full) + "☆".repeat(Math.max(0, 5 - full));
+    function starString(r){
+      // render 5 stars (rounded)
+      const rounded = Math.round(r);
+      return "★".repeat(rounded) + "☆".repeat(Math.max(0, 5-rounded));
     }
 
-    function tutorCardHTML(t){
+    function tutorCard(t){
+      const tags = t.tags.slice(0,3).map(x => `<span class="badge">${x}</span>`).join("");
+      const dot = t.online ? `<span style="display:inline-flex;align-items:center;gap:6px;"><span class="dot"></span>Online</span>` : "Offline";
       return `
-        <div class="tutor-card" data-id="${t.id}" data-filter="${t.filter.join(",")}"
-             data-hay="${(t.name+' '+t.spec+' '+t.tags.join(' ')).toLowerCase()}">
-          <div class="avatar" aria-hidden="true"><i class="fa-solid fa-user"></i></div>
+        <div class="tcard" data-id="${t.id}" data-filter="${t.filter.join(",")}"
+             data-hay="${(t.name+" "+t.role+" "+t.tags.join(" ")).toLowerCase()}">
+          <div class="tavatar" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
           <div class="tmeta">
-            <div class="row1">
+            <div class="trow1">
               <div>
-                <h5>${t.name}</h5>
-                <div class="spec">${t.spec}</div>
+                <h6>${t.name}</h6>
+                <div class="tsub">${t.role}</div>
               </div>
-              <div class="rating" title="${t.rating.toFixed(1)} out of 5">
-                ${t.online ? '<span style="color:#22C55E">●</span>' : '<span style="color:#94A3B8">●</span>'}
-                ${compactStars(t.rating)}
+              <div class="tright">
+                <div class="stars" title="${t.rating.toFixed(1)}">${starString(t.rating)}</div>
+                <div>${dot}</div>
+                <div>${t.price}</div>
               </div>
             </div>
 
-            <div class="badges">
-              ${t.tags.slice(0,3).map(x => `<span class="pillbadge">${x}</span>`).join("")}
-            </div>
+            <div class="tbadges">${tags}</div>
 
-            <div class="tactions">
-              <button class="mini-btn" data-action="view" title="View profile" aria-label="View profile">
+            <div class="ticons">
+              <button class="miniicon" data-action="view" title="View profile" aria-label="View profile">
                 <i class="fa-regular fa-id-card"></i>
               </button>
-              <button class="mini-btn" data-action="chat" title="Message" aria-label="Message">
+              <button class="miniicon" data-action="chat" title="Message" aria-label="Message">
                 <i class="fa-regular fa-message"></i>
               </button>
-              <button class="mini-btn" data-action="book" title="Book session" aria-label="Book session">
+              <button class="miniicon" data-action="book" title="Book session" aria-label="Book">
                 <i class="fa-regular fa-calendar"></i>
               </button>
             </div>
@@ -1200,47 +1189,42 @@
       `;
     }
 
-    // =========================================================
-    // Render tutors to Home
-    // =========================================================
-    const tutorList = $("#tutorList");
     function renderTutors(list){
-      tutorList.innerHTML = list.map(tutorCardHTML).join("");
-      wireTutorCardEvents();
+      tutorListEl.innerHTML = list.map(tutorCard).join("");
     }
     renderTutors(tutors);
 
-    // =========================================================
-    // Home filters + search
-    // =========================================================
+    // =============================
+    // Filters (chips) + search
+    // =============================
     let activeFilter = "all";
-    const searchInput = $("#tutorSearch");
 
-    $$(".tag").forEach(btn => {
+    $$(".chip").forEach(btn => {
       btn.addEventListener("click", () => {
-        $$(".tag").forEach(b => b.classList.remove("active"));
+        $$(".chip").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         activeFilter = btn.dataset.filter;
-        applyFilters();
+        applyTutorFilters();
       });
     });
 
-    searchInput.addEventListener("input", applyFilters);
+    searchEl?.addEventListener("input", applyTutorFilters);
 
-    function applyFilters(){
-      const q = searchInput.value.trim().toLowerCase();
-      $$("#tutorList .tutor-card").forEach(card => {
+    function applyTutorFilters(){
+      const q = (searchEl?.value || "").trim().toLowerCase();
+      const cards = $$("#tutorList .tcard");
+      cards.forEach(card => {
         const hay = card.dataset.hay || "";
         const filters = (card.dataset.filter || "").split(",");
-        const okFilter = activeFilter === "all" ? true : filters.includes(activeFilter);
+        const okFilter = (activeFilter === "all") ? true : filters.includes(activeFilter);
         const okQuery = q ? hay.includes(q) : true;
         card.style.display = (okFilter && okQuery) ? "flex" : "none";
       });
     }
 
-    // =========================================================
-    // Phone bottom nav page switching
-    // =========================================================
+    // =============================
+    // Bottom nav page switch
+    // =============================
     const pages = {
       Home: $("#pageHome"),
       Sessions: $("#pageSessions"),
@@ -1248,295 +1232,215 @@
       Profile: $("#pageProfile")
     };
 
-    function switchPage(name){
+    function showPage(name){
       Object.values(pages).forEach(p => p.classList.remove("active"));
       pages[name].classList.add("active");
-      $$(".navitem").forEach(n => n.classList.toggle("active", n.dataset.page === name));
+      $$(".bottomnav .navitem").forEach(i => i.classList.toggle("active", i.dataset.page === name));
     }
 
-    $$(".navitem").forEach(item => {
-      item.addEventListener("click", () => switchPage(item.dataset.page));
+    $$(".bottomnav .navitem").forEach(item => {
+      item.addEventListener("click", () => {
+        showPage(item.dataset.page);
+        toast(`Opened ${item.dataset.page}`);
+      });
     });
 
-    // =========================================================
-    // Modal logic (used by multiple interactions)
-    // =========================================================
-    const backdrop = $("#modalBackdrop");
-    const modalTitle = $("#modalTitle");
-    const modalBodyText = $("#modalBodyText");
-    const modalGrid = $("#modalGrid");
+    // =============================
+    // Overlay sheet (tutor details) + interactions inside mockup
+    // =============================
+    const overlay = $("#overlay");
+    const sheetTitle = $("#sheetTitle");
+    const sheetAbout = $("#sheetAbout");
+    const sheetGrid = $("#sheetGrid");
 
-    let modalContext = { type: "generic", tutorId: null };
-
-    function openModal({ title, body, grid, context }){
-      modalTitle.textContent = title;
-      modalBodyText.textContent = body;
-      modalGrid.innerHTML = (grid || []).map(b => `
-        <div class="box">${b.label}<span>${b.value}</span></div>
-      `).join("");
-      modalContext = context || { type: "generic", tutorId: null };
-
-      backdrop.style.display = "flex";
-      backdrop.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+    function openSheet(t){
+      sheetTitle.textContent = `${t.name} — ${t.role}`;
+      sheetAbout.textContent = t.about;
+      sheetGrid.innerHTML = `
+        <div class="sheetbox">Rating<span>${t.rating.toFixed(1)} / 5</span></div>
+        <div class="sheetbox">Rate<span>${t.price}</span></div>
+        <div class="sheetbox">Specialties<span>${t.tags.slice(0,2).join(", ")}</span></div>
+        <div class="sheetbox">Availability<span>${t.online ? "Online now" : "Next available soon"}</span></div>
+      `;
+      overlay.style.display = "flex";
+      overlay.setAttribute("aria-hidden","false");
     }
 
-    function closeModal(){
-      backdrop.style.display = "none";
-      backdrop.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+    function closeSheet(){
+      overlay.style.display = "none";
+      overlay.setAttribute("aria-hidden","true");
     }
 
-    $("#modalClose").addEventListener("click", closeModal);
-    backdrop.addEventListener("click", (e) => {
-      if (e.target === backdrop) closeModal();
+    $("#closeSheet")?.addEventListener("click", closeSheet);
+    overlay?.addEventListener("click", (e) => {
+      if(e.target === overlay) closeSheet();
     });
 
-    // modal buttons
-    $("#modalSecondary").addEventListener("click", () => {
-      // route user to Messages page inside mockup
-      closeModal();
-      switchPage("Messages");
-      // subtle highlight
-      flashToast("Opened Messages");
+    // Tutor card actions (View/Chat/Book)
+    tutorListEl?.addEventListener("click", (e) => {
+      const card = e.target.closest(".tcard");
+      if(!card) return;
+      const t = tutors.find(x => x.id === card.dataset.id);
+      if(!t) return;
+
+      const actionBtn = e
+Btn){
+        const action = actionBtn.dataset.action;
+        if(action === "view"){
+          openSheet(t);
+          toast(`Viewing ${t.name}`);
+        }
+        if(action === "chat"){
+          // jump to Messages page and prefill a message
+          showPage("Messages");
+          prefillChat(`Hi ${t.name.split(" ")[0]}, I need help with ${t.tags[0]}.`);
+          toast(`Messaging ${t.name}`);
+        }
+        if(action === "book"){
+          toast(`Booked a session with ${t.name} (demo)`);
+          showPage("Sessions");
+        }
+        e.stopPropagation();
+        return;
+      }
+
+      // clicking card itself opens details
+      openSheet(t);
     });
 
-    $("#modalPrimary").addEventListener("click", () => {
-      closeModal();
-      // On match now: route to Sessions, simulate booking
-      switchPage("Sessions");
-      flashToast("Matched! Session added.");
+    // Match button: auto-pick best match based on filter/search
+    $("#matchBtn")?.addEventListener("click", () => {
+      const visible = $$("#tutorList .tcard").filter(c => c.style.display !== "none");
+      const pick = visible.length ? visible[0] : $("#tutorList .tcard");
+      const id = pick?.dataset?.id;
+      const t = tutors.find(x => x.id === id) || tutors[0];
+      openSheet(t);
+      toast(`Matched you with ${t.name} (demo)`);
     });
 
-    // =========================================================
-    // Tutor card interactions (view/chat/book + whole card click)
-    // =========================================================
-    function wireTutorCardEvents(){
-      $$("#tutorList .tutor-card").forEach(card => {
-        const tid = card.dataset.id;
-        const tutor = tutors.find(t => t.id === tid);
+    // Sheet actions
+    $("#sheetAsk")?.addEventListener("click", () => {
+      closeSheet();
+      showPage("Messages");
+      prefillChat("I have a question about my homework. Can you help?");
+      toast("Opened chat with Support (demo)");
+    });
 
-        // Whole card opens profile
-        card.addEventListener("click", (e) => {
-          // if clicking a mini button, let that handler run
-          if (e.target.closest(".mini-btn")) return;
-          showTutorModal(tutor);
-        });
+    $("#sheetMatch")?.addEventListener("click", () => {
+      closeSheet();
+      toast("Match confirmed! (demo)");
+      showPage("Sessions");
+    });
 
-        card.querySelectorAll(".mini-btn").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const action = btn.dataset.action;
+    // App top icons
+    $("#appBell")?.addEventListener("click", () => {
+      toast("Notifications: 2 new tutor replies (demo)");
+    });
 
-            if (action === "view") showTutorModal(tutor);
-            if (action === "chat") {
-              openModal({
-                title: `Message ${tutor.name}`,
-                body: `Start a chat for homework help, textbook questions, or test prep. Support is available 24/7.`,
-                grid: [
-                  { label: "Subject", value: tutor.spec },
-                  { label: "Typical response", value: "Under 5 minutes" },
-                  { label: "Mode", value: "Chat + optional live session" },
-                  { label: "Status", value: tutor.online ? "Online now" : "Offline" }
-                ],
-                context: { type: "chat", tutorId: tutor.id }
-              });
-            }
-            if (action === "book") {
-              openModal({
-                title: `Book ${tutor.name}`,
-                body: `Book a session and get personalized, step-by-step support. You can upload a question and start right away.`,
-                grid: [
-                  { label: "Rate", value: tutor.price },
-                  { label: "Next slot", value: "Today • 6:45 PM" },
-                  { label: "Session length", value: "30–60 minutes" },
-                  { label: "Includes", value: "Notes + follow-up" }
-                ],
-                context: { type: "book", tutorId: tutor.id }
-              });
-            }
-          });
-        });
-      });
+    $("#appMenu")?.addEventListener("click", () => {
+      toast("Menu: Settings • Help • Billing (demo)");
+    });
+
+    $("#filterBtn")?.addEventListener("click", () => {
+      toast("Filters: Availability • Price • Rating (demo)");
+    });
+
+    // =============================
+    // Messages: simple interactive chat
+    // =============================
+    const chatLog = $("#chatLog");
+    const chatInput = $("#chatInput");
+
+    function appendMsg(text, who="me"){
+      const div = document.createElement("div");
+      div.className = `msg ${who}`;
+      div.textContent = text;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
     }
 
-    function showTutorModal(tutor){
-      openModal({
-        title: `${tutor.name} — ${tutor.spec}`,
-        body: tutor.about,
-        grid: [
-          { label: "Rating", value: `${tutor.rating.toFixed(1)} / 5` },
-          { label: "Rate", value: tutor.price },
-          { label: "Specialties", value: tutor.tags.join(", ") },
-          { label: "Availability", value: tutor.online ? "Online now" : "Next available soon" }
-        ],
-        context: { type: "tutor", tutorId: tutor.id }
-      });
+    function prefillChat(text){
+      chatInput.value = text;
+      chatInput.focus();
     }
 
-    // =========================================================
-    // Mockup top buttons (menu/notifications/filters/match)
-    // =========================================================
-    $("#chipNotif").addEventListener("click", () => {
-      openModal({
-        title: "Notifications",
-        body: "You’re all set! Tutors are online now. Try matching to get help instantly.",
-        grid: [
-          { label: "New", value: "Jessica replied to your question" },
-          { label: "Reminder", value: "SAT practice session tomorrow" },
-          { label: "Tip", value: "Upload a photo for faster help" },
-          { label: "Support", value: "24/7 available" }
-        ],
-        context: { type: "notif", tutorId: null }
-      });
-    });
-
-    $("#chipMenu").addEventListener("click", () => {
-      openModal({
-        title: "Menu",
-        body: "Navigate quickly inside the app mockup.",
-        grid: [
-          { label: "Go to", value: "Home • Sessions • Messages • Profile" },
-          { label: "Support", value: "24/7 help center" },
-          { label: "Subjects", value: "Math • Science • English • Coding" },
-          { label: "Safety", value: "Private sessions" }
-        ],
-        context: { type: "menu", tutorId: null }
-      });
-    });
-
-    $("#chipFilters").addEventListener("click", () => {
-      openModal({
-        title: "Filters",
-        body: "Use subject tabs and search to find the perfect tutor match.",
-        grid: [
-          { label: "Filter by", value: "Subject / rating / availability" },
-          { label: "Tip", value: "Search “SAT”, “Algebra”, “Chemistry”..." },
-          { label: "Online", value: "Show online tutors first" },
-          { label: "Speed", value: "Match in minutes" }
-        ],
-        context: { type: "filters", tutorId: null }
-      });
-    });
-
-    $("#btnMatch").addEventListener("click", () => {
-      // pick first visible tutor as match
-      const visibleCard = $$("#tutorList .tutor-card").find(c => c.style.display !== "none");
-      const tutor = visibleCard ? tutors.find(t => t.id === visibleCard.dataset.id) : tutors[0];
-
-      openModal({
-        title: "Match with a Tutor",
-        body: `We can match you with ${tutor.name} now, or you can browse more profiles.`,
-        grid: [
-          { label: "Matched tutor", value: `${tutor.name} (${tutor.spec})` },
-          { label: "Support", value: "24/7 available" },
-          { label: "Start with", value: "Chat or live session" },
-          { label: "Estimated wait", value: "Under 5 minutes" }
-        ],
-        context: { type: "match", tutorId: tutor.id }
-      });
-    });
-
-    // Sessions/messages/profile row interactions
-    $$("#pageSessions .row").forEach(r => r.addEventListener("click", () => {
-      openModal({
-        title: "Session Details",
-        body: "Join your session or reschedule. Notes and follow-ups are included after each session.",
-        grid: [
-          { label: "Mode", value: "Live video + chat" },
-          { label: "Tools", value: "Screen share + whiteboard" },
-          { label: "Included", value: "Session notes" },
-          { label: "Support", value: "24/7 if needed" }
-        ],
-        context: { type: "session", tutorId: null }
-      });
-    }));
-
-    $$("#pageMessages .row").forEach(r => r.addEventListener("click", () => {
-      openModal({
-        title: "Open Chat",
-        body: "Ask a question, upload a screenshot, or request a live tutor.",
-        grid: [
-          { label: "Typical response", value: "Under 5 minutes" },
-          { label: "Upload", value: "Photo / PDF / screenshot" },
-          { label: "Options", value: "Chat or live session" },
-          { label: "Support", value: "24/7 available" }
-        ],
-        context: { type: "messages", tutorId: null }
-      });
-    }));
-
-    $$("#pageProfile .row").forEach(r => r.addEventListener("click", () => {
-      openModal({
-        title: "Profile Settings",
-        body: "Update goals, preferences, billing, and notifications.",
-        grid: [
-          { label: "Goal", value: "SAT 1350" },
-          { label: "Schedule", value: "Evenings" },
-          { label: "Privacy", value: "Secure sessions" },
-          { label: "Help", value: "24/7 support" }
-        ],
-        context: { type: "profile", tutorId: null }
-      });
-    }));
-
-    // =========================================================
-    // Landing page buttons -> scroll and/or trigger mockup
-    // =========================================================
-    function smoothScrollTo(id){
-      const el = document.querySelector(id);
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    function botReply(){
+      // lightweight canned response
+      const replies = [
+        "Got it — upload a photo of the problem and I’ll walk you through it step-by-step.",
+        "What textbook are you using? I can explain the concept and show an example.",
+        "Do you want a quick answer or a full explanation to help you learn it?",
+        "I can match you with a specialist in minutes. What’s the topic?"
+      ];
+      const msg = replies[Math.floor(Math.random() * replies.length)];
+      setTimeout(() => appendMsg(msg, "them"), 400);
     }
 
-    $("#btnFindTutor").addEventListener("click", () => {
-      // Focus search inside phone + jump view
-      switchPage("Home");
-      $("#tutorSearch").focus();
-      flashToast("Search tutors in the mockup");
+    $("#sendBtn")?.addEventListener("click", () => {
+      const text = (chatInput.value || "").trim();
+      if(!text) return;
+      appendMsg(text, "me");
+      chatInput.value = "";
+      botReply();
     });
 
-    $("#btnGetStartedTop").addEventListener("click", () => smoothScrollTo("#subjects"));
-    $("#btnGetHelpNow").addEventListener("click", () => {
-      switchPage("Home");
-      $("#btnMatch").click();
+    chatInput?.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){
+        e.preventDefault();
+        $("#sendBtn").click();
+      }
     });
 
-    $("#btnDemo").addEventListener("click", () => {
-      switchPage("Home");
-      flashToast("Try tapping tutors, nav, and buttons");
-    });
+    // =============================
+    // Landing-to-app interactions
+    // =============================
+    function focusAppSearch(){
+      // ensure home is visible, then focus search
+      showPage("Home");
+      setTimeout(() => searchEl?.focus(), 50);
+    }
 
-    // =========================================================
-    // Small toast inside page (non-blocking)
-    // =========================================================
+    $("#btnFindTutor")?.addEventListener("click", focusAppSearch);
+    $("#btnHelpNow")?.addEventListener("click", focusAppSearch);
+
+    // =============================
+    // Tiny toast helper (non-intrusive)
+    // =============================
     let toastEl;
-    function flashToast(text){
-      if (!toastEl){
+    function toast(text){
+      if(!toastEl){
         toastEl = document.createElement("div");
         toastEl.style.position = "fixed";
         toastEl.style.left = "50%";
-        toastEl.style.bottom = "22px";
+        toastEl.style.bottom = "18px";
         toastEl.style.transform = "translateX(-50%)";
         toastEl.style.background = "rgba(15,23,42,.92)";
         toastEl.style.color = "#fff";
         toastEl.style.padding = "10px 12px";
         toastEl.style.borderRadius = "14px";
-        toastEl.style.fontWeight = "850";
+        toastEl.style.fontWeight = "900";
         toastEl.style.fontSize = "13px";
-        toastEl.style.boxShadow = "0 14px 34px rgba(2,6,23,.22)";
-        toastEl.style.zIndex = "2000";
+        toastEl.style.boxShadow = "0 18px 40px rgba(2,6,23,.28)";
+        toastEl.style.zIndex = "9999";
+        toastEl.style.maxWidth = "min(640px, calc(100% - 24px))";
+        toastEl.style.textAlign = "center";
         toastEl.style.opacity = "0";
-        toastEl.style.transition = "opacity .15s ease";
+        toastEl.style.transition = "opacity .15s ease, transform .15s ease";
         document.body.appendChild(toastEl);
       }
       toastEl.textContent = text;
       toastEl.style.opacity = "1";
-      clearTimeout(window.__toastTimer);
-      window.__toastTimer = setTimeout(() => {
+      toastEl.style.transform = "translateX(-50%) translateY(0)";
+      clearTimeout(toastEl._t);
+      toastEl._t = setTimeout(() => {
         toastEl.style.opacity = "0";
-      }, 1200);
+        toastEl.style.transform = "translateX(-50%) translateY(6px)";
+      }, 1600);
     }
+
+    // Default: Home
+    showPage("Home");
   </script>
 </body>
 </html>
+                        
