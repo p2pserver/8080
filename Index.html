@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accesstutors — Expert Tutors. 24/7 Homework Help.</title>
+
+  <!-- Font Awesome -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    /* =========================================================
+      Accesstutors Landing Page (Minimalist + American University vibe)
+      Palette (approx):
+        AU Red:  #C8102E
+        AU Blue: #003A70
+        Off-White: #F7F8FA
+        Ink: #0F172A
+        Muted: #64748B
+    ========================================================= */
+
+    :root{
+      --au-red:#C8102E;
+      --au-blue:#003A70;
+      --bg:#F7F8FA;
+      --card:#FFFFFF;
+      --ink:#0F172A;
+      --muted:#64748B;
+      --line:#E6E8EE;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      --shadow-soft: 0 6px 18px rgba(2, 6, 23, 0.06);
+      --radius: 18px;
+      --radius-sm: 14px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background: radial-gradient(1000px 500px at 15% -10%, rgba(0,58,112,.12), transparent 60%),
+                  radial-gradient(800px 400px at 90% 20%, rgba(200,16,46,.10), transparent 60%),
+                  var(--bg);
+      line-height:1.35;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(247,248,250,.78);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .brand i{color:var(--au-red)}
+    .brand span{font-size:18px}
+    .navlinks{
+      display:flex; align-items:center; gap:18px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+    .navlinks a{padding:10px 10px;border-radius:12px}
+    .navlinks a:hover{background:#fff; color:var(--ink); box-shadow: var(--shadow-soft)}
+    .navcta{
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border:1px solid transparent;
+      padding:11px 14px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:14px;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background: var(--au-red);
+      color:#fff;
+      box-shadow: 0 10px 24px rgba(200,16,46,.18);
+    }
+    .btn.primary:hover{box-shadow: 0 14px 30px rgba(200,16,46,.22)}
+    .btn.ghost{
+      background:#fff;
+      border-color: var(--line);
+      color: var(--ink);
+      box-shadow: var(--shadow-soft);
+    }
+    .btn.ghost:hover{border-color:#D6DAE6}
+
+    /* Hero */
+    .hero{
+      padding:40px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      color:var(--au-blue);
+      font-weight:800;
+      font-size:13px;
+      width:fit-content;
+    }
+    .kicker i{color:var(--au-blue)}
+    h1{
+      font-size: clamp(32px, 4vw, 54px);
+      line-height:1.03;
+      letter-spacing:-.8px;
+      margin:16px 0 12px;
+    }
+    .sub{
+      font-size:16px;
+      color: var(--muted);
+      max-width: 52ch;
+      margin: 0 0 18px;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin:16px 0 10px;
+    }
+    .hero-points{
+      display:flex; gap:14px; flex-wrap:wrap;
+      margin-top:16px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:9px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+    .pill i{color:var(--au-red)}
+
+    /* Feature cards */
+    .features{
+      padding: 22px 0 8px;
+    }
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding:18px;
+      min-height: 120px;
+    }
+    .card h3{
+      margin: 10px 0 6px;
+      font-size:16px;
+      letter-spacing:-.2px;
+    }
+    .card p{margin:0;color:var(--muted);font-size:13.5px}
+    .iconbubble{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background: rgba(0,58,112,.08);
+      border: 1px solid rgba(0,58,112,.12);
+      color: var(--au-blue);
+    }
+    .iconbubble.red{
+      background: rgba(200,16,46,.08);
+      border: 1px solid rgba(200,16,46,.12);
+      color: var(--au-red);
+    }
+
+    /* Sections */
+    section{scroll-margin-top:88px}
+    .section-head{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:14px;
+      margin: 26px 0 12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.3px;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13.5px;
+      max-width: 56ch;
+    }
+
+    /* Program cards */
+    .programs{
+      padding: 10px 0 8px;
+    }
+    .program-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .program{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding:16px;
+    }
+    .program .top{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+    .program .top i{color:var(--au-blue)}
+    .program p{margin:10px 0 0; color:var(--muted); font-size:13.5px}
+
+    /* Testimonial */
+    .testimonial{
+      padding: 18px 0 34px;
+    }
+    .quote{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .quote i{color:var(--au-red); font-size:20px; margin-top:2px}
+    .quote p{margin:0;color:var(--ink);font-weight:700}
+    .quote small{display:block;color:var(--muted);font-weight:700;margin-top:6px}
+
+    /* Footer strip */
+    .footer-strip{
+      background:#fff;
+      border-top:1px solid var(--line);
+      padding: 18px 0;
+      color: var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:12px;
+      align-items:center;
+    }
+    .mini-stats{
+      display:flex; gap:14px; flex-wrap:wrap;
+    }
+    .mini{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: var(--bg);
+    }
+    .mini i{color:var(--au-blue)}
+    .mini strong{color:var(--ink)}
+    .mini span{display:block; font-size:12px}
+
+    /* =========================================================
+      iPhone X Mockup
+    ========================================================= */
+    .phone-wrap{
+      display:flex; justify-content:center;
+    }
+    .phone{
+      width: 340px;
+      height: 690px;
+      background: #0b1220;
+      border-radius: 48px;
+      box-shadow: 0 28px 60px rgba(2,6,23,.22);
+      position:relative;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .phone::before{
+      content:"";
+      position:absolute; inset: 10px;
+      border-radius: 42px;
+      border: 1px solid rgba(255,255,255,.08);
+      pointer-events:none;
+    }
+    .screen{
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcff 60%, #f7f8fa 100%);
+      width:100%;
+      height:100%;
+      border-radius: 40px;
+      overflow:hidden;
+      position:relative;
+    }
+    .notch{
+      position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width: 210px; height: 34px;
+      background:#0b1220;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      z-index: 5;
+    }
+    .statusbar{
+      display:flex; justify-content:space-between; align-items:center;
+      padding: 12px 16px 0;
+      font-weight:900;
+      color:#111827;
+      font-size:12px;
+    }
+    .statusbar .right{display:flex; gap:10px; align-items:center; color:#111827}
+    .appbar{
+      display:flex; justify-content:space-between; align-items:center;
+      padding: 12px 16px 10px;
+    }
+    .appbar .logo{
+      display:flex; align-items:center; gap:8px;
+      font-weight:900;
+      letter-spacing:-.2px;
+      color:var(--au-blue);
+    }
+    .appbar .logo i{color:var(--au-red)}
+    .appbar .actions{display:flex; gap:10px; color:#0f172a}
+    .chip{
+      width:36px;height:36px;border-radius:14px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+    }
+    .chip:hover{box-shadow: var(--shadow-soft)}
+
+    .screen-body{
+      padding: 0 16px;
+    }
+
+    .hello{
+      margin: 8px 0 8px;
+    }
+    .hello h4{margin:0;font-size:16px;letter-spacing:-.2px}
+    .hello p{margin:6px 0 0;color:var(--muted);font-weight:700;font-size:12.5px}
+
+    .search{
+      margin:10px 0 12px;
+      display:flex; gap:10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:10px 12px;
+      align-items:center;
+      box-shadow: var(--shadow-soft);
+    }
+    .search i{color:var(--muted)}
+    .search input{
+      border:0; outline:0; background:transparent;
+      width:100%;
+      font-weight:800;
+      color:var(--ink);
+      font-size:13px;
+    }
+
+    .tabs{
+      display:flex; gap:10px;
+      margin: 6px 0 10px;
+      overflow:auto;
+      padding-bottom: 2px;
+    }
+    .tag{
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+      font-weight:900;
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      cursor:pointer;
+      white-space:nowrap;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    .tag.active{
+      background: rgba(0,58,112,.10);
+      border-color: rgba(0,58,112,.18);
+      color: var(--au-blue);
+    }
+
+    .panel-title{
+      display:flex; align-items:center; justify-content:space-between;
+      margin: 8px 0 8px;
+    }
+    .panel-title strong{font-size:13px; letter-spacing:-.1px}
+    .panel-title small{color:var(--muted); font-weight:900}
+
+    .tutors{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding-bottom: 84px; /* space for bottom nav */
+    }
+    .tutor-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      padding: 12px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .avatar{
+      width:44px;height:44px;border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0,58,112,.22), rgba(200,16,46,.18));
+      border:1px solid rgba(15,23,42,.08);
+      display:grid; place-items:center;
+      color: var(--au-blue);
+      font-weight:1000;
+      flex: 0 0 auto;
+    }
+    .tmeta{flex:1}
+    .tmeta .row1{
+      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
+    }
+    .tmeta h5{margin:0;font-size:13px;letter-spacing:-.1px}
+    .tmeta .spec{margin:3px 0 8px;color:var(--muted);font-weight:800;font-size:12px}
+    .badges{
+      display:flex; gap:6px; flex-wrap:wrap;
+      margin-bottom: 8px;
+    }
+    .badge{
+      font-size:11px;
+      font-weight:900;
+      padding:6px 8px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+    }
+    .stars{
+      color:#F59E0B;
+      font-size:12px;
+      white-space:nowrap;
+      font-weight:900;
+    }
+    .tactions{
+      display:flex; gap:8px; align-items:center; justify-content:flex-end;
+    }
+    .mini-btn{
+      width:36px;height:36px;border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      color: var(--au-blue);
+    }
+    .mini-btn:hover{box-shadow: var(--shadow-soft)}
+    .cta-match{
+      margin-top: 10px;
+      width:100%;
+      border:0;
+      border-radius: 16px;
+      padding: 10px 12px;
+      background: var(--au-blue);
+      color:#fff;
+      font-weight:1000;
+      cursor:pointer;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 12px 26px rgba(0,58,112,.18);
+    }
+    .cta-match:hover{box-shadow: 0 16px 32px rgba(0,58,112,.22)}
+
+    /* App pages inside phone */
+    .app-page{display:none}
+    .app-page.active{display:block}
+
+    .profile-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+      margin: 10px 0 84px;
+    }
+    .profile-top{
+      display:flex; gap:12px; align-items:center;
+    }
+    .profile-top .avatar{width:54px;height:54px;border-radius:18px}
+    .profile-top h5{margin:0;font-size:14px}
+    .profile-top p{margin:4px 0 0;color:var(--muted);font-weight:800;font-size:12.5px}
+    .kv{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .kv .item{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:10px;
+      background: var(--bg);
+      font-weight:900;
+      font-size:12px;
+      color: var(--ink);
+    }
+    .kv .item span{display:block;color:var(--muted);font-size:11px;margin-top:4px;font-weight:800}
+
+    .list{
+      margin: 12px 0 0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .list .row{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      padding: 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .list .row strong{font-size:12.5px}
+    .list .row small{display:block;color:var(--muted);font-weight:900;margin-top:2px}
+    .list .row .pill2{
+      font-size:11px;
+      font-weight:1000;
+      padding:6px 8px;
+      border-radius: 999px;
+      background: rgba(200,16,46,.08);
+      border: 1px solid rgba(200,16,46,.14);
+      color: var(--au-red);
+      white-space:nowrap;
+    }
+
+    /* Bottom nav */
+    .bottom-nav{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(10px);
+      border-top:1px solid var(--line);
+      padding: 10px 8px 14px;
+      display:flex;
+      justify-content:space-around;
+      z-index: 6;
+    }
+    .navitem{
+      width: 70px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      color: var(--muted);
+      font-weight:900;
+      font-size:10.5px;
+      cursor:pointer;
+      padding: 8px 8px;
+      border-radius: 16px;
+    }
+    .navitem i{font-size:16px}
+    .navitem.active{
+      color: var(--au-blue);
+      background: rgba(0,58,112,.08);
+      border: 1px solid rgba(0,58,112,.14);
+    }
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed; inset:0;
+      background: rgba(2,6,23,.5);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 16px;
+      z-index: 1000;
+    }
+    .modal{
+      width:min(560px, 100%);
+      background:#fff;
+      border-radius: 20px;
+      border:1px solid var(--line);
+      box-shadow: 0 40px 80px rgba(2,6,23,.24);
+      overflow:hidden;
+    }
+    .modal header{
+      position:unset;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      backdrop-filter:none;
+    }
+    .modal .mhead{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 16px;
+      gap:10px;
+    }
+    .modal .mhead strong{font-size:14px}
+    .modal .close{
+      width:40px;height:40px;border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+    }
+    .modal .body{
+      padding: 14px 16px 16px;
+      color: var(--muted);
+      font-weight:700;
+      font-size:13.5px;
+    }
+    .modal .body .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin: 12px 0 14px;
+    }
+    .modal .body .box{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: var(--bg);
+      color: var(--ink);
+      font-weight:900;
+      font-size:12.5px;
+    }
+    .modal .body .box span{
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-weight:800;
+      font-size:11.5px;
+    }
+    .modal .foot{
+      display:flex; justify-content:flex-end; gap:10px;
+      padding: 0 16px 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .phone-wrap{justify-content:flex-start}
+      .feature-grid{grid-template-columns: 1fr;}
+      .program-grid{grid-template-columns: 1fr 1fr;}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 520px){
+      .navlinks{display:none}
+      .program-grid{grid-template-columns:1fr}
+      .phone{width: 320px; height: 660px;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===================== Header ===================== -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Accesstutors home">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Accesstutors</span>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#subjects">Subjects</a>
+          <a href="#how">How it Works</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+
+        <div class="navcta">
+          <button class="btn ghost" id="btnDemo">
+            <i class="fa-solid fa-mobile-screen"></i> Live Demo
+          </button>
+          <button class="btn primary" id="btnGetStartedTop">
+            Get Started <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          <div class="kicker">
+            <i class="fa-solid fa-bolt"></i>
+            24/7 access to subject experts • Homework • Textbook • Testing
+          </div>
+
+          <h1>Expert Tutors.<br/>24/7 Homework Help.</h1>
+          <p class="sub">
+            Accesstutors matches learners of all ages with vetted subject experts for
+            personalized homework support, textbook guidance, and test prep—anytime, anywhere.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn primary" id="btnFindTutor">
+              Find Your Tutor <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button class="btn ghost" id="btnScrollHow">
+              How it Works <i class="fa-solid fa-circle-play"></i>
+            </button>
+          </div>
+
+          <div class="hero-points">
+            <div class="pill"><i class="fa-solid fa-user-check"></i> Vetted experts</div>
+            <div class="pill"><i class="fa-solid fa-clock"></i> 24/7 support</div>
+            <div class="pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Fast matching</div>
+            <div class="pill"><i class="fa-solid fa-shield-halved"></i> Secure sessions</div>
+          </div>
+        </div>
+
+        <div class="phone-wrap" aria-label="iPhone X mockup">
+          <div class="phone">
+            <div class="screen">
+              <div class="notch"></div>
+
+              <!-- iPhone status bar -->
+              <div class="statusbar" aria-hidden="true">
+                <div class="left">4:44</div>
+                <div class="right">
+                  <i class="fa-solid fa-signal"></i>
+                  <i class="fa-solid fa-wifi"></i>
+                  <i class="fa-solid fa-battery-three-quarters"></i>
+                </div>
+              </div>
+
+              <!-- App top bar -->
+              <div class="appbar">
+                <div class="logo">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <span>Accesstutors</span>
+                </div>
+                <div class="actions">
+                  <div class="chip" title="Notifications"><i class="fa-regular fa-bell"></i></div>
+                  <div class="chip" title="Help"><i class="fa-regular fa-circle-question"></i></div>
+                </div>
+              </div>
+
+              <div class="screen-body">
+
+                <!-- HOME PAGE -->
+                <div class="app-page active" id="pageHome">
+                  <div class="hello">
+                    <h4>Hi Sarah!</h4>
+                    <p>Need homework, textbook, or test prep support?</p>
+                  </div>
+
+                  <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="tutorSearch" type="text" placeholder="Search tutors (Math, SAT, Chemistry…)" autocomplete="off" />
+                    <i class="fa-solid fa-sliders"></i>
+                  </div>
+
+                  <div class="tabs" role="tablist" aria-label="Subject filters">
+                    <button class="tag active" data-filter="all">All</button>
+                    <button class="tag" data-filter="math">Math</button>
+                    <button class="tag" data-filter="sat">SAT/ACT</button>
+                    <button class="tag" data-filter="science">Science</button>
+                    <button class="tag" data-filter="english">English</button>
+                    <button class="tag" data-filter="coding">Coding</button>
+                  </div>
+
+                  <div class="panel-title">
+                    <strong>Top Experts for You</strong>
+                    <small><i class="fa-solid fa-circle"></i> Online now</small>
+                  </div>
+
+                  <div class="tutors" id="tutorList"></div>
+
+                  <button class="cta-match" id="btnMatch">
+                    Match with a Tutor <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  </button>
+                </div>
+
+                <!-- SESSIONS PAGE -->
+                <div class="app-page" id="pageSessions">
+                  <div class="hello">
+                    <h4>Your Sessions</h4>
+                    <p>Upcoming tutoring sessions and practice goals.</p>
+                  </div>
+
+                  <div class="list">
+                    <div class="row">
+                      <div>
+                        <strong>Algebra II — Homework Review</strong>
+                        <small>Today • 7:30 PM • 30 min</small>
+                      </div>
+                      <div class="pill2">Join</div>
+                    </div>
+
+                    <div class="row">
+                      <div>
+                        <strong>SAT Math — Timed Practice</strong>
+                        <small>Tomorrow • 5:00 PM • 45 min</small>
+                      </div>
+                      <div class="pill2">Booked</div>
+                    </div>
+
+                    <div class="row">
+                      <div>
+                        <strong>Chemistry — Textbook Concepts</strong>
+                        <small>Fri • 6:15 PM • 30 min</small>
+                      </div>
+                      <div class="pill2">Booked</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- MESSAGES PAGE -->
+                <div class="app-page" id="pageMessages">
+                  <div class="hello">
+                    <h4>Messages</h4>
+                    <p>24/7 support + tutor chat in one place.</p>
+                  </div>
+
+                  <div class="list">
+                    <div class="row">
+                      <div>
+                        <strong>Support</strong>
+                        <small>“Share your problem and we’ll match you.”</small>
+                      </div>
+                      <div class="pill2">24/7</div>
+                    </div>
+
+                    <div class="row">
+                      <div>
+                        <strong>Jessica M. (Math)</strong>
+                        <small>“Send a photo of the worksheet if you want.”</small>
+                      </div>
+                      <div class="pill2">New</div>
+                    </div>
+
+                    <div class="row">
+                      <div>
+                        <strong>Daniel W. (SAT)</strong>
+                        <small>“Let’s review your missed questions.”</small>
+                      </div>
+                      <div class="pill2">1</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PROFILE PAGE -->
+                <div class="app-page" id="pageProfile">
+                  <div class="hello">
+                    <h4>Your Profile</h4>
+                    <p>Learning goals, preferences, and progress.</p>
+                  </div>
+
+                  <div class="profile-card">
+                    <div class="profile-top">
+                      <div class="avatar">S</div>
+                      <div>
+                        <h5>Sarah K.</h5>
+                        <p>Grade 10 • SAT goal: 1350 • Prefers evenings</p>
+                      </div>
+                    </div>
+
+                    <div class="kv">
+                      <div class="item">
+                        Goals
+                        <span>SAT Math +150 • Algebra mastery</span>
+                      </div>
+                      <div class="item">
+                        Support
+                        <span>24/7 help • Priority matching</span>
+                      </div>
+                      <div class="item">
+                        Subjects
+                        <span>Math • Science • Test Prep</span>
+                      </div>
+                      <div class="item">
+                        Progress
+                        <span>Streak: 9 days • Accuracy: 83%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-nav" aria-label="App bottom navigation">
+                <div class="navitem active" data-page="Home">
+                  <i class="fa-solid fa-house"></i>
+                  <div>Home</div>
+                </div>
+                <div class="navitem" data-page="Sessions">
+                  <i class="fa-regular fa-calendar"></i>
+                  <div>Sessions</div>
+                </div>
+                <div class="navitem" data-page="Messages">
+                  <i class="fa-regular fa-message"></i>
+                  <div>Messages</div>
+                </div>
+                <div class="navitem" data-page="Profile">
+                  <i class="fa-regular fa-user"></i>
+                  <div>Profile</div>
+                </div>
+              </nav>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== Feature Cards ===================== -->
+  <section class="features" id="subjects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Personalized support across every subject</h2>
+          <p>Homework help, textbook walkthroughs, and test prep—powered by fast matching and always-on support.</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="card">
+          <div class="iconbubble red"><i class="fa-solid fa-user-check"></i></div>
+          <h3>Expert Tutors</h3>
+          <p>Top-rated subject experts—Math, Science, English, Coding, SAT/ACT, and more.</p>
+        </div>
+        <div class="card">
+          <div class="iconbubble"><i class="fa-solid fa-clock"></i></div>
+          <h3>24/7 Homework Help</h3>
+          <p>Get help day or night. Upload a question or book a live session in minutes.</p>
+        </div>
+        <div class="card">
+          <div class="iconbubble"><i class="fa-solid fa-book-open"></i></div>
+          <h3>All Ages, All Levels</h3>
+          <p>Middle school to adult learners—personalized plans that fit your pace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== How it Works ===================== -->
+  <section class="programs" id="how">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>How Accesstutors works</h2>
+          <p>Minimal steps. Fast results. Human experts with 24/7 support.</p>
+        </div>
+      </div>
+
+      <div class="program-grid">
+        <div class="program">
+          <div class="top"><i class="fa-solid fa-list-check"></i> Pick your subject</div>
+          <p>Choose Math, Science, English, SAT/ACT, Coding, or “Homework Help.”</p>
+        </div>
+        <div class="program">
+          <div class="top"><i class="fa-solid fa-wand-magic-sparkles"></i> Match instantly</div>
+          <p>Browse tutor profiles, ratings, specialties, and availability.</p>
+        </div>
+        <div class="program">
+          <div class="top"><i class="fa-solid fa-video"></i> Meet online</div>
+          <p>Join a session with screen share, chat, and step-by-step explanations.</p>
+        </div>
+        <div class="program">
+          <div class="top"><i class="fa-solid fa-chart-line"></i> Track progress</div>
+          <p>Set goals, review session notes, and keep momentum with reminders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Pricing ===================== -->
+  <section class="testimonial" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Simple plans that scale with your needs</h2>
+          <p>Start with on-demand help or level up to recurring sessions and priority matching.</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="card">
+          <div class="iconbubble"><i class="fa-solid fa-bolt"></i></div>
+          <h3>On-Demand</h3>
+          <p>Quick homework & textbook help, anytime. Great for last-minute questions.</p>
+        </div>
+        <div class="card">
+          <div class="iconbubble red"><i class="fa-solid fa-star"></i></div>
+          <h3>Standard</h3>
+          <p>Weekly sessions + chat support. Best for consistent improvement and grades.</p>
+        </div>
+        <div class="card">
+          <div class="iconbubble"><i class="fa-solid fa-crown"></i></div>
+          <h3>Elite</h3>
+          <p>Priority matching + test prep plans + progress tracking. Built for big goals.</p>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="quote">
+        <i class="fa-solid fa-quote-left"></i>
+        <div>
+          <p>“Accesstutors is a lifesaver. My son gets immediate help with homework and test prep—no matter the hour.”</p>
+          <small>— Mark S., Parent</small>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:center; margin-top:14px;">
+        <button class="btn primary" id="btnGetStartedBottom">
+          Get Started <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Footer Strip ===================== -->
+  <footer class="footer-strip">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; font-weight:900; color:var(--ink);">
+            <i class="fa-solid fa-graduation-cap" style="color:var(--au-red)"></i>
+            Accesstutors
+          </div>
+          <div style="margin-top:6px;">
+            Personalized homework, textbook, and testing support—powered by subject experts and 24/7 assistance.
+          </div>
+        </div>
+        <div class="mini-stats" aria-label="Highlights">
+          <div class="mini">
+            <i class="fa-solid fa-book"></i>
+            <div><strong>200+ subjects</strong><span>All grades & ages</span></div>
+          </div>
+          <div class="mini">
+            <i class="fa-solid fa-stopwatch"></i>
+            <div><strong>Fast matching</strong><span>Minutes, not days</span></div>
+          </div>
+          <div class="mini">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div><strong>Secure</strong><span>Private sessions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Tutor Modal ===================== -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header>
+        <div class="mhead">
+          <strong id="modalTitle">Tutor Profile</strong>
+          <button class="close" id="modalClose" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </header>
+      <div class="body">
+        <div id="modalBodyText">
+          <!-- injected -->
+        </div>
+
+        <div class="grid" id="modalGrid">
+          <!-- injected -->
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center; color:var(--muted); font-weight:900;">
+          <i class="fa-solid fa-headset" style="color:var(--au-red)"></i>
+          24/7 support is available if you need help choosing the right expert.
+        </div>
+      </div>
+      <div class="foot">
+        <button class="btn ghost" id="modalSecondary">
+          Ask a Question <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="btn primary" id="modalPrimary">
+          Match Now <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // Data
+    // =========================
+    const tutors = [
+      {
+        id: "jessica",
+        name: "Jessica M.",
+        spec: "Math Specialist",
+        tags: ["Algebra", "Geometry", "Calculus"],
+        rating: 4.9,
+        price: "$85/hr",
+        online: true,
+        filter: ["math"],
+        about: "Step-by-step explanations, confidence-building practice, and fast homework support."
+      },
+      {
+        id: "daniel",
+        name: "Daniel W.",
+        spec: "SAT/ACT Prep Expert",
+        tags: ["SAT Math", "ACT Math", "Test Strategy"],
+        rating: 4.8,
+        price: "$95/hr",
+        online: true,
+        filter: ["sat", "math"],
+        about: "Timed drills, error-pattern analysis, and score-boosting test tactics."
+      },
+      {
+        id: "emily",
+        name: "Emily R.",
+        spec: "Science Tutor",
+        tags: ["Chemistry", "Biology", "Physics"],
+        rating: 4.9,
+        price: "$90/hr",
+        online: true,
+        filter: ["science"],
+        about: "Concept clarity using real examples + textbook walkthroughs that actually stick."
+      },
+      {
+        id: "sam",
+        name: "Sam K.",
+        spec: "English & Writing Coach",
+        tags: ["Essays", "Grammar", "Reading"],
+        rating: 4.7,
+        price: "$75/hr",
+        online: true,
+        filter: ["english"],
+        about: "Clear feedback, better structure, stronger arguments, and confident writing."
+      },
+      {
+        id: "maya",
+        name: "Maya T.",
+        spec: "Coding Tutor",
+        tags: ["Python", "JavaScript", "AP CS"],
+        rating: 4.8,
+        price: "$110/hr",
+        online: true,
+        filter: ["coding"],
+        about: "Learn by building: projects, debugging help, and fundamentals you can reuse."
+      }
+    ];
+
+    // =========================
+    // Helpers
+    // =========================
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    function stars(rating){
+      const full = Math.floor(rating);
+      const half = rating - full >= 0.5 ? 1 : 0;
+      const empty = 5 - full - half;
+      return "★".repeat(full) + (half ? "½" : "") + "☆".repeat(empty);
+    }
+
+    function makeTutorCard(t){
+      const initials = (t.name.split(" ")[0][0] + t.name.split(" ")[1][0]).toUpperCase();
+      const starStr = "★".repeat(Math.round(t.rating)); // compact on phone
+      const onlineDot = t.online ? `<span style="color:#22C55E">●</span>` : `<span style="color:#94A3B8">●</span>`;
+
+      return `
+        <div class="tutor-card" data-id="${t.id}" data-filter="${t.filter.join(",")}" data-name="${t.name.toLowerCase()} ${t.spec.toLowerCase()} ${t.tags.join(" ").toLowerCase()}">
+          <div class="avatar" aria-hidden="true">${initials}</div>
+          <div class="tmeta">
+            <div class="row1">
+              <div>
+                <h5>${t.name}</h5>
+                <div class="spec">${t.spec}</div>
+              </div>
+              <div class="stars" title="${t.rating.toFixed(1)} out of 5">${onlineDot} ${starStr}</div>
+            </div>
+
+            <div class="badges">
+              ${t.tags.slice(0,3).map(x => `<span class="badge">${x}</span>`).join("")}
+            </div>
+
+            <div class="tactions">
+              <button class="mini-btn" data-action="view" title="View profile" aria-label="View profile">
+                <i class="fa-regular fa-id-card"></i>
+              </button>
+              <button class="mini-btn" data-action="chat" title="Message" aria-label="Message">
+                <i class="fa-regular fa-message"></i>
+              </button>
+              <button class="mini-btn" data-action="book" title="Book" aria-label="Book">
+                <i class="fa-regular fa-calendar"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================
+    // Render tutor list
+    // =========================
+    const tutorList = $("#tutorList");
+    function renderTutors(list){
+      tutorList.innerHTML = list.map(makeTutorCard).join("");
+    }
+    renderTutors(tutors);
+
+    // =========================
+    // Subject tags filter
+    // =========================
+    let activeFilter = "all";
+
+    $$(".tag").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".tag").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // =========================
+    // Search filter
+    // =========================
+    const searchInput = $("#tutorSearch");
+    searchInput.addEventListener("input", applyFilters);
+
+    function applyFilters(){
+      const q = searchInput.value.trim().toLowerCase();
+      const cards = $$("#tutorList .tutor-card");
+
+      cards.forEach(card => {
+        const hay = card.dataset.name || "";
+        const filters = (card.dataset.filter || "").split(",");
+        const okFilter = (activeFilter === "all") ? true : filters.includes(activeFilter);
+        const okQuery = q ? hay.includes(q) : true;
+        card.style.display = (okFilter && okQuery) ? "flex" : "none";
+      });
+    }
+
+    // =========================
+    // Bottom nav (phone)
+    // =========================
+    const navItems = $$(".navitem");
+    const pages = {
+      Home: $("#pageHome"),
+      Sessions: $("#pageSessions"),
+      Messages: $("#pageMessages"),
+      Profile: $("#pageProfile")
+    };
+
+    function switchPage(name){
+      Object.values(pages).forEach(p => p.classList.remove("active"));
+      pages[name].classList.add("active");
+
+      navItems.forEach(n => n.classList.toggle("active", n.dataset.page === name));
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener("click", () => switchPage(item.dataset.page));
+    });
+
+    // =========================
+    // Modal
+    // =========================
+    const backdrop = $("#modalBackdrop");
+    const modalBodyText = $("#modalBodyText");
+    const modalGrid = $("#modalGrid");
+    const modalTitle = $("#modalTitle");
+
+    function openModal(tutor){
+      modalTitle.textContent = tutor.name + " — " + tutor.spec;
+      modalBodyText.textContent
