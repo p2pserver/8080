@@ -1332,6 +1332,199 @@
         toastEl.style.opacity = "0";
       }, 1200);
     }
+    (function(){
+    const root = document.getElementById("vtForm");
+    if(!root) return;
+
+    const stepNumEl = document.getElementById("vtStepNum");
+    const stepBadgeEl = document.getElementById("vtStepBadge");
+    const headingEl = document.getElementById("vtHeading");
+    const subEl = document.getElementById("vtSub");
+
+    const progressFill = document.getElementById("vtProgressFill");
+    const progressDot = document.getElementById("vtProgressDot");
+    const progressBar = root.querySelector(".vt-progress");
+
+    const step1 = document.getElementById("vtStep1");
+    const step2 = document.getElementById("vtStep2");
+    const step3 = document.getElementById("vtStep3");
+
+    const backBtn = document.getElementById("vtBack");
+    const continueBtn = document.getElementById("vtContinue");
+
+    const nameEl = document.getElementById("vtName");
+    const emailEl = document.getElementById("vtEmail");
+    const phoneEl = document.getElementById("vtPhone");
+    const summaryEl = document.getElementById("vtSummary");
+    const noteEl = document.getElementById("vtNote");
+
+    const state = { step: 1, grade: "", subject: "", name: "", email: "", phone: "" };
+
+    function clamp(n,a,b){ return Math.max(a, Math.min(b,n)); }
+
+    function setProgress(step){
+      const pct = step === 1 ? 33 : step === 2 ? 66 : 100;
+      progressFill.style.width = pct + "%";
+      progressDot.style.left = pct + "%";
+      progressBar?.setAttribute("aria-valuenow", String(pct));
+    }
+
+    function showStep(step){
+      state.step = clamp(step, 1, 3);
+      stepNumEl.textContent = String(state.step);
+
+      step1.classList.toggle("vt-hidden", state.step !== 1);
+      step2.classList.toggle("vt-hidden", state.step !== 2);
+      step3.classList.toggle("vt-hidden", state.step !== 3);
+
+      if(state.step === 1){
+        stepBadgeEl.textContent = "Grade";
+        headingEl.textContent = "Select Grade Level";
+        subEl.textContent = "Choose your grade level so we can match you with the best tutor.";
+        continueBtn.innerHTML = `Continue <i class="fa-solid fa-arrow-right"></i>`;
+        noteEl.textContent = "Free • No credit card required";
+      }
+      if(state.step === 2){
+        stepBadgeEl.textContent = "Subject";
+        headingEl.textContent = "Choose a Subject";
+        subEl.textContent = "Pick the topic you need help with right now.";
+        continueBtn.innerHTML = `Continue <i class="fa-solid fa-arrow-right"></i>`;
+        noteEl.textContent = "You can change this later";
+      }
+      if(state.step === 3){
+        stepBadgeEl.textContent = "Contact";
+        headingEl.textContent = "Finish & Get Matched";
+        subEl.textContent = "Add your contact info so we can connect you to the right tutor.";
+        continueBtn.innerHTML = `Submit <i class="fa-solid fa-check"></i>`;
+        noteEl.textContent = "We’ll never share your info.";
+        renderSummary();
+      }
+
+      backBtn.disabled = (state.step === 1);
+      setProgress(state.step);
+    }
+
+    function clearSelected(container){
+      container.querySelectorAll(".vt-choice").forEach(b => b.classList.remove("vt-selected"));
+    }
+
+    function selectChoice(container, value){
+      clearSelected(container);
+      const btn = [...container.querySelectorAll(".vt-choice")].find(b => b.dataset.value === value);
+      if(btn) btn.classList.add("vt-selected");
+    }
+
+    function escapeHtml(str){
+      return String(str).replace(/[&<>"']/g, m => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      }[m]));
+    }
+
+    function renderSummary(){
+      summaryEl.innerHTML = `
+        <div><b>Selected Grade:</b> ${escapeHtml(state.grade || "—")}</div>
+        <div style="margin-top:6px;"><b>Selected Subject:</b> ${escapeHtml(state.subject || "—")}</div>
+        <div style="margin-top:6px;"><b>Next:</b> Submit to request a match (demo).</div>
+      `;
+    }
+
+    function pulse(el){
+      const prev = el.style.boxShadow;
+      el.style.boxShadow = "0 0 0 4px rgba(225,29,72,.18)";
+      setTimeout(() => (el.style.boxShadow = prev), 350);
+    }
+
+    function toast(text){
+      let t = document.getElementById("vtToast");
+      if(!t){
+        t = document.createElement("div");
+        t.id = "vtToast";
+        t.style.position = "fixed";
+        t.style.left = "50%";
+        t.style.bottom = "18px";
+        t.style.transform = "translateX(-50%)";
+        t.style.background = "rgba(15,23,42,.92)";
+        t.style.color = "#fff";
+        t.style.padding = "10px 12px";
+        t.style.borderRadius = "14px";
+        t.style.fontWeight = "900";
+        t.style.fontSize = "13px";
+        t.style.boxShadow = "0 18px 40px rgba(2,6,23,.28)";
+        t.style.zIndex = "9999";
+        t.style.maxWidth = "min(640px, calc(100% - 24px))";
+        t.style.textAlign = "center";
+        t.style.opacity = "0";
+        t.style.transition = "opacity .15s ease, transform .15s ease";
+        document.body.appendChild(t);
+      }
+      t.textContent = text;
+      t.style.opacity = "1";
+      t.style.transform = "translateX(-50%) translateY(0)";
+      clearTimeout(t._t);
+      t._t = setTimeout(() => {
+        t.style.opacity = "0";
+        t.style.transform = "translateX(-50%) translateY(6px)";
+      }, 1600);
+    }
+
+    function bindChoices(container, key, nextStep){
+      container.addEventListener("click", (e) => {
+        const btn = e.target.closest(".vt-choice");
+        if(!btn) return;
+        const val = btn.dataset.value || "";
+        state[key] = val;
+        selectChoice(container, val);
+
+        // Auto-advance
+        if(nextStep) {
+          showStep(nextStep);
+          toast(`${key === "grade" ? "Grade" : "Subject"} selected: ${val}`);
+        }
+      });
+    }
+
+    bindChoices(step1, "grade", 2);
+    bindChoices(step2, "subject", 3);
+
+    backBtn.addEventListener("click", () => showStep(state.step - 1));
+
+    continueBtn.addEventListener("click", () => {
+      if(state.step === 1){
+        if(!state.grade){ toast("Please choose a grade level."); pulse(step1); return; }
+        showStep(2);
+        return;
+      }
+      if(state.step === 2){
+        if(!state.subject){ toast("Please choose a subject."); pulse(step2); return; }
+        showStep(3);
+        return;
+      }
+
+      // Submit (demo)
+      const name = (nameEl.value || "").trim();
+      const email = (emailEl.value || "").trim();
+
+      if(!name){ toast("Please enter your name."); nameEl.focus(); pulse(nameEl); return; }
+      if(!email || !/^\S+@\S+\.\S+$/.test(email)){
+        toast("Please enter a valid email."); emailEl.focus(); pulse(emailEl); return;
+      }
+
+      state.name = name;
+      state.email = email;
+      state.phone = (phoneEl.value || "").trim();
+
+      toast("Submitted! (demo) We’ll match you with a tutor shortly.");
+      continueBtn.disabled = true;
+      continueBtn.style.opacity = ".7";
+      continueBtn.style.cursor = "not-allowed";
+    });
+
+    [nameEl, emailEl, phoneEl].forEach(el => el?.addEventListener("input", () => {
+      if(state.step === 3) renderSummary();
+    }));
+
+    showStep(1);
+  }
   </script>
 </body>
 </html>
