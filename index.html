@@ -412,24 +412,21 @@
     }, 1600);
   }
 
-  // Nav CTA buttons (demo)
+// Nav CTA buttons
   document.getElementById("btnDemo")?.addEventListener("click", () => {
     toast("Live Demo (mock) — try the Get Started form →");
-    document.getElementById("vtForm")?.scrollIntoView({ behavior:"smooth", block:"center" });
+    document.getElementById("vtForm")?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
+
   document.getElementById("btnSignIn")?.addEventListener("click", () => {
     toast("Sign in (demo)");
-  });
-  document.getElementById("btnGetStarted")?.addEventListener("click", () => {
-    document.getElementById("vtForm")?.scrollIntoView({ behavior:"smooth", block:"center" });
-    toast("Start here → pick grade, subject, then submit (demo).");
   });
 
   // =============================
   // 3-step form logic
   // =============================
   const root = document.getElementById("vtForm");
-  if(!root) return;
+  if (!root) return;
 
   const stepNumEl = document.getElementById("vtStepNum");
   const stepBadgeEl = document.getElementById("vtStepBadge");
@@ -455,16 +452,16 @@
 
   const state = { step: 1, grade: "", subject: "", name: "", email: "", phone: "" };
 
-  const clamp = (n,a,b) => Math.max(a, Math.min(b,n));
+  const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 
-  function setProgress(step){
+  function setProgress(step) {
     const pct = step === 1 ? 33 : step === 2 ? 66 : 100;
     progressFill.style.width = pct + "%";
     progressDot.style.left = pct + "%";
     progressBar?.setAttribute("aria-valuenow", String(pct));
   }
 
-  function showStep(step){
+  function showStep(step) {
     state.step = clamp(step, 1, 3);
     stepNumEl.textContent = String(state.step);
 
@@ -472,21 +469,21 @@
     step2.classList.toggle("vt-hidden", state.step !== 2);
     step3.classList.toggle("vt-hidden", state.step !== 3);
 
-    if(state.step === 1){
+    if (state.step === 1) {
       stepBadgeEl.textContent = "Grade";
       headingEl.textContent = "Select Grade Level";
       subEl.textContent = "Choose your grade level so we can match you with the best tutor.";
       continueBtn.innerHTML = `Continue <i class="fa-solid fa-arrow-right"></i>`;
       noteEl.textContent = "Free • No credit card required";
     }
-    if(state.step === 2){
+    if (state.step === 2) {
       stepBadgeEl.textContent = "Subject";
       headingEl.textContent = "Choose a Subject";
       subEl.textContent = "Pick the topic you need help with right now.";
       continueBtn.innerHTML = `Continue <i class="fa-solid fa-arrow-right"></i>`;
       noteEl.textContent = "You can change this later";
     }
-    if(state.step === 3){
+    if (state.step === 3) {
       stepBadgeEl.textContent = "Contact";
       headingEl.textContent = "Finish & Get Matched";
       subEl.textContent = "Add your contact info so we can connect you to the right tutor.";
@@ -495,27 +492,32 @@
       renderSummary();
     }
 
-    backBtn.disabled = (state.step === 1);
+    backBtn.disabled = state.step === 1;
     setProgress(state.step);
   }
 
-  function clearSelected(container){
-    container.querySelectorAll(".vt-choice").forEach(b => b.classList.remove("vt-selected"));
-  }
-  function selectChoice(container, value){
-    clearSelected(container);
-    const btn = [...container.querySelectorAll(".vt-choice")].find(b => b.dataset.value === value);
-    if(btn) btn.classList.add("vt-selected");
+  function clearSelected(container) {
+    container.querySelectorAll(".vt-choice").forEach((b) => b.classList.remove("vt-selected"));
   }
 
-  function escapeHtml(str){
-    return String(str).replace(/[&<>"']/g, m => ({
-      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  function selectChoice(container, value) {
+    clearSelected(container);
+    const btn = [...container.querySelectorAll(".vt-choice")].find((b) => b.dataset.value === value);
+    if (btn) btn.classList.add("vt-selected");
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
     }[m]));
   }
 
-  function renderSummary(){
-    if(!summaryEl) return;
+  function renderSummary() {
+    if (!summaryEl) return;
     summaryEl.innerHTML = `
       <div><b>Selected Grade:</b> ${escapeHtml(state.grade || "—")}</div>
       <div style="margin-top:6px;"><b>Selected Subject:</b> ${escapeHtml(state.subject || "—")}</div>
@@ -523,22 +525,22 @@
     `;
   }
 
-  function pulse(el){
-    if(!el) return;
+  function pulse(el) {
+    if (!el) return;
     const prev = el.style.boxShadow;
     el.style.boxShadow = "0 0 0 4px rgba(225,29,72,.18)";
     setTimeout(() => (el.style.boxShadow = prev), 350);
   }
 
-  function bindChoices(container, key, nextStep){
+  function bindChoices(container, key, nextStep) {
     container.addEventListener("click", (e) => {
       const btn = e.target.closest(".vt-choice");
-      if(!btn) return;
+      if (!btn) return;
       const val = btn.dataset.value || "";
       state[key] = val;
       selectChoice(container, val);
 
-      if(nextStep){
+      if (nextStep) {
         showStep(nextStep);
         toast(`${key === "grade" ? "Grade" : "Subject"} selected: ${val}`);
       }
@@ -551,13 +553,22 @@
   backBtn.addEventListener("click", () => showStep(state.step - 1));
 
   continueBtn.addEventListener("click", () => {
-    if(state.step === 1){
-      if(!state.grade){ toast("Please choose a grade level."); pulse(step1); return; }
+    if (state.step === 1) {
+      if (!state.grade) {
+        toast("Please choose a grade level.");
+        pulse(step1);
+        return;
+      }
       showStep(2);
       return;
     }
-    if(state.step === 2){
-      if(!state.subject){ toast("Please choose a subject."); pulse(step2); return; }
+
+    if (state.step === 2) {
+      if (!state.subject) {
+        toast("Please choose a subject.");
+        pulse(step2);
+        return;
+      }
       showStep(3);
       return;
     }
@@ -566,9 +577,18 @@
     const name = (nameEl?.value || "").trim();
     const email = (emailEl?.value || "").trim();
 
-    if(!name){ toast("Please enter your name."); nameEl?.focus(); pulse(nameEl); return; }
-    if(!email || !/^\S+@\S+\.\S+$/.test(email)){
-      toast("Please enter a valid email."); emailEl?.focus(); pulse(emailEl); return;
+    if (!name) {
+      toast("Please enter your name.");
+      nameEl?.focus();
+      pulse(nameEl);
+      return;
+    }
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      toast("Please enter a valid email.");
+      emailEl?.focus();
+      pulse(emailEl);
+      return;
     }
 
     state.name = name;
@@ -581,76 +601,66 @@
     continueBtn.style.cursor = "not-allowed";
   });
 
-  [nameEl, emailEl, phoneEl].forEach(el => el?.addEventListener("input", () => {
-    if(state.step === 3) renderSummary();
-  }));
+  [nameEl, emailEl, phoneEl].forEach((el) =>
+    el?.addEventListener("input", () => {
+      if (state.step === 3) renderSummary();
+    })
+  );
 
   showStep(1);
+
+  // Modal open/close behavior
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("vtModal");
+    const getStartedButton = document.getElementById("btnGetStarted");
+    const closeButtons = modal?.querySelectorAll("[data-vt-close]");
+
+    if (!modal) return;
+
+    let lastFocusedElement = null;
+
+    function openModal() {
+      lastFocusedElement = document.activeElement;
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("vt-modal-open");
+
+      const firstInput = modal.querySelector("button:not([data-vt-close]), input");
+
+      window.setTimeout(() => {
+        firstInput?.focus();
+      }, 150);
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("vt-modal-open");
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
+
+    getStartedButton?.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+
+    closeButtons?.forEach((button) => {
+      button.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  });
 })();
-  
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("vtModal");
-  const getStartedButton = document.getElementById("btnGetStarted");
-  const closeButtons = modal?.querySelectorAll("[data-vt-close]");
 
-  if (!modal) return;
 
-  let lastFocusedElement = null;
-
-  function openModal() {
-    lastFocusedElement = document.activeElement;
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("vt-modal-open");
-
-    const firstInput = modal.querySelector(
-      "button:not([data-vt-close]), input"
-    );
-
-    window.setTimeout(() => {
-      firstInput?.focus();
-    }, 150);
-  }
-
-  function closeModal() {
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("vt-modal-open");
-
-    if (
-      lastFocusedElement &&
-      typeof lastFocusedElement.focus === "function"
-    ) {
-      lastFocusedElement.focus();
-    }
-  }
-
-  // Open the form from "Find Your Tutor"
-  getStartedButton?.addEventListener("click", (event) => {
-    event.preventDefault();
-    openModal();
-  });
-
-  // Close from the X button or backdrop
-  closeButtons?.forEach((button) => {
-    button.addEventListener("click", closeModal);
-  });
-
-  // Close with Escape
-  document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      modal.classList.contains("is-open")
-    ) {
-      closeModal();
-    }
-  });
-});
-
-    // Keep the popup visible on the initial page load.
-    openModal();
-  });
 
   </script>
 </body>
