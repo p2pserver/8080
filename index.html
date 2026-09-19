@@ -588,53 +588,65 @@
   showStep(1);
 })();
   
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("vtModal");
-    const liveDemoButton = document.getElementById("liveDemoBtn");
-    const closeButtons = modal.querySelectorAll("[data-vt-close]");
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("vtModal");
+  const getStartedButton = document.getElementById("btnGetStarted");
+  const closeButtons = modal?.querySelectorAll("[data-vt-close]");
 
-    let lastFocusedElement = null;
+  if (!modal) return;
 
-    function openModal() {
-      lastFocusedElement = document.activeElement;
+  let lastFocusedElement = null;
 
-      modal.classList.add("is-open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("vt-modal-open");
+  function openModal() {
+    lastFocusedElement = document.activeElement;
 
-      const firstInput = modal.querySelector(
-        "button:not([data-vt-close]), input"
-      );
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("vt-modal-open");
 
-      window.setTimeout(() => {
-        firstInput?.focus();
-      }, 150);
+    const firstInput = modal.querySelector(
+      "button:not([data-vt-close]), input"
+    );
+
+    window.setTimeout(() => {
+      firstInput?.focus();
+    }, 150);
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("vt-modal-open");
+
+    if (
+      lastFocusedElement &&
+      typeof lastFocusedElement.focus === "function"
+    ) {
+      lastFocusedElement.focus();
     }
+  }
 
-    function closeModal() {
-      modal.classList.remove("is-open");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("vt-modal-open");
+  // Open the form from "Find Your Tutor"
+  getStartedButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    openModal();
+  });
 
-      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-        lastFocusedElement.focus();
-      }
+  // Close from the X button or backdrop
+  closeButtons?.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  // Close with Escape
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      modal.classList.contains("is-open")
+    ) {
+      closeModal();
     }
-
-    closeButtons.forEach((button) => {
-      button.addEventListener("click", closeModal);
-    });
-
-    liveDemoButton?.addEventListener("click", (event) => {
-      event.preventDefault();
-      openModal();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.classList.contains("is-open")) {
-        closeModal();
-      }
-    });
+  });
+});
 
     // Keep the popup visible on the initial page load.
     openModal();
