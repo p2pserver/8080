@@ -103,7 +103,6 @@ a{ color:inherit; text-decoration:none; }
 .btn.ghost:hover{ border-color:#D6DCEC; }
 
 /* ===================== HERO ===================== */
-.hero{ padding: 34px 0 18px; }
 .hero-content-row {
   display: flex;
   align-items: center;
