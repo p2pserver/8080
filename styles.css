@@ -212,8 +212,7 @@ a{ color:inherit; text-decoration:none; }
   --pink:#ff4da6;
   --red:#c8102e;
   width: min(360px, 100%);
-  position:fixed; 
-  z-index:2;
+ 
 }
 .vt-card{
   width:100%;
