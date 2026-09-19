@@ -32,9 +32,10 @@
       </nav>
 
       <div class="nav-cta">
-        <button class="btn ghost" id="btnDemo">
-          <i class="fa-solid fa-mobile-screen"></i> Live Demo
-        </button>
+       <button class="btn primary" id="liveDemoBtn" type="button">
+  <i class="fa-solid fa-play"></i>
+  Live Demo
+</button>
         <button class="btn primary" id="btnSignIn">Become a Tutor</button>
       </div>
     </div>
@@ -94,117 +95,211 @@
       </section>
 
       <!-- RIGHT: Varsity-style form -->
-      <aside class="hero-right" aria-label="Get Started form">
-        <div class="vt-form" id="vtForm">
-          <div class="vt-card">
-            <div class="vt-topbar">
-              <div class="vt-title">Get Started in <b>60 Seconds</b></div>
+  <!-- Get Started Modal -->
+<div
+  class="vt-modal is-open"
+  id="vtModal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="vtModalTitle"
+  aria-hidden="false"
+>
+  <div class="vt-modal-backdrop" data-vt-close></div>
+
+  <div class="vt-modal-panel">
+    <aside class="hero-right" aria-label="Get Started form">
+      <div class="vt-form" id="vtForm">
+        <div class="vt-card">
+          <div class="vt-topbar">
+            <div class="vt-title" id="vtModalTitle">
+              Get Started in <b>60 Seconds</b>
             </div>
 
-            <div class="vt-body">
-              <div class="vt-steprow">
-                <div class="vt-steptext">
-                  <span class="vt-step">Step <b id="vtStepNum">1</b> of <b>3</b></span>
-                  <span class="vt-stepbadge" id="vtStepBadge">Grade</span>
-                </div>
+            <button
+              class="vt-close"
+              id="vtClose"
+              type="button"
+              aria-label="Close get started form"
+              data-vt-close
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
 
-                <div class="vt-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="33">
-                  <div class="vt-progress-fill" id="vtProgressFill" style="width:33%"></div>
-                  <div class="vt-progress-dot" id="vtProgressDot" style="left:33%"></div>
-                </div>
+          <div class="vt-body">
+            <div class="vt-steprow">
+              <div class="vt-steptext">
+                <span class="vt-step">
+                  Step <b id="vtStepNum">1</b> of <b>3</b>
+                </span>
+
+                <span class="vt-stepbadge" id="vtStepBadge">Grade</span>
               </div>
 
-              <h3 class="vt-h3" id="vtHeading">Select Grade Level</h3>
-              <p class="vt-sub" id="vtSub">Choose your grade level so we can match you with the best tutor.</p>
+              <div
+                class="vt-progress"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="33"
+              >
+                <div
+                  class="vt-progress-fill"
+                  id="vtProgressFill"
+                  style="width:33%"
+                ></div>
 
-              <!-- Step 1 -->
-              <div class="vt-grid" id="vtStep1" data-step="1">
-                <button class="vt-choice" type="button" data-value="Elementary School">
-                  <span>Elementary School</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="College / University">
-                  <span>College / University</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="Middle School">
-                  <span>Middle School</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="Graduate School">
-                  <span>Graduate School</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="High School">
-                  <span>High School</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="Professional">
-                  <span>Professional</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice vt-wide" type="button" data-value="SAT / ACT">
-                  <span>SAT / ACT</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
+                <div
+                  class="vt-progress-dot"
+                  id="vtProgressDot"
+                  style="left:33%"
+                ></div>
+              </div>
+            </div>
+
+            <h3 class="vt-h3" id="vtHeading">Select Grade Level</h3>
+
+            <p class="vt-sub" id="vtSub">
+              Choose your grade level so we can match you with the best tutor.
+            </p>
+
+            <!-- Step 1 -->
+            <div class="vt-grid" id="vtStep1" data-step="1">
+              <button class="vt-choice" type="button" data-value="Elementary School">
+                <span>Elementary School</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="College / University">
+                <span>College / University</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="Middle School">
+                <span>Middle School</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="Graduate School">
+                <span>Graduate School</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="High School">
+                <span>High School</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="Professional">
+                <span>Professional</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice vt-wide" type="button" data-value="SAT / ACT">
+                <span>SAT / ACT</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="vt-grid vt-hidden" id="vtStep2" data-step="2">
+              <button class="vt-choice" type="button" data-value="Math">
+                <span>Math</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="Science">
+                <span>Science</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="English / Writing">
+                <span>English / Writing</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="History / Social Studies">
+                <span>History / Social Studies</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="Foreign Language">
+                <span>Foreign Language</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice" type="button" data-value="Computer Science">
+                <span>Computer Science</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button class="vt-choice vt-wide" type="button" data-value="Test Prep">
+                <span>Test Prep</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="vt-hidden" id="vtStep3" data-step="3">
+              <div class="vt-fields">
+                <label class="vt-label">
+                  <span>Name</span>
+                  <input
+                    class="vt-input"
+                    id="vtName"
+                    type="text"
+                    placeholder="Your name"
+                    autocomplete="name"
+                  />
+                </label>
+
+                <label class="vt-label">
+                  <span>Email</span>
+                  <input
+                    class="vt-input"
+                    id="vtEmail"
+                    type="email"
+                    placeholder="you@email.com"
+                    autocomplete="email"
+                  />
+                </label>
+
+                <label class="vt-label">
+                  <span>Phone (optional)</span>
+                  <input
+                    class="vt-input"
+                    id="vtPhone"
+                    type="tel"
+                    placeholder="(555) 555-5555"
+                    autocomplete="tel"
+                  />
+                </label>
               </div>
 
-              <!-- Step 2 -->
-              <div class="vt-grid vt-hidden" id="vtStep2" data-step="2">
-                <button class="vt-choice" type="button" data-value="Math">
-                  <span>Math</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="Science">
-                  <span>Science</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="English / Writing">
-                  <span>English / Writing</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="History / Social Studies">
-                  <span>History / Social Studies</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="Foreign Language">
-                  <span>Foreign Language</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice" type="button" data-value="Computer Science">
-                  <span>Computer Science</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button class="vt-choice vt-wide" type="button" data-value="Test Prep">
-                  <span>Test Prep</span><i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
+              <div class="vt-summary" id="vtSummary" aria-live="polite"></div>
+            </div>
 
-              <!-- Step 3 -->
-              <div class="vt-hidden" id="vtStep3" data-step="3">
-                <div class="vt-fields">
-                  <label class="vt-label">
-                    <span>Name</span>
-                    <input class="vt-input" id="vtName" type="text" placeholder="Your name" autocomplete="name" />
-                  </label>
+            <div class="vt-actions">
+              <button class="vt-back" id="vtBack" type="button" disabled>
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+              </button>
 
-                  <label class="vt-label">
-                    <span>Email</span>
-                    <input class="vt-input" id="vtEmail" type="email" placeholder="you@email.com" autocomplete="email" />
-                  </label>
+              <button class="vt-continue" id="vtContinue" type="button">
+                Continue
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
 
-                  <label class="vt-label">
-                    <span>Phone (optional)</span>
-                    <input class="vt-input" id="vtPhone" type="tel" placeholder="(555) 555-5555" autocomplete="tel" />
-                  </label>
-                </div>
-
-                <div class="vt-summary" id="vtSummary" aria-live="polite"></div>
-              </div>
-
-              <div class="vt-actions">
-                <button class="vt-back" id="vtBack" type="button" disabled>
-                  <i class="fa-solid fa-arrow-left"></i> Back
-                </button>
-
-                <button class="vt-continue" id="vtContinue" type="button">
-                  Continue <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-
-              <div class="vt-note" id="vtNote">Free • No credit card required</div>
+            <div class="vt-note" id="vtNote">
+              Free • No credit card required
             </div>
           </div>
         </div>
-      </aside>
-    </div>
+      </div>
+    </aside>
+  </div>
+</div>
   </main>
 
   <!-- ===================== MID SECTION (Background uses 3rd image) ===================== -->
@@ -493,6 +588,59 @@
 
   showStep(1);
 })();
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("vtModal");
+    const liveDemoButton = document.getElementById("liveDemoBtn");
+    const closeButtons = modal.querySelectorAll("[data-vt-close]");
+
+    let lastFocusedElement = null;
+
+    function openModal() {
+      lastFocusedElement = document.activeElement;
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("vt-modal-open");
+
+      const firstInput = modal.querySelector(
+        "button:not([data-vt-close]), input"
+      );
+
+      window.setTimeout(() => {
+        firstInput?.focus();
+      }, 150);
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("vt-modal-open");
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", closeModal);
+    });
+
+    liveDemoButton?.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+
+    // Keep the popup visible on the initial page load.
+    openModal();
+  });
+</script>
   </script>
 </body>
 </html>
