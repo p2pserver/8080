@@ -551,22 +551,20 @@ a{ color:inherit; text-decoration:none; }
   }
 
   .hero-content-row {
-    align-items: stretch;
     flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
   }
 
   .media-callout {
     width: 100%;
-    min-height: auto;
+    height: 260px;
     flex-basis: auto;
-    flex-direction: row;
-    align-items: center;
   }
 
   .media-img {
-    width: 170px;
-    height: 110px;
-    flex: 0 0 170px;
+    width: 100%;
+    height: 100%;
   }
 
   .feature-row {
@@ -583,6 +581,12 @@ a{ color:inherit; text-decoration:none; }
 
   .navlinks {
     display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .media-callout {
+    height: 220px;
   }
 }
 /* ===================== GET STARTED MODAL ===================== */
