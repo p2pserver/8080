@@ -109,12 +109,14 @@ a{ color:inherit; text-decoration:none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 32px;
+  width: 100%;
 }
 
 .hero-text {
-  flex: 1 1 auto;
+  flex: 1 1 52%;
   min-width: 0;
+  max-width: 600px;
 }
 
 .hero-copy h1 {
@@ -145,28 +147,41 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .media-callout {
-  flex: 0 0 285px;
-  width: 285px;
-  height: 330px;
+  flex: 1 1 48%;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 2 / 1;
   margin: 0;
   padding: 0;
   align-self: center;
+
   overflow: hidden;
+
   border: 1px solid var(--line);
   border-radius: var(--radius);
+
   background: #fff;
+
   box-shadow: var(--shadow-soft);
 }
 
 .media-img {
   width: 100%;
   height: 100%;
+
   border-radius: inherit;
-  background-size: cover;
+
+  /*
+   * IMPORTANT:
+   * contain prevents ANY part of the image from being cropped.
+   */
+  background-size: contain;
+
   background-position: center;
   background-repeat: no-repeat;
-}
 
+  background-color: #fff;
+}
 .media-text {
   display: flex;
   flex-direction: column;
@@ -572,6 +587,7 @@ a{ color:inherit; text-decoration:none; }
 
 /* ===================== Responsive ===================== */
 @media (max-width: 980px) {
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -580,21 +596,45 @@ a{ color:inherit; text-decoration:none; }
     justify-content: flex-start;
   }
 
+  /*
+   * Keep flex layout, but stack the text and image
+   * once the screen becomes narrower.
+   */
   .hero-content-row {
     flex-direction: column;
     align-items: stretch;
-    gap: 20px;
+    gap: 24px;
+  }
+
+  .hero-text {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 700px;
   }
 
   .media-callout {
     width: 100%;
-    height: 260px;
-    flex-basis: auto;
+    max-width: 700px;
+
+    /*
+     * Preserve the original 1600:800 image ratio.
+     */
+    aspect-ratio: 2 / 1;
+
+    height: auto;
+
+    flex: 0 0 auto;
+
+    align-self: center;
   }
 
   .media-img {
     width: 100%;
     height: 100%;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .feature-row {
@@ -613,10 +653,18 @@ a{ color:inherit; text-decoration:none; }
     display: none;
   }
 }
+ @media (max-width: 520px) {
 
-@media (max-width: 520px) {
   .media-callout {
-    height: 220px;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 2 / 1;
+    height: auto;
+  }
+
+  .media-img {
+    background-size: contain;
+    background-position: center;
   }
 }
 /* ===================== GET STARTED MODAL ===================== */
