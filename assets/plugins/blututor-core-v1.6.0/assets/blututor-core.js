@@ -1,0 +1,1 @@
+/* BluTutor Core frontend bootstrap. Landing-page intake uses window.BluTutorCore.restUrl. */
