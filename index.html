@@ -35,7 +35,7 @@
        <button class="btn ghost" id="btnDemo">
           <i class="fa-solid fa-mobile-screen"></i> Live Demo
         </button>
-        <button class="btn primary" id="btnSignIn">Become a Tutor</button>
+        <a class="btn primary" id="btnSignIn" href="./wordpress/tutor-application/index.html">Become a Tutor</a>
       </div>
     </div>
   </header>
@@ -421,9 +421,7 @@
     document.getElementById("vtForm")?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  document.getElementById("btnSignIn")?.addEventListener("click", () => {
-    toast("Sign in (demo)");
-  });
+  // Become a Tutor is a normal link to the tutor application page.
 
   // =============================
   // 3-step form logic
