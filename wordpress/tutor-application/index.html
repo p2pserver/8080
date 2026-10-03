@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BluTutor — Tutor Application</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../../index.html" aria-label="BluTutor home">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span><b>Blu</b>Tutor</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#subjects">Books</a>
+        <a href="../../index.html#how">How it Works</a>
+        <a class="active" href="./index.html">Become a Tutor</a>
+      </nav>
+      <a class="nav-cta" href="../../index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow">BLUTUTOR</p>
+          <h1>Become a Tutor</h1>
+          <p class="hero-copy">Share your information and join our community of tutors.<br>Help students learn, grow, and achieve their goals.</p>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="application-section">
+      <div class="container">
+        <form class="application-card" action="#" method="post">
+          <div class="form-header">
+            <div>
+              <p class="eyebrow">TUTOR APPLICATION</p>
+              <h2>Tell us about yourself</h2>
+              <p>Complete the application below. Required fields are marked with an asterisk.</p>
+            </div>
+            <div class="secure-badge"><i class="fa-solid fa-lock"></i> Secure application</div>
+          </div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span class="number">1</span>
+              <div><h3>Personal Information</h3><p>Basic information to get started.</p></div>
+            </div>
+            <div class="grid two">
+              <label>Full Name *<input type="text" name="name" placeholder="Your full name" required></label>
+              <label>Email Address *<input type="email" name="email" placeholder="you@example.com" required></label>
+              <label>Phone Number *<input type="tel" name="phone" placeholder="(123) 456-7890" required></label>
+              <label>Preferred Contact Method *
+                <select name="contact_method" required>
+                  <option value="">Select a method</option>
+                  <option>Email</option><option>Phone</option><option>Text</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span class="number">2</span>
+              <div><h3>Subjects You Can Tutor</h3><p>Select all that apply.</p></div>
+            </div>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="subjects[]" value="Math"><span>Math</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="Science"><span>Science</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="English"><span>English</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="History"><span>History</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="Computer Science"><span>Computer Science</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="Business"><span>Business</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="Test Prep"><span>Test Prep</span></label>
+              <label class="check"><input type="checkbox" name="subjects[]" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span class="number">3</span>
+              <div><h3>Grade Levels</h3><p>Select all that apply.</p></div>
+            </div>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="grades[]" value="Elementary"><span>Elementary</span></label>
+              <label class="check"><input type="checkbox" name="grades[]" value="Middle School"><span>Middle School</span></label>
+              <label class="check"><input type="checkbox" name="grades[]" value="High School"><span>High School</span></label>
+              <label class="check"><input type="checkbox" name="grades[]" value="College"><span>College</span></label>
+              <label class="check"><input type="checkbox" name="grades[]" value="Adult Professional"><span>Adult / Professional</span></label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span class="number">4</span>
+              <div><h3>Experience &amp; Qualifications</h3><p>Tell us about your background and experience.</p></div>
+            </div>
+            <div class="grid two">
+              <label>Years of Tutoring Experience *
+                <select name="experience" required>
+                  <option value="">Select experience level</option>
+                  <option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>6–10 years</option><option>10+ years</option>
+                </select>
+              </label>
+              <label>Highest Level of Education *
+                <select name="education" required>
+                  <option value="">Select education level</option>
+                  <option>High School</option><option>Associate Degree</option><option>Bachelor's Degree</option><option>Master's Degree</option><option>Doctorate</option><option>Other</option>
+                </select>
+              </label>
+            </div>
+            <label>Qualifications / Education *
+              <input type="text" name="qualifications" placeholder="Degrees, certifications, licenses, or relevant credentials" required>
+            </label>
+            <label>Tutoring Experience *
+              <textarea name="experience_details" maxlength="1000" placeholder="Share your education, tutoring experience, certifications, teaching background, or other relevant details." required></textarea>
+              <small>Maximum 1,000 characters</small>
+            </label>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span class="number">5</span>
+              <div><h3>Availability</h3><p>When are you typically available to tutor?</p></div>
+            </div>
+            <div class="check-grid compact">
+              <label class="check"><input type="checkbox" name="availability[]" value="Weekdays"><span>Weekdays</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Weekends"><span>Weekends</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Mornings"><span>Mornings</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Afternoons"><span>Afternoons</span></label>
+              <label class="check"><input type="checkbox" name="availability[]" value="Evenings"><span>Evenings</span></label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span class="number">6</span>
+              <div><h3>Preferred Session Rate</h3><p>What is your preferred hourly or session rate?</p></div>
+            </div>
+            <label>Preferred Rate (USD) *
+              <select name="rate" required>
+                <option value="">Select rate range</option>
+                <option>$15–$25 / hour</option><option>$26–$35 / hour</option><option>$36–$50 / hour</option><option>$51–$75 / hour</option><option>$76+ / hour</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-footer">
+            <label class="terms"><input type="checkbox" required><span>I agree to the BluTutor Terms of Service and Privacy Policy and confirm that the information provided is accurate.</span></label>
+            <button class="submit-btn" type="submit">Submit Application <i class="fa-solid fa-arrow-right"></i></button>
+            <p class="fine-print"><i class="fa-solid fa-shield-halved"></i> Your application will be reviewed before a tutor account is activated.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="../../index.html"><i class="fa-solid fa-graduation-cap"></i><span><b>Blu</b>Tutor</span></a>
+      <span>Online tutoring and academic support</span>
+      <a href="../../index.html">Back to BluTutor</a>
+    </div>
+  </footer>
+</body>
+</html>
