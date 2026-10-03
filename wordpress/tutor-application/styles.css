@@ -1,0 +1,101 @@
+:root{
+  --navy:#17233c;
+  --blue:#4f5be2;
+  --blue-2:#6843d7;
+  --cyan:#56d8ff;
+  --muted:#69758c;
+  --line:#dce2ed;
+  --soft:#f6f8fc;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--navy);background:var(--soft)}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.container{width:min(1160px,calc(100% - 32px));margin:0 auto}
+
+.site-header{background:#fff;border-bottom:1px solid #e8ebf2;position:sticky;top:0;z-index:20}
+.nav{min-height:72px;display:flex;align-items:center;gap:28px}
+.brand{display:inline-flex;align-items:center;gap:9px;font-size:22px;font-weight:800;letter-spacing:-.6px}
+.brand i{color:var(--blue);font-size:20px}
+.brand b{color:var(--blue)}
+.navlinks{display:flex;align-items:center;gap:24px;margin-left:auto;font-size:13px;font-weight:650;color:#526078}
+.navlinks a:hover,.navlinks .active{color:var(--blue)}
+.nav-cta{padding:10px 17px;border-radius:9px;background:var(--blue);color:#fff;font-size:13px;font-weight:750}
+
+.page-hero{background:linear-gradient(135deg,#eef3ff 0%,#f8fbff 52%,#f2edff 100%);border-bottom:1px solid #e6eaf3}
+.hero-inner{min-height:260px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.eyebrow{font-size:11px;letter-spacing:1.7px;font-weight:850;color:var(--blue);margin:0 0 9px}
+.page-hero h1{font-size:48px;line-height:1.05;letter-spacing:-1.8px;margin:0 0 12px}
+.hero-copy{color:var(--muted);font-size:16px;line-height:1.65;margin:0}
+.hero-mark{width:120px;height:120px;border-radius:30px;display:grid;place-items:center;background:linear-gradient(145deg,#5667ee,#6d45d5);color:#fff;box-shadow:0 18px 40px rgba(75,78,210,.2);transform:rotate(5deg)}
+.hero-mark i{font-size:48px;transform:rotate(-5deg)}
+
+.application-section{padding:42px 0 70px}
+.application-card{background:var(--card);border:1px solid #e1e6ef;border-radius:18px;box-shadow:0 18px 55px rgba(24,43,84,.10);overflow:hidden}
+.form-header{padding:34px 42px 30px;display:flex;align-items:flex-start;justify-content:space-between;gap:30px;background:#fff}
+.form-header h2{font-size:30px;letter-spacing:-1px;margin:0 0 7px}
+.form-header p:not(.eyebrow){margin:0;color:var(--muted);font-size:14px}
+.secure-badge{white-space:nowrap;background:#eef8f2;color:#26734a;border:1px solid #d4ecde;padding:9px 12px;border-radius:999px;font-size:11px;font-weight:750}
+.form-section{padding:30px 42px}
+.section-heading{display:flex;align-items:flex-start;gap:14px;margin-bottom:23px}
+.number{flex:0 0 34px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#edf0ff;color:#4b59dc;font-size:13px;font-weight:850}
+.section-heading h3{margin:1px 0 4px;font-size:18px;letter-spacing:-.2px}
+.section-heading p{margin:0;color:#7a8498;font-size:12px}
+.divider{height:1px;background:#edf0f5;margin:0 42px}
+.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-size:12px;font-weight:750;color:#26324a;margin-bottom:18px}
+input,select,textarea{display:block;width:100%;margin-top:7px;border:1px solid #d8deea;border-radius:9px;padding:12px 13px;background:#fff;color:var(--navy);outline:none;transition:border-color .18s,box-shadow .18s}
+input:focus,select:focus,textarea:focus{border-color:#6875e8;box-shadow:0 0 0 3px rgba(96,112,233,.11)}
+textarea{min-height:125px;resize:vertical;line-height:1.5}
+label small{display:block;color:#8a94a8;font-size:10px;font-weight:500;margin-top:5px}
+.check-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.check-grid.compact{grid-template-columns:repeat(5,1fr)}
+.check{display:flex;align-items:center;gap:9px;padding:12px;border:1px solid #e0e5ee;border-radius:9px;background:#fafbfe;margin:0;font-size:12px;font-weight:600;cursor:pointer}
+.check input{width:16px;height:16px;margin:0;accent-color:var(--blue)}
+.form-footer{padding:30px 42px 36px;background:#fbfcfe}
+.terms{display:flex;align-items:flex-start;gap:9px;font-size:12px;font-weight:500;line-height:1.5;margin-bottom:18px}
+.terms input{width:16px;height:16px;flex:0 0 16px;margin:1px 0 0;accent-color:var(--blue)}
+.submit-btn{width:100%;border:0;border-radius:10px;padding:15px 20px;background:linear-gradient(90deg,var(--blue),var(--blue-2));color:#fff;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(80,76,210,.20)}
+.submit-btn i{margin-left:8px}
+.fine-print{text-align:center;color:#8992a4;font-size:11px;margin:13px 0 0}
+.fine-print i{margin-right:4px;color:#4b9a6a}
+.footer{background:#fff;border-top:1px solid #e5e9f0}
+.footer-inner{min-height:76px;display:flex;align-items:center;gap:18px;color:#7a8498;font-size:11px}
+.footer-inner .brand{color:var(--navy);margin-right:auto}
+.footer-inner>a:last-child{color:var(--blue);font-weight:700}
+
+@media(max-width:850px){
+  .navlinks{display:none}
+  .hero-inner{min-height:220px}
+  .page-hero h1{font-size:40px}
+  .check-grid{grid-template-columns:repeat(2,1fr)}
+  .check-grid.compact{grid-template-columns:repeat(2,1fr)}
+  .form-header,.form-section{padding-left:26px;padding-right:26px}
+  .divider{margin:0 26px}
+  .form-footer{padding-left:26px;padding-right:26px}
+}
+@media(max-width:620px){
+  .container{width:min(100% - 24px,1160px)}
+  .site-header{position:static}
+  .nav{min-height:64px}
+  .nav-cta{margin-left:auto;padding:9px 12px}
+  .hero-inner{min-height:190px}
+  .hero-mark{display:none}
+  .page-hero h1{font-size:34px}
+  .hero-copy{font-size:14px}
+  .form-header{display:block;padding:26px 20px}
+  .secure-badge{display:inline-block;margin-top:17px}
+  .form-header h2{font-size:25px}
+  .form-section{padding:25px 20px}
+  .divider{margin:0 20px}
+  .grid.two{grid-template-columns:1fr;gap:0}
+  .check-grid,.check-grid.compact{grid-template-columns:1fr 1fr}
+  .form-footer{padding:25px 20px 30px}
+  .footer-inner{flex-wrap:wrap;padding:16px 0}
+  .footer-inner .brand{width:100%;margin-right:0}
+}
+@media(max-width:390px){
+  .check-grid,.check-grid.compact{grid-template-columns:1fr}
+}
