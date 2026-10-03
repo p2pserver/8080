@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BluTutor — Tutor Application</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#263bd4;
+      --blue2:#345de8;
+      --cyan:#48d8ff;
+      --navy:#13233f;
+      --text:#13233f;
+      --muted:#73819a;
+      --line:#dbe2ee;
+      --soft:#f7f9fd;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:#f2f5fa;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .page{min-height:100vh;padding:34px}
+    .application{
+      width:min(1320px,100%);
+      min-height:calc(100vh - 68px);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:42% 58%;
+      background:var(--white);
+      border-radius:4px;
+      overflow:hidden;
+      box-shadow:0 22px 70px rgba(19,35,63,.14);
+    }
+
+    /* LEFT PROMOTIONAL PANEL */
+    .promo{
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      padding:42px 48px;
+      background:
+        radial-gradient(circle at 80% 78%,rgba(82,220,255,.20),transparent 27%),
+        linear-gradient(145deg,#2938ca 0%,#263dd8 48%,#345fe9 100%);
+    }
+    .promo:after{
+      content:"";
+      position:absolute;
+      width:420px;height:420px;
+      right:-190px;bottom:-220px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 0 0 55px rgba(255,255,255,.035),0 0 0 110px rgba(255,255,255,.025);
+    }
+    .logo{
+      position:relative;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:-.7px;
+    }
+    .logo-mark{
+      width:19px;height:19px;
+      transform:rotate(45deg);
+      background:#fff;
+      border-radius:2px;
+    }
+    .promo-content{position:relative;z-index:1;max-width:500px;padding-top:74px}
+    .promo h1{
+      font-size:47px;
+      line-height:1.08;
+      letter-spacing:-2.1px;
+      margin:0 0 24px;
+      max-width:520px;
+    }
+    .promo h1 span{color:var(--cyan)}
+    .promo-lead{
+      color:rgba(255,255,255,.88);
+      font-size:17px;
+      line-height:1.7;
+      margin:0 0 42px;
+      max-width:470px;
+    }
+    .benefits{display:grid;gap:25px}
+    .benefit{display:flex;align-items:center;gap:18px}
+    .benefit-icon{
+      flex:0 0 55px;width:55px;height:55px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:20px;
+    }
+    .benefit strong{display:block;font-size:17px;line-height:1.1;font-weight:500}
+    .benefit small{display:block;margin-top:5px;color:rgba(255,255,255,.68);font-size:12px}
+
+    /* RIGHT APPLICATION */
+    .form-area{
+      padding:38px 55px 45px;
+      overflow:auto;
+      background:#fff;
+    }
+    .form-top{margin-bottom:25px}
+    .eyebrow{
+      margin:0 0 12px;
+      color:#5062ed;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+    .form-top h2{
+      margin:0 0 10px;
+      font-size:47px;
+      line-height:1.05;
+      letter-spacing:-2px;
+    }
+    .form-top p{margin:0;color:var(--muted);font-size:16px;line-height:1.5}
+    form{max-width:900px}
+    .field-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .field{margin-bottom:20px}
+    .field.full{grid-column:1/-1}
+    .field label,.group-title{
+      display:block;
+      margin:0 0 8px;
+      font-size:13px;
+      font-weight:700;
+      color:#13233f;
+    }
+    input,select,textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+      color:#13233f;
+      padding:14px 16px;
+      outline:0;
+      transition:.18s ease;
+    }
+    input::placeholder,textarea::placeholder{color:#8290a6}
+    input:focus,select:focus,textarea:focus{
+      border-color:#6877eb;
+      box-shadow:0 0 0 3px rgba(78,97,222,.10);
+    }
+    select{appearance:auto}
+    textarea{min-height:112px;resize:vertical}
+    .choice-wrap{margin-bottom:21px}
+    .choice-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .choice{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border:1px solid var(--line);
+      border-radius:9px;
+      background:#f9faff;
+      color:#20304d;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .choice input{
+      width:17px;height:17px;
+      padding:0;margin:0;
+      accent-color:#5263e7;
+    }
+    .section-line{
+      height:1px;
+      background:#eef1f6;
+      margin:1px 0 20px;
+    }
+    .form-actions{
+      padding-top:3px;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+    .submit{
+      border:0;
+      border-radius:10px;
+      padding:14px 22px;
+      color:#fff;
+      background:linear-gradient(90deg,#4a5ce1,#6349d9);
+      font-size:14px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 9px 20px rgba(73,80,205,.20);
+    }
+    .note{
+      color:#8a95a8;
+      font-size:11px;
+      line-height:1.5;
+    }
+    .success{
+      display:none;
+      margin-top:15px;
+      padding:12px 14px;
+      border-radius:9px;
+      background:#effaf3;
+      border:1px solid #cfead8;
+      color:#287348;
+      font-size:12px;
+      font-weight:600;
+    }
+
+    @media(max-width:1050px){
+      .page{padding:20px}
+      .application{grid-template-columns:38% 62%;min-height:calc(100vh - 40px)}
+      .promo{padding:34px}
+      .promo-content{padding-top:58px}
+      .promo h1{font-size:39px}
+      .form-area{padding:34px}
+      .form-top h2{font-size:39px}
+    }
+    @media(max-width:760px){
+      .page{padding:0}
+      .application{display:block;min-height:100vh;border-radius:0}
+      .promo{padding:28px 24px 35px}
+      .promo-content{padding-top:42px}
+      .promo h1{font-size:36px}
+      .promo-lead{font-size:15px;margin-bottom:30px}
+      .benefits{grid-template-columns:1fr 1fr;gap:18px}
+      .benefit{gap:10px}
+      .benefit-icon{width:43px;height:43px;flex-basis:43px;font-size:15px}
+      .benefit strong{font-size:13px}
+      .benefit small{display:none}
+      .form-area{padding:30px 22px 38px}
+      .form-top h2{font-size:34px}
+      .field-grid{grid-template-columns:1fr;gap:0}
+      .field.full{grid-column:auto}
+    }
+    @media(max-width:430px){
+      .benefits{grid-template-columns:1fr}
+      .promo h1{font-size:33px}
+      .form-top h2{font-size:30px}
+      .choice-list{display:grid;grid-template-columns:1fr 1fr}
+      .choice{width:100%}
+      .form-actions{display:block}
+      .submit{width:100%}
+      .note{text-align:center;margin-top:10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="application">
+      <aside class="promo">
+        <div class="logo"><span class="logo-mark"></span>BluTutor</div>
+        <div class="promo-content">
+          <h1>Make a Difference<br>Through <span>Tutoring</span></h1>
+          <p class="promo-lead">Share your knowledge, inspire students, and get paid for what you love.</p>
+          <div class="benefits">
+            <div class="benefit">
+              <div class="benefit-icon">◉</div>
+              <div><strong>Flexible<br>Schedule</strong></div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">□</div>
+              <div><strong>Teach What<br>You Know</strong></div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">◇</div>
+              <div><strong>Make a Real<br>Impact</strong></div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">$</div>
+              <div><strong>Earn on<br>Your Terms</strong></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="form-area">
+        <div class="form-top">
+          <p class="eyebrow">BECOME A TUTOR</p>
+          <h2>Tutor Application</h2>
+          <p>Tell us about yourself and your tutoring experience.</p>
+        </div>
+
+        <form id="tutorApplication" action="#" method="post">
+          <div class="field-grid">
+            <div class="field">
+              <label for="fullName">Full Name *</label>
+              <input id="fullName" name="full_name" type="text" placeholder="Enter your full name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email Address *</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" required>
+            </div>
+            <div class="field">
+              <label for="contact">Preferred Contact Method *</label>
+              <select id="contact" name="contact_method" required>
+                <option value="">Select contact method</option>
+                <option>Email</option>
+                <option>Phone</option>
+                <option>Text</option>
+              </select>
+            </div>
+
+            <div class="field full choice-wrap">
+              <span class="group-title">Subjects You Can Tutor *</span>
+              <div class="choice-list">
+                <label class="choice"><input type="checkbox" name="subjects[]" value="Math">Math</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="Science">Science</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="English">English</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="History">History</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="Computer Science">Computer Science</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="Business">Business</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="Test Prep">Test Prep</label>
+                <label class="choice"><input type="checkbox" name="subjects[]" value="Other">Other</label>
+              </div>
+            </div>
+
+            <div class="field choice-wrap">
+              <span class="group-title">Grade Levels *</span>
+              <div class="choice-list">
+                <label class="choice"><input type="checkbox" name="grades[]" value="Elementary">Elementary</label>
+                <label class="choice"><input type="checkbox" name="grades[]" value="Middle School">Middle School</label>
+                <label class="choice"><input type="checkbox" name="grades[]" value="High School">High School</label>
+                <label class="choice"><input type="checkbox" name="grades[]" value="College">College</label>
+                <label class="choice"><input type="checkbox" name="grades[]" value="Adult / Professional">Adult / Professional</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="availability">Availability *</label>
+              <select id="availability" name="availability" required>
+                <option value="">Select your availability</option>
+                <option>Weekdays</option>
+                <option>Weekends</option>
+                <option>Weekdays & Weekends</option>
+                <option>Mornings</option>
+                <option>Afternoons</option>
+                <option>Evenings</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="experience">Tutoring Experience *</label>
+              <select id="experience" name="experience" required>
+                <option value="">Select experience level</option>
+                <option>Less than 1 year</option>
+                <option>1–2 years</option>
+                <option>3–5 years</option>
+                <option>6–10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="rate">Preferred Session Rate *</label>
+              <select id="rate" name="rate" required>
+                <option value="">Select rate range</option>
+                <option>$15–$25 / hour</option>
+                <option>$26–$35 / hour</option>
+                <option>$36–$50 / hour</option>
+                <option>$51–$75 / hour</option>
+                <option>$76+ / hour</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="qualifications">Qualifications / Education *</label>
+              <input id="qualifications" name="qualifications" type="text" placeholder="Degree, certifications, licenses, or relevant credentials" required>
+            </div>
+
+            <div class="field full">
+              <label for="details">Tutoring Experience & Additional Information *</label>
+              <textarea id="details" name="details" placeholder="Tell us about your tutoring experience, education, teaching approach, or anything else you'd like us to know." required></textarea>
+            </div>
+
+            <div class="field full">
+              <label class="choice" style="width:max-content">
+                <input type="checkbox" id="terms" required>
+                I agree to the BluTutor Terms of Service and Privacy Policy.
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="submit" type="submit">Submit Application →</button>
+            <div class="note">Your information is used only to review your tutor application.</div>
+          </div>
+          <div class="success" id="success">Application form completed successfully. The next step is connecting this page to the WordPress tutor-application workflow.</div>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("tutorApplication").addEventListener("submit", function(e){
+      e.preventDefault();
+      document.getElementById("success").style.display = "block";
+      document.getElementById("success").scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  </script>
+</body>
+</html>
