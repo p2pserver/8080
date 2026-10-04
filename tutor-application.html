@@ -103,13 +103,39 @@
       cursor:pointer;
     }
     .google-btn:hover{background:#fafcff}
+
     .google-icon{
+      width:32px;
+      height:32px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       font-family:Arial,sans-serif;
-      font-size:39px;
-      line-height:1;
+      font-size:0;
       font-weight:700;
-      color:#4285f4;
+      line-height:1;
+      color:transparent;
+      position:relative;
     }
+    .google-icon:before{
+      content:"G";
+      font-family:Arial,sans-serif;
+      font-size:32px;
+      font-weight:700;
+      line-height:1;
+      background:conic-gradient(
+        from -45deg,
+        #4285f4 0deg 72deg,
+        #34a853 72deg 150deg,
+        #fbbc05 150deg 222deg,
+        #ea4335 222deg 306deg,
+        #4285f4 306deg 360deg
+      );
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
     .or-divider{
       width:100%;
       margin:52px auto 46px;
