@@ -43,21 +43,20 @@
     }
 
 
+
     [hidden]{display:none!important}
     .access-layer{
       min-height:100vh;
       padding:46px 28px 70px;
-      background:
-        radial-gradient(circle at 10% 0%,rgba(79,112,236,.13),transparent 28%),
-        linear-gradient(180deg,#e9f0ff 0%,#f6f8fc 54%,#fbfcfe 100%);
-      color:#102b61;
+      background:linear-gradient(180deg,#e8efff 0%,#f5f8fc 58%,#fbfcfe 100%);
+      color:#102d63;
     }
     .access-brand{
       width:min(1390px,100%);
       margin:0 auto;
       display:flex;
       align-items:center;
-      gap:11px;
+      gap:10px;
       color:#3658a7;
       font-size:28px;
       font-weight:600;
@@ -67,7 +66,7 @@
       width:25px;height:25px;
       border-radius:50%;
       border:7px solid #3f61af;
-      border-left-color:#61d6ec;
+      border-left-color:#62d8ed;
       position:relative;
       transform:rotate(-25deg);
     }
@@ -76,19 +75,19 @@
       position:absolute;
       width:8px;height:8px;
       border-radius:50%;
-      background:#ff6c61;
+      background:#ff6b61;
       left:5px;top:3px;
     }
     .access-card{
-      width:min(865px,100%);
+      width:min(750px,100%);
       margin:72px auto 0;
-      background:rgba(255,255,255,.93);
+      background:rgba(255,255,255,.96);
       border:1px solid #ccd7e8;
       border-radius:20px;
       box-shadow:0 18px 55px rgba(37,62,109,.08);
     }
     .access-inner{
-      width:min(680px,calc(100% - 64px));
+      width:min(480px,calc(100% - 48px));
       margin:0 auto;
       padding:39px 0 34px;
       text-align:left;
@@ -100,16 +99,18 @@
       letter-spacing:-1.3px;
       font-weight:500;
       color:#0d2d65;
+      white-space:nowrap;
     }
     .access-subtitle{
       margin:0 0 34px;
       color:#153875;
       font-size:17px;
       line-height:1.45;
+      white-space:nowrap;
     }
     .google-btn{
-      width:64%;
-      min-width:360px;
+      width:360px;
+      max-width:100%;
       margin:0 auto;
       display:flex;
       justify-content:center;
@@ -131,8 +132,8 @@
       color:#4285f4;
     }
     .or-divider{
-      width:64%;
-      min-width:360px;
+      width:360px;
+      max-width:100%;
       margin:31px auto 29px;
       display:flex;
       align-items:center;
@@ -142,7 +143,11 @@
     }
     .or-divider span{height:1px;background:#cdd6e5;flex:1}
     .or-divider b{font-weight:500}
-    .access-form{width:64%;min-width:360px;margin:0 auto}
+    .access-form{
+      width:360px;
+      max-width:100%;
+      margin:0 auto;
+    }
     .access-form input{
       width:100%;
       height:54px;
@@ -172,7 +177,8 @@
     .code-btn:hover{text-decoration:underline}
     .access-terms{
       margin:40px auto 0;
-      max-width:650px;
+      width:620px;
+      max-width:100%;
       color:#173b77;
       font-size:13px;
       line-height:2.05;
@@ -186,20 +192,14 @@
     .application-page{display:none}
     .application-page.is-visible{display:block}
     .access-layer.is-hidden{display:none}
-    .access-error{
-      color:#b42318;
-      text-align:center;
-      font-size:12px;
-      margin:12px 0 0;
-    }
     @media(max-width:760px){
       .access-layer{padding:28px 16px 45px}
       .access-brand{font-size:23px}
       .access-card{margin-top:48px}
       .access-inner{width:calc(100% - 38px);padding:30px 0}
-      .access-inner h1{font-size:30px}
-      .access-subtitle{font-size:15px}
-      .google-btn,.or-divider,.access-form{width:100%;min-width:0}
+      .access-inner h1{font-size:30px;white-space:normal}
+      .access-subtitle{font-size:15px;white-space:normal}
+      .google-btn,.or-divider,.access-form{width:100%;max-width:none}
       .access-terms{font-size:11px;line-height:1.8}
     }
 
