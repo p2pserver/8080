@@ -42,6 +42,167 @@
       box-shadow:0 22px 70px rgba(19,35,63,.14);
     }
 
+
+    [hidden]{display:none!important}
+    .access-layer{
+      min-height:100vh;
+      padding:46px 28px 70px;
+      background:
+        radial-gradient(circle at 10% 0%,rgba(79,112,236,.13),transparent 28%),
+        linear-gradient(180deg,#e9f0ff 0%,#f6f8fc 54%,#fbfcfe 100%);
+      color:#102b61;
+    }
+    .access-brand{
+      width:min(1390px,100%);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      color:#3658a7;
+      font-size:28px;
+      font-weight:600;
+      letter-spacing:-.7px;
+    }
+    .access-brand-mark{
+      width:25px;height:25px;
+      border-radius:50%;
+      border:7px solid #3f61af;
+      border-left-color:#61d6ec;
+      position:relative;
+      transform:rotate(-25deg);
+    }
+    .access-brand-mark:after{
+      content:"";
+      position:absolute;
+      width:8px;height:8px;
+      border-radius:50%;
+      background:#ff6c61;
+      left:5px;top:3px;
+    }
+    .access-card{
+      width:min(865px,100%);
+      margin:72px auto 0;
+      background:rgba(255,255,255,.93);
+      border:1px solid #ccd7e8;
+      border-radius:20px;
+      box-shadow:0 18px 55px rgba(37,62,109,.08);
+    }
+    .access-inner{
+      width:min(680px,calc(100% - 64px));
+      margin:0 auto;
+      padding:39px 0 34px;
+      text-align:left;
+    }
+    .access-inner h1{
+      margin:0 0 9px;
+      font-size:37px;
+      line-height:1.15;
+      letter-spacing:-1.3px;
+      font-weight:500;
+      color:#0d2d65;
+    }
+    .access-subtitle{
+      margin:0 0 34px;
+      color:#153875;
+      font-size:17px;
+      line-height:1.45;
+    }
+    .google-btn{
+      width:64%;
+      min-width:360px;
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:13px;
+      height:52px;
+      border:1px solid #8190a9;
+      border-radius:28px;
+      background:#fff;
+      color:#102f61;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .google-btn:hover{background:#fafcff}
+    .google-icon{
+      font-family:Arial,sans-serif;
+      font-size:23px;
+      font-weight:700;
+      color:#4285f4;
+    }
+    .or-divider{
+      width:64%;
+      min-width:360px;
+      margin:31px auto 29px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#53627b;
+      font-size:14px;
+    }
+    .or-divider span{height:1px;background:#cdd6e5;flex:1}
+    .or-divider b{font-weight:500}
+    .access-form{width:64%;min-width:360px;margin:0 auto}
+    .access-form input{
+      width:100%;
+      height:54px;
+      margin:0;
+      border:1px solid #d2dce9;
+      border-radius:15px;
+      padding:0 17px;
+      color:#102d60;
+      font-size:17px;
+      outline:none;
+    }
+    .access-form input:focus{
+      border-color:#6b83d8;
+      box-shadow:0 0 0 3px rgba(72,103,205,.10);
+    }
+    .access-form input::placeholder{color:#647897;opacity:1}
+    .code-btn{
+      display:block;
+      margin:30px auto 0;
+      border:0;
+      background:transparent;
+      color:#063a35;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .code-btn:hover{text-decoration:underline}
+    .access-terms{
+      margin:40px auto 0;
+      max-width:650px;
+      color:#173b77;
+      font-size:13px;
+      line-height:2.05;
+      text-align:center;
+    }
+    .access-terms a{color:#3d64d4}
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+    .application-page{display:none}
+    .application-page.is-visible{display:block}
+    .access-layer.is-hidden{display:none}
+    .access-error{
+      color:#b42318;
+      text-align:center;
+      font-size:12px;
+      margin:12px 0 0;
+    }
+    @media(max-width:760px){
+      .access-layer{padding:28px 16px 45px}
+      .access-brand{font-size:23px}
+      .access-card{margin-top:48px}
+      .access-inner{width:calc(100% - 38px);padding:30px 0}
+      .access-inner h1{font-size:30px}
+      .access-subtitle{font-size:15px}
+      .google-btn,.or-divider,.access-form{width:100%;min-width:0}
+      .access-terms{font-size:11px;line-height:1.8}
+    }
+
     /* LEFT PROMOTIONAL PANEL */
     .promo{
       position:relative;
@@ -262,7 +423,43 @@
   </style>
 </head>
 <body>
-  <div class="page">
+
+  <div class="access-layer" id="accessLayer">
+    <div class="access-brand">
+      <span class="access-brand-mark"></span>
+      <span>BluTutor</span>
+    </div>
+
+    <div class="access-card">
+      <div class="access-inner">
+        <h1>Start your tutor application</h1>
+        <p class="access-subtitle">New here or coming back? Sign in and pick up where you left off.</p>
+
+        <button class="google-btn" id="googleContinue" type="button">
+          <span class="google-icon">G</span>
+          <span>Continue with Google</span>
+        </button>
+
+        <div class="or-divider"><span></span><b>or</b><span></span></div>
+
+        <form id="accessForm" class="access-form">
+          <label for="accessEmail">
+            <span class="sr-only">Email</span>
+            <input id="accessEmail" type="email" placeholder="Email *" autocomplete="email" required>
+          </label>
+          <button class="code-btn" type="submit">Email me a code</button>
+        </form>
+
+        <p class="access-terms">
+          By continuing, I confirm that I am 18 or older and agree to the
+          <a href="#" onclick="return false;">BluTutor Terms of Use</a> and
+          <a href="#" onclick="return false;">Privacy Policy</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page application-page" id="applicationPage">
     <div class="application">
       <aside class="promo">
         <div class="logo"><span class="logo-mark"></span>BluTutor</div>
@@ -413,6 +610,34 @@
   </div>
 
   <script>
+
+    const accessLayer = document.getElementById("accessLayer");
+    const applicationPage = document.getElementById("applicationPage");
+    const accessForm = document.getElementById("accessForm");
+    const accessEmail = document.getElementById("accessEmail");
+    const googleContinue = document.getElementById("googleContinue");
+
+    function openTutorApplication(){
+      accessLayer.classList.add("is-hidden");
+      applicationPage.classList.add("is-visible");
+      window.scrollTo({top:0,behavior:"smooth"});
+      const nameField = document.getElementById("fullName");
+      if(nameField) nameField.focus();
+    }
+
+    accessForm?.addEventListener("submit", function(e){
+      e.preventDefault();
+      if(!accessForm.checkValidity()){
+        accessForm.reportValidity();
+        return;
+      }
+      openTutorApplication();
+    });
+
+    googleContinue?.addEventListener("click", function(){
+      openTutorApplication();
+    });
+
     document.getElementById("tutorApplication").addEventListener("submit", function(e){
       e.preventDefault();
       document.getElementById("success").style.display = "block";
