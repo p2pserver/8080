@@ -45,162 +45,140 @@
 
 
     [hidden]{display:none!important}
+
     .access-layer{
       min-height:100vh;
-      padding:46px 28px 70px;
-      background:linear-gradient(180deg,#e8efff 0%,#f5f8fc 58%,#fbfcfe 100%);
-      color:#102d63;
-    }
-    .access-brand{
-      width:min(1390px,100%);
-      margin:0 auto;
+      padding:0 28px 84px;
+      background:
+        radial-gradient(circle at 50% 43%,rgba(255,255,255,.98) 0%,rgba(244,248,255,.92) 42%,rgba(229,237,252,.98) 100%);
+      color:#102b63;
       display:flex;
+      flex-direction:column;
       align-items:center;
-      gap:10px;
-      color:#3658a7;
-      font-size:28px;
-      font-weight:600;
-      letter-spacing:-.7px;
     }
-    .access-brand-mark{
-      width:25px;height:25px;
-      border-radius:50%;
-      border:7px solid #3f61af;
-      border-left-color:#62d8ed;
-      position:relative;
-      transform:rotate(-25deg);
-    }
-    .access-brand-mark:after{
-      content:"";
-      position:absolute;
-      width:8px;height:8px;
-      border-radius:50%;
-      background:#ff6b61;
-      left:5px;top:3px;
-    }
+    .access-brand{display:none}
     .access-card{
-      width:min(750px,100%);
-      margin:72px auto 0;
-      background:rgba(255,255,255,.96);
-      border:1px solid #ccd7e8;
-      border-radius:20px;
-      box-shadow:0 18px 55px rgba(37,62,109,.08);
+      width:min(905px,100%);
+      margin:132px auto 0;
+      background:rgba(255,255,255,.97);
+      border:0;
+      border-radius:30px;
+      box-shadow:0 20px 65px rgba(54,91,164,.16);
     }
     .access-inner{
-      width:min(480px,calc(100% - 48px));
+      width:min(775px,calc(100% - 100px));
       margin:0 auto;
-      padding:39px 0 34px;
+      padding:74px 0 58px;
       text-align:left;
     }
     .access-inner h1{
-      margin:0 0 9px;
-      font-size:37px;
-      line-height:1.15;
-      letter-spacing:-1.3px;
-      font-weight:500;
-      color:#0d2d65;
-      white-space:nowrap;
+      margin:0 0 25px;
+      font-size:54px;
+      line-height:1.08;
+      letter-spacing:-2.1px;
+      font-weight:800;
+      color:#102967;
     }
     .access-subtitle{
-      margin:0 0 34px;
-      color:#153875;
-      font-size:17px;
-      line-height:1.45;
-      white-space:nowrap;
+      margin:0 0 51px;
+      color:#536b98;
+      font-size:28px;
+      line-height:1.55;
+      letter-spacing:-.45px;
     }
     .google-btn{
-      width:360px;
-      max-width:100%;
-      margin:0 auto;
+      width:100%;
+      height:76px;
+      margin:0;
       display:flex;
       justify-content:center;
       align-items:center;
-      gap:13px;
-      height:52px;
-      border:1px solid #8190a9;
-      border-radius:28px;
+      gap:21px;
+      border:3px solid #d1dcef;
+      border-radius:39px;
       background:#fff;
-      color:#102f61;
-      font-size:16px;
+      color:#102967;
+      font-size:25px;
+      font-weight:700;
       cursor:pointer;
     }
     .google-btn:hover{background:#fafcff}
     .google-icon{
       font-family:Arial,sans-serif;
-      font-size:23px;
+      font-size:39px;
+      line-height:1;
       font-weight:700;
       color:#4285f4;
     }
     .or-divider{
-      width:360px;
-      max-width:100%;
-      margin:31px auto 29px;
+      width:100%;
+      margin:52px auto 46px;
       display:flex;
       align-items:center;
-      gap:12px;
-      color:#53627b;
-      font-size:14px;
+      gap:34px;
+      color:#5a6f9b;
+      font-size:22px;
     }
-    .or-divider span{height:1px;background:#cdd6e5;flex:1}
+    .or-divider span{height:2px;background:#dbe3f0;flex:1}
     .or-divider b{font-weight:500}
-    .access-form{
-      width:360px;
-      max-width:100%;
-      margin:0 auto;
-    }
+    .access-form{width:100%;margin:0 auto}
     .access-form input{
       width:100%;
-      height:54px;
+      height:76px;
       margin:0;
-      border:1px solid #d2dce9;
-      border-radius:15px;
-      padding:0 17px;
+      border:3px solid #d1dcef;
+      border-radius:22px;
+      padding:0 35px;
       color:#102d60;
-      font-size:17px;
+      font-size:25px;
       outline:none;
+      background:#fff;
     }
     .access-form input:focus{
-      border-color:#6b83d8;
-      box-shadow:0 0 0 3px rgba(72,103,205,.10);
+      border-color:#6d8de0;
+      box-shadow:0 0 0 4px rgba(72,103,205,.10);
     }
-    .access-form input::placeholder{color:#647897;opacity:1}
+    .access-form input::placeholder{color:#62779f;opacity:1}
     .code-btn{
-      display:block;
-      margin:30px auto 0;
+      width:100%;
+      height:78px;
+      margin:29px auto 0;
       border:0;
-      background:transparent;
-      color:#063a35;
-      font-size:16px;
-      font-weight:600;
+      border-radius:21px;
+      background:linear-gradient(135deg,#2459ed 0%,#2d58e7 100%);
+      color:#fff;
+      font-size:25px;
+      font-weight:800;
       cursor:pointer;
+      box-shadow:0 10px 24px rgba(38,86,230,.18);
     }
-    .code-btn:hover{text-decoration:underline}
+    .code-btn:hover{filter:brightness(.97)}
     .access-terms{
-      margin:40px auto 0;
-      width:620px;
-      max-width:100%;
-      color:#173b77;
-      font-size:13px;
-      line-height:2.05;
+      margin:45px auto 0;
+      width:100%;
+      max-width:760px;
+      color:#435b88;
+      font-size:20px;
+      line-height:1.65;
       text-align:center;
     }
-    .access-terms a{color:#3d64d4}
-    .sr-only{
-      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-    }
+    .access-terms a{color:#2460ed}
     .application-page{display:none}
     .application-page.is-visible{display:block}
     .access-layer.is-hidden{display:none}
     @media(max-width:760px){
-      .access-layer{padding:28px 16px 45px}
-      .access-brand{font-size:23px}
-      .access-card{margin-top:48px}
-      .access-inner{width:calc(100% - 38px);padding:30px 0}
-      .access-inner h1{font-size:30px;white-space:normal}
-      .access-subtitle{font-size:15px;white-space:normal}
-      .google-btn,.or-divider,.access-form{width:100%;max-width:none}
-      .access-terms{font-size:11px;line-height:1.8}
+      .access-layer{padding:0 16px 45px}
+      .access-card{margin-top:55px;border-radius:22px}
+      .access-inner{width:calc(100% - 38px);padding:38px 0 34px}
+      .access-inner h1{font-size:34px;letter-spacing:-1px;margin-bottom:15px}
+      .access-subtitle{font-size:17px;margin-bottom:31px}
+      .google-btn{height:58px;font-size:17px;gap:11px;border-width:2px}
+      .google-icon{font-size:27px}
+      .or-divider{margin:33px auto 28px;gap:16px;font-size:16px}
+      .or-divider span{height:1px}
+      .access-form input{height:58px;border-width:2px;border-radius:15px;padding:0 18px;font-size:17px}
+      .code-btn{height:60px;margin-top:18px;border-radius:15px;font-size:18px}
+      .access-terms{margin-top:28px;font-size:12px;line-height:1.7}
     }
 
     /* LEFT PROMOTIONAL PANEL */
