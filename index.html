@@ -5,372 +5,65 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title> 1 New Message </title>
-
-  <!-- Font Awesome -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personalized homework, textbook, and test-prep support from Blututor.">
+  <title>Blututor | Personalized Learning</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- ===================== NAV ===================== -->
-  <header class="site-header" id="top">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Accesstutors home">
-        <i class="fa-solid fa-graduation-cap"></i>
-        <span class="brand-name" style="color:black">Blututor</span>
-      </a>
-
-      <nav class="navlinks" aria-label="Primary navigation">
-        <a href="#top" class="active">Home</a>
-        <a href="#subjects">Books</a>
-        <a href="#how">How it Works</a>
-      </nav>
-
-      <div class="nav-cta">
-       <button class="btn ghost" id="btnDemo">
-          <i class="fa-solid fa-mobile-screen"></i> Live Demo
-        </button>
-        <a class="btn primary" id="btnSignIn" href="./tutor-application.html" target="_blank" rel="noopener noreferrer">Become a Tutor</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===================== HERO ===================== -->
-  <main class="hero" aria-label="Hero">
-    <div class="container hero-grid">
-      <!-- LEFT -->
-  <section class="hero-copy">
- <div class="hero-content-row">
-  <div class="hero-text">
-    <h1>
-      Human Expertise.<br />
-      <span class="accent">AI Intelligence.</span>
-      <br />Better Learning.
-    </h1>
-
-    <p>
-      Access top subject experts for personalized homework, textbook walkthroughs,
-      and testing support for learners of all grade levels—anytime, anywhere.
-    </p>
-
-    <div class="hero-actions">
-      <button class="btn primary" id="btnGetStarted" type="button">
-        Find Your Tutor
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>
+<header class="site-header"><div class="container nav-wrap">
+  <a class="brand" href="#home" aria-label="Blututor home"><span class="cap" aria-hidden="true">🎓</span><span>Blu<span class="brand-red">tutor</span></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">☰</button>
+  <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation"><a class="active" href="#home">Home</a><a href="#subjects">Books</a><a href="#how">How it Works</a></nav>
+  <div class="nav-actions"><a class="button button-light" href="#how" data-toast="Live demo preview coming soon.">▣ Live Demo</a><a class="button button-navy" href="#tutor" data-toast="Tutor applications are coming soon.">Become a Tutor</a></div>
+</div></header>
+<div class="toast" role="status" aria-live="polite"></div>
+<main id="primary">
+<section class="hero" id="home"><div class="container hero-grid">
+  <div class="hero-copy"><h1>Human Expertise.<br>AI Intelligence.<br><span>Better Learning.</span></h1>
+    <p class="intro">Access top subject experts for personalized homework, textbook walkthroughs, and testing support for learners of all grade levels—anytime. anywhere.</p>
+    <a class="button button-red button-large" href="#how">Find Your Tutor <b aria-hidden="true">→</b></a>
   </div>
-
-  <div class="media-callout" aria-label="Live online tutoring preview">
- <div
-  class="media-img"
-  role="img"
-  aria-label="Online tutor session preview"
-  style="background-image: url('assets/images/88fdd280-b891-4d82-8fd7-43b800741a9e.png');"
-></div>
+  <div class="hero-art"><img src="assets/images/hero-tutoring.jpg" alt="Student talking with a tutor during an online lesson"></div>
+</div></section>
+<section class="steps-section" id="how"><div class="container">
+  <div class="section-heading"><h2>Get Homework Help Anytime. Anywhere.</h2><p>Personalized help with homework, studies, and test prep—on your schedule.</p></div>
+  <div class="steps-grid">
+    <article class="step-card"><div class="step-top"><span class="step-icon" aria-hidden="true">⌕</span><span class="step-number">1</span></div><h3>Choose Your Subject</h3><p>Pick what you need help with, from 200+ subjects.</p></article>
+    <article class="step-card"><div class="step-top"><span class="step-icon" aria-hidden="true">♟</span><span class="step-number">2</span></div><h3>Get Matched</h3><p>We connect you with a qualified tutor in minutes.</p></article>
+    <article class="step-card"><div class="step-top"><span class="step-icon" aria-hidden="true">ϟ</span><span class="step-number">3</span></div><h3>Start Learning</h3><p>Chat, share files, or book a session — get help fast.</p></article>
   </div>
-</div>
-
-        <!-- 3 mini feature cards -->
-        <!-- <div class="feature-row" id="subjects" aria-label="Key benefits">
-          <div class="mini-card">
-            <div class="icon red"><i class="fa-solid fa-user-check"></i></div>
-            <h3>Expert Tutors</h3>
-            <p>Top-rated tutors ready to help anytime.</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon"><i class="fa-solid fa-clock"></i></div>
-            <h3>24/7 Homework Help</h3>
-            <p>Get instant support day or night.</p>
-          </div>
-          <div class="mini-card">
-            <div class="icon"><i class="fa-solid fa-books"></i></div>
-            <h3>All Subjects, All Ages</h3>
-            <p>Tutoring available in any subject, for any grade.</p>
-          </div>
-        </div> -->
-      </section>
-
-      <!-- RIGHT: Varsity-style form -->
-  <!-- Get Started Modal -->
-<div
-  class="vt-modal is-open"
-  id="vtModal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="vtModalTitle"
-  aria-hidden="false"
->
-  <div class="vt-modal-backdrop" data-vt-close></div>
-
-  <div class="vt-modal-panel">
-    <aside class="hero-right" aria-label="Get Started form">
-      <div class="vt-form" id="vtForm">
-        <div class="vt-card">
-          <div class="vt-topbar">
-            <div class="vt-title" id="vtModalTitle">
-              Get Started in <b>60 Seconds</b>
-            </div>
-
-            <button
-              class="vt-close"
-              id="vtClose"
-              type="button"
-              aria-label="Close get started form"
-              data-vt-close
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-
-          <div class="vt-body">
-            <div class="vt-steprow">
-              <div class="vt-steptext">
-                <span class="vt-step">
-                  Step <b id="vtStepNum">1</b> of <b>3</b>
-                </span>
-
-                <span class="vt-stepbadge" id="vtStepBadge">Grade</span>
-              </div>
-
-              <div
-                class="vt-progress"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="33"
-              >
-                <div
-                  class="vt-progress-fill"
-                  id="vtProgressFill"
-                  style="width:33%"
-                ></div>
-
-                <div
-                  class="vt-progress-dot"
-                  id="vtProgressDot"
-                  style="left:33%"
-                ></div>
-              </div>
-            </div>
-
-            <h3 class="vt-h3" id="vtHeading">Select Grade Level</h3>
-
-            <p class="vt-sub" id="vtSub">
-              Choose your grade level so we can match you with the best tutor.
-            </p>
-
-            <!-- Step 1 -->
-            <div class="vt-grid" id="vtStep1" data-step="1">
-              <button class="vt-choice" type="button" data-value="Elementary School">
-                <span>Elementary School</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="College / University">
-                <span>College / University</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="Middle School">
-                <span>Middle School</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="Graduate School">
-                <span>Graduate School</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="High School">
-                <span>High School</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="Professional">
-                <span>Professional</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice vt-wide" type="button" data-value="SAT / ACT">
-                <span>SAT / ACT</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="vt-grid vt-hidden" id="vtStep2" data-step="2">
-              <button class="vt-choice" type="button" data-value="Math">
-                <span>Math</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="Science">
-                <span>Science</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="English / Writing">
-                <span>English / Writing</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="History / Social Studies">
-                <span>History / Social Studies</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="Foreign Language">
-                <span>Foreign Language</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice" type="button" data-value="Computer Science">
-                <span>Computer Science</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-
-              <button class="vt-choice vt-wide" type="button" data-value="Test Prep">
-                <span>Test Prep</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="vt-hidden" id="vtStep3" data-step="3">
-              <div class="vt-fields">
-                <label class="vt-label">
-                  <span>Name</span>
-                  <input
-                    class="vt-input"
-                    id="vtName"
-                    type="text"
-                    placeholder="Your name"
-                    autocomplete="name"
-                  />
-                </label>
-
-                <label class="vt-label">
-                  <span>Email</span>
-                  <input
-                    class="vt-input"
-                    id="vtEmail"
-                    type="email"
-                    placeholder="you@email.com"
-                    autocomplete="email"
-                  />
-                </label>
-
-                <label class="vt-label">
-                  <span>Phone (optional)</span>
-                  <input
-                    class="vt-input"
-                    id="vtPhone"
-                    type="tel"
-                    placeholder="(555) 555-5555"
-                    autocomplete="tel"
-                  />
-                </label>
-              </div>
-
-              <div class="vt-summary" id="vtSummary" aria-live="polite"></div>
-            </div>
-
-            <div class="vt-actions">
-              <button class="vt-back" id="vtBack" type="button" disabled>
-                <i class="fa-solid fa-arrow-left"></i>
-                Back
-              </button>
-
-              <button class="vt-continue" id="vtContinue" type="button">
-                Continue
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-
-            <div class="vt-note" id="vtNote">
-              Free • No credit card required
-            </div>
-          </div>
-        </div>
-      </div>
-    </aside>
+</div></section>
+<section class="support-section" id="subjects"><div class="container support-card">
+  <div class="student-photo"><img src="assets/images/student-studying.jpg" alt="Student completing homework at a laptop"></div>
+  <div class="support-copy"><h2>Support for<br>Every Learner</h2><p>Whether it’s homework, test prep, or mastering a tough concept, Blututor is here to help.</p>
+    <ul><li><span class="check">✓</span>Homework Help</li><li><span class="check">✓</span>Test Preparation</li><li><span class="check">✓</span>1:1 or Small Group Sessions</li><li><span class="check">✓</span>Support for All Grade Levels</li></ul>
   </div>
-</div>
-  </main>
-
-  <!-- ===================== MID SECTION (Background uses 3rd image) ===================== -->
-  <section class="mid" id="how" aria-label="How it works"
-           style="--mid-bg:url('IMG_0839.png');">
-    <div class="container mid-inner">
-      <div class="mid-head">
-        <h2>Get Homework Help Anytime, Anywhere</h2>
-        <p>Personalized help with homework, studies, and test prep—on your schedule.</p>
-      </div>
-
-      <div class="mid-cards">
-        <article class="how-card">
-          <div class="how-ic"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <h3>Pick Your Subject</h3>
-          <p>Math, science, English, SAT prep, and more—choose what you need right now.</p>
-        </article>
-
-        <article class="how-card">
-          <div class="how-ic"><i class="fa-solid fa-user-group"></i></div>
-          <h3>Match with Your Tutor</h3>
-          <p>We match you with vetted tutors based on level, topic, and availability.</p>
-        </article>
-
-        <article class="how-card">
-          <div class="how-ic"><i class="fa-solid fa-bolt"></i></div>
-          <h3>Start Learning Fast</h3>
-          <p>Chat, upload problems, or book a session—get help in minutes.</p>
-        </article>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars" aria-hidden="true">★★★★★</div>
-        <div class="quote">
-          <p>“Blututor is a lifesaver. My son gets immediate help with his homework and test prep, no matter the hour.”</p>
-          <small>— Mark S, Parent</small>
-        </div>
-      </div>
-
-      <!-- Trusted by logos -->
-      <div class="trusted" aria-label="Trusted by">
-        <div class="trusted-title">Trusted by</div>
-        <div class="trusted-logos">
-          <span class="logo-pill">Kaplan</span>
-          <span class="logo-pill">The Princeton Review</span>
-          <span class="logo-pill">McGraw Hill</span>
-          <span class="logo-pill">Pearson</span>
-          <span class="logo-pill">Barron’s</span>
-          <span class="logo-pill">ETS</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== BOTTOM STRIP ===================== -->
-  <section class="bottom-strip" aria-label="Bottom highlights">
-    <div class="container bottom-grid">
-      <div class="bitem"><i class="fa-solid fa-book"></i><div><strong>200+ Subjects</strong><span>All grades</span></div></div>
-      <div class="bitem"><i class="fa-solid fa-stopwatch"></i><div><strong>Fast Matching</strong><span>Minutes</span></div></div>
-      <div class="bitem"><i class="fa-solid fa-shield"></i><div><strong>Secure & Safe</strong><span>Private</span></div></div>
-      <div class="bitem"><i class="fa-solid fa-tags"></i><div><strong>Affordable Plans</strong><span>Flexible</span></div></div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      © <span id="year"></span> WordPress • Online homework, textbook, and test support • 24/7
-    </div>
-  </footer>
+</div></section>
+<section class="parents-section"><div class="container">
+  <div class="section-heading"><h2>Trusted by Parents</h2><p>Real stories. Real progress.</p></div>
+  <div class="quote-wrap"><button class="round-arrow" type="button" aria-label="Previous testimonial">‹</button>
+    <div class="quote-card"><img src="assets/images/parent-testimonial.jpg" alt="Parent testimonial portrait"><blockquote>“Blututor has been a game-changer for our family. My daughter’s grades have improved, and she actually looks forward to homework now!”<cite>— Jessica L., Parent</cite></blockquote><div class="stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+    <button class="round-arrow" type="button" aria-label="Next testimonial">›</button>
+  </div>
+  <div class="partner-logos" aria-label="Education brand examples"><span>Kaplan</span><span class="princeton">The Princeton<br>Review®</span><span class="mcgraw">McGraw Hill</span><span class="pearson">Ⓟ Pearson</span><span class="barrons">BARRON’S</span><span class="ets">ETS®</span></div>
+</div></section>
+<section class="benefits" aria-label="Blututor benefits"><div class="container benefit-grid">
+  <div class="benefit"><span class="benefit-icon" aria-hidden="true">◧</span><p><strong>200+ Subjects</strong><small>All grades</small></p></div>
+  <div class="benefit"><span class="benefit-icon" aria-hidden="true">◴</span><p><strong>Fast Matching</strong><small>Minutes</small></p></div>
+  <div class="benefit"><span class="benefit-icon" aria-hidden="true">⬟</span><p><strong>Secure &amp; Safe</strong><small>Private</small></p></div>
+  <div class="benefit"><span class="benefit-icon" aria-hidden="true">◆</span><p><strong>Affordable Plans</strong><small>Flexible</small></p></div>
+</div></section>
+</main>
+<footer class="site-footer" id="tutor"><div class="container footer-grid">
+  <div class="footer-brand"><a class="brand" href="#home"><span class="cap" aria-hidden="true">🎓</span><span>Blu<span class="brand-red">tutor</span></span></a><p>Online homework, textbook, and test support • 24/7<br>Helping learners succeed, one question at a time.</p></div>
+  <div class="footer-col"><h3>Quick Links</h3><a href="#home">Home</a><a href="#subjects">Books</a><a href="#how">How it Works</a><a href="#tutor" data-toast="Tutor applications are coming soon.">Become a Tutor</a></div>
+  <div class="footer-col"><h3>Support</h3><a href="#support" data-toast="Help center coming soon.">Help Center</a><a href="mailto:hello@blututor.com">Contact Us</a><a href="#how">FAQ</a><a href="#privacy">Privacy Policy</a></div>
+  <div class="footer-col"><h3>Connect</h3><div class="social-row"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Twitter">♥</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">▶</a></div></div>
+</div><div class="container footer-bottom"><span>© <span id="year"></span> Blututor • All rights reserved.</span><nav aria-label="Legal links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#accessibility">Accessibility</a></nav></div></footer>
+<script src="script.js" defer></script>
+</body></html>
 
   <script>
     /* =========================
