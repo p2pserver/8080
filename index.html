@@ -69,50 +69,78 @@
     /* =========================
   script.js
 ========================= */
-(() => {
-  // Year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Small toast helper
-  function toast(text){
-    let t = document.getElementById("toast");
-    if(!t){
-      t = document.createElement("div");
-      t.id = "toast";
-      t.style.position = "fixed";
-      t.style.left = "50%";
-      t.style.bottom = "18px";
-      t.style.transform = "translateX(-50%)";
-      t.style.background = "rgba(15,23,42,.92)";
-      t.style.color = "#fff";
-      t.style.padding = "10px 12px";
-      t.style.borderRadius = "14px";
-      t.style.fontWeight = "900";
-      t.style.fontSize = "13px";
-      t.style.boxShadow = "0 18px 40px rgba(2,6,23,.28)";
-      t.style.zIndex = "9999";
-      t.style.maxWidth = "min(640px, calc(100% - 24px))";
-      t.style.textAlign = "center";
-      t.style.opacity = "0";
-      t.style.transition = "opacity .15s ease, transform .15s ease";
-      document.body.appendChild(t);
-    }
-    t.textContent = text;
-    t.style.opacity = "1";
-    t.style.transform = "translateX(-50%) translateY(0)";
-    clearTimeout(t._t);
-    t._t = setTimeout(() => {
-      t.style.opacity = "0";
-      t.style.transform = "translateX(-50%) translateY(6px)";
-    }, 1600);
+    (() => {
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#primary-nav');
+  const toast = document.querySelector('.toast');
+  if (menuButton && nav) {
+    menuButton.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
   }
+  const year = document.querySelector('#year');
+  if (year) year.textContent = new Date().getFullYear();
+  let timer;
+  document.querySelectorAll('[data-toast]').forEach(el => el.addEventListener('click', event => {
+    event.preventDefault();
+    if (!toast) return;
+    toast.textContent = el.dataset.toast;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.classList.remove('show'), 2800);
+  }));
+})();
+})()
+// (() => {
+//   // Year
+//   const yearEl = document.getElementById("year");
+//   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Nav CTA buttons
-  document.getElementById("btnDemo")?.addEventListener("click", () => {
-    toast("Live Demo (mock) — try the Get Started form →");
-    document.getElementById("vtForm")?.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
+//   // Small toast helper
+//   function toast(text){
+//     let t = document.getElementById("toast");
+//     if(!t){
+//       t = document.createElement("div");
+//       t.id = "toast";
+//       t.style.position = "fixed";
+//       t.style.left = "50%";
+//       t.style.bottom = "18px";
+//       t.style.transform = "translateX(-50%)";
+//       t.style.background = "rgba(15,23,42,.92)";
+//       t.style.color = "#fff";
+//       t.style.padding = "10px 12px";
+//       t.style.borderRadius = "14px";
+//       t.style.fontWeight = "900";
+//       t.style.fontSize = "13px";
+//       t.style.boxShadow = "0 18px 40px rgba(2,6,23,.28)";
+//       t.style.zIndex = "9999";
+//       t.style.maxWidth = "min(640px, calc(100% - 24px))";
+//       t.style.textAlign = "center";
+//       t.style.opacity = "0";
+//       t.style.transition = "opacity .15s ease, transform .15s ease";
+//       document.body.appendChild(t);
+//     }
+//     t.textContent = text;
+//     t.style.opacity = "1";
+//     t.style.transform = "translateX(-50%) translateY(0)";
+//     clearTimeout(t._t);
+//     t._t = setTimeout(() => {
+//       t.style.opacity = "0";
+//       t.style.transform = "translateX(-50%) translateY(6px)";
+//     }, 1600);
+//   }
+
+// // Nav CTA buttons
+//   document.getElementById("btnDemo")?.addEventListener("click", () => {
+//     toast("Live Demo (mock) — try the Get Started form →");
+//     document.getElementById("vtForm")?.scrollIntoView({ behavior: "smooth", block: "center" });
+//   });
 
   // Become a Tutor is a normal link to the tutor application page.
 
@@ -377,36 +405,9 @@
   //   clearTimeout(timer);
   //   timer = setTimeout(() => toast.classList.remove('show'), 2800);
   // }));
-  (() => {
-  const menuButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('#primary-nav');
-  const toast = document.querySelector('.toast');
-  if (menuButton && nav) {
-    menuButton.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuButton.setAttribute('aria-expanded', 'false');
-    }));
-  }
-  const year = document.querySelector('#year');
-  if (year) year.textContent = new Date().getFullYear();
-  let timer;
-  document.querySelectorAll('[data-toast]').forEach(el => el.addEventListener('click', event => {
-    event.preventDefault();
-    if (!toast) return;
-    toast.textContent = el.dataset.toast;
-    toast.classList.add('show');
-    clearTimeout(timer);
-    timer = setTimeout(() => toast.classList.remove('show'), 2800);
-  }));
-})();
-})()
-  });
-})();
+  
+//   });
+// })();
 
 
 
