@@ -1,80 +1,318 @@
-<!-- =========================
-  index.html
-  (Put this in the same folder as styles.css + script.js + your images)
-========================= -->
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Personalized homework, textbook, and test-prep support from Blututor.">
-  <title>1 New Message | Tutor online </title>
+  <title>Blututor | Online Tutoring</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<header class="site-header"><div class="container nav-wrap">
-   <!-- Torch brand logo -->
-    <a class="brand" href="#home" aria-label="Blututor home">
-      <img src="assets/images/blututor-torch-logo.png"alt="Blututor torch logo"class="brand-logo">
-    </a>
-  <a class="brand" href="#home" aria-label="Blututor home"><span class="cap" aria-hidden="true"></span><span>Blu<span class="brand-navy"></span></span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">☰</button>
-  <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation"><a class="active" href="#home">Home</a><a href="#subjects">Books</a><a href="#how">How it Works</a></nav>
-  <div class="nav-actions"><a class="button button-light" href="#how" data-toast="Live demo preview coming soon.">▣ Live Demo</a><a class="button button-navy" href="#tutor" data-toast="Tutor applications are coming soon.">Become a Tutor</a></div>
-</div></header>
-<div class="toast" role="status" aria-live="polite"></div>
-<main id="primary">
-<section class="hero" id="home"><div class="container hero-grid">
-  <div class="hero-copy"><h1>Human Expertise.<br>AI Intelligence.<br><span style="color:navy">Better Results.</span></h1>
-    <p class="intro">Access top subject experts for personalized homework, textbook walkthroughs, and testing support for learners of all grade levels—anytime. anywhere.</p>
-    <a class="button button-red button-large" href="#how">Find Your Tutor <b aria-hidden="true">→</b></a>
-  </div>
-  <div class="hero-art"><img src="Nov-25-Ways-to-Build-Community-in-a-Virtual-Early-Childhood-Classroom_web-768x512.jpg" alt="Student talking with a tutor during an online lesson"></div>
-</div></section>
-<section class="steps-section" id="how"><div class="container">
-  <div class="section-heading"><h2>Get Homework Help Anytime. Anywhere.</h2><p>Personalized help with homework, studies, and test prep—on your schedule.</p></div>
-  <div class="steps-grid">
-    <article class="step-card"><div class="step-top"><span class="step-icon" aria-hidden="true">⌕</span><span class="step-number">1</span></div><h3>Choose Your Subject</h3><p>Pick what you need help with, from 200+ subjects.</p></article>
-    <article class="step-card"><div class="step-top"><span class="step-icon" aria-hidden="true">♟</span><span class="step-number">2</span></div><h3>Get Matched</h3><p>We connect you with a qualified tutor in minutes.</p></article>
-    <article class="step-card"><div class="step-top"><span class="step-icon" aria-hidden="true">ϟ</span><span class="step-number">3</span></div><h3>Start Learning</h3><p>Chat, share files, or book a session — get help fast.</p></article>
-  </div>
-</div></section>
-<section class="support-section" id="subjects"><div class="container support-card">
-  <div class="student-photo"><img src="student-studying.jpg" alt="Student completing homework at a laptop"></div>
-  <div class="support-copy"><h2>Support for<br>Every Learner</h2><p>Whether it’s homework, test prep, or mastering a tough concept, Blututor is here to help.</p>
-    <ul><li><span class="check">✓</span>Homework Help</li><li><span class="check">✓</span>Test Preparation</li><li><span class="check">✓</span>1:1 or Small Group Sessions</li><li><span class="check">✓</span>Support for All Grade Levels</li></ul>
-  </div>
-</div></section>
-<section class="parents-section"><div class="container">
-  <div class="section-heading"><h2>Trusted by Parents</h2><p>Real stories. Real progress.</p></div>
-  <div class="quote-wrap"><button class="round-arrow" type="button" aria-label="Previous testimonial">‹</button>
-    <div class="quote-card"><img src="parent-testimonial.jpg" alt="Parent testimonial portrait"><blockquote>“Blututor has been a game-changer for our family. My daughter’s grades have improved, and she actually looks forward to homework now!”<cite>— Jessica L., Parent</cite></blockquote><div class="stars" aria-label="5 out of 5 stars">★★★★★</div></div>
-    <button class="round-arrow" type="button" aria-label="Next testimonial">›</button>
-  </div>
-  <div class="partner-logos" aria-label="Education brand examples"><span>Kaplan</span><span class="princeton">The Princeton<br>Review®</span><span class="mcgraw">McGraw Hill</span><span class="pearson">Ⓟ Pearson</span><span class="barrons">BARRON’S</span><span class="ets">ETS®</span></div>
-</div></section>
-<section class="benefits" aria-label="Blututor benefits"><div class="container benefit-grid">
-  <div class="benefit"><span class="benefit-icon" aria-hidden="true">◧</span><p><strong>200+ Subjects</strong><small>All grades</small></p></div>
-  <div class="benefit"><span class="benefit-icon" aria-hidden="true">◴</span><p><strong>Fast Matching</strong><small>Minutes</small></p></div>
-  <div class="benefit"><span class="benefit-icon" aria-hidden="true">⬟</span><p><strong>Secure &amp; Safe</strong><small>Private</small></p></div>
-  <div class="benefit"><span class="benefit-icon" aria-hidden="true">◆</span><p><strong>Affordable Plans</strong><small>Flexible</small></p></div>
-</div></section>
-</main>
-<footer class="site-footer" id="tutor"><div class="container footer-grid">
-  <div class="footer-brand"><!-- Footer torch logo -->
-    <div class="footer-brand">
 
-      <a class="brand footer-logo-link" href="#home" aria-label="Blututor home">
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+
+      <a class="brand" href="#home" aria-label="Blututor home">
         <img
           src="assets/images/blututor-torch-logo.png"
           alt="Blututor torch logo"
-          class="brand-logo footer-brand-logo"
+          class="brand-logo"
         >
       </a>
-    <a class="brand" href="#home"><span class="cap" aria-hidden="true"></span><span>Blu<span class="brand-nany"></span></span></a><p>Online homework, textbook, and test support • 24/7<br>Helping learners succeed, one question at a time.</p></div>
-  <div class="footer-col"><h3>Quick Links</h3><a href="#home">Home</a><a href="#subjects">Books</a><a href="#how">How it Works</a><a href="#tutor" data-toast="Tutor applications are coming soon.">Become a Tutor</a></div>
-  <div class="footer-col"><h3>Support</h3><a href="#support" data-toast="Help center coming soon.">Help Center</a><a href="mailto:hello@blututor.com">Contact Us</a><a href="#how">FAQ</a><a href="#privacy">Privacy Policy</a></div>
-  <div class="footer-col"><h3>Connect</h3><div class="social-row"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Twitter">♥</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">▶</a></div></div>
-</div><div class="container footer-bottom"><span>© <span id="year"></span> WordPress • All rights reserved.</span><nav aria-label="Legal links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#accessibility">Accessibility</a></nav></div></footer>
-<script src="script.js" defer></script>
-</body></html>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#subjects">Books</a>
+        <a href="#how">How it Works</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="button button-light" href="#how"
+           data-toast="Live demo preview coming soon.">
+          <span aria-hidden="true">▣</span> Live Demo
+        </a>
+        <a class="button button-navy" href="#tutor"
+           data-toast="Tutor applications are coming soon.">
+          Become a Tutor
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <main id="primary">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <h1>
+            Human Expertise.<br>
+            AI Intelligence.<br>
+            <span class="hero-highlight">Better Results.</span>
+          </h1>
+
+          <p class="intro">
+            Access top subject experts for personalized homework,
+            textbook walkthroughs, and testing support for learners
+            of all grade levels—anytime, anywhere.
+          </p>
+
+          <a class="button button-red button-large" href="#how">
+            Find Your Tutor <b aria-hidden="true">→</b>
+          </a>
+        </div>
+
+        <div class="hero-art">
+          <img
+            src="IMG_0838.jpeg"
+            alt="Student talking with a tutor during an online lesson"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="steps-section" id="how">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Get Homework Help Anytime. Anywhere.</h2>
+          <p>
+            Personalized help with homework, studies, and test prep—on your schedule.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+            <div class="step-top">
+              <span class="step-icon" aria-hidden="true">⌕</span>
+              <span class="step-number">1</span>
+            </div>
+            <h3>Choose Your Subject</h3>
+            <p>Pick what you need help with, from 200+ subjects.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <span class="step-icon" aria-hidden="true">♟</span>
+              <span class="step-number">2</span>
+            </div>
+            <h3>Get Matched</h3>
+            <p>We connect you with a qualified tutor in minutes.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-top">
+              <span class="step-icon" aria-hidden="true">ϟ</span>
+              <span class="step-number">3</span>
+            </div>
+            <h3>Start Learning</h3>
+            <p>Chat, share files, or book a session — get help fast.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT FOR EVERY LEARNER -->
+    <section class="support-section" id="subjects">
+      <div class="container">
+
+        <div class="support-card">
+
+          <div class="student-photo">
+            <img
+              src="student-studying.jpg"
+              alt="Student completing homework at a laptop"
+            >
+          </div>
+
+          <div class="support-copy">
+            <h2>Support for<br>Every Learner</h2>
+
+            <p>
+              Whether it’s homework, test prep, or mastering a tough
+              concept, Blututor is here to help.
+            </p>
+
+            <ul>
+              <li><span class="check" aria-hidden="true">✓</span>Homework Help</li>
+              <li><span class="check" aria-hidden="true">✓</span>Test Preparation</li>
+              <li><span class="check" aria-hidden="true">✓</span>1:1 or Small Group Sessions</li>
+              <li><span class="check" aria-hidden="true">✓</span>Support for All Grade Levels</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="parents-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Trusted by Parents</h2>
+          <p>Real stories. Real progress.</p>
+        </div>
+
+        <div class="quote-wrap">
+
+          <button class="round-arrow" type="button"
+                  aria-label="Previous testimonial">‹</button>
+
+          <div class="quote-card">
+            <img
+              src="parent-testimonial.jpg"
+              alt="Parent testimonial portrait"
+            >
+
+            <blockquote>
+              “Blututor has been a game-changer for our family.
+              My daughter’s grades have improved, and she actually
+              looks forward to homework now!”
+              <cite>— Jessica L., Parent</cite>
+            </blockquote>
+
+            <div class="stars" aria-label="5 out of 5 stars">
+              ★★★★★
+            </div>
+          </div>
+
+          <button class="round-arrow" type="button"
+                  aria-label="Next testimonial">›</button>
+
+        </div>
+
+        <!-- Education brand examples -->
+        <div class="partner-logos" aria-label="Education brand examples">
+          <span>Kaplan</span>
+          <span class="princeton">The Princeton<br>Review®</span>
+          <span class="mcgraw">McGraw Hill</span>
+          <span class="pearson">Ⓟ Pearson</span>
+          <span class="barrons">BARRON’S</span>
+          <span class="ets">ETS®</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits" aria-label="Blututor benefits">
+      <div class="container">
+        <div class="benefit-grid">
+
+          <div class="benefit">
+            <span class="benefit-icon" aria-hidden="true">◧</span>
+            <p><strong>200+ Subjects</strong><small>All grades</small></p>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon" aria-hidden="true">◴</span>
+            <p><strong>Fast Matching</strong><small>Minutes</small></p>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon" aria-hidden="true">⬟</span>
+            <p><strong>Secure &amp; Safe</strong><small>Private</small></p>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon" aria-hidden="true">◆</span>
+            <p><strong>Affordable Plans</strong><small>Flexible</small></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="tutor">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <a class="brand footer-logo-link" href="#home"
+           aria-label="Blututor home">
+          <img
+            src="assets/images/blututor-torch-logo.png"
+            alt="Blututor torch logo"
+            class="brand-logo footer-brand-logo"
+          >
+        </a>
+
+        <p>
+          Online homework, textbook, and test support • 24/7<br>
+          Helping learners succeed, one question at a time.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#subjects">Books</a>
+        <a href="#how">How it Works</a>
+        <a href="#tutor" data-toast="Tutor applications are coming soon.">
+          Become a Tutor
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="#support" data-toast="Help center coming soon.">Help Center</a>
+        <a href="mailto:hello@blututor.com">Contact Us</a>
+        <a href="#how">FAQ</a>
+        <a href="#privacy">Privacy Policy</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Twitter">♥</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <span>
+        © <span id="year"></span> Blututor • All rights reserved.
+      </span>
+
+      <nav aria-label="Legal links">
+        <a href="#terms">Terms</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#accessibility">Accessibility</a>
+      </nav>
+    </div>
+
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
