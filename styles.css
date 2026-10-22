@@ -618,6 +618,7 @@ h1 {
 .footer-brand .brand {
   justify-content: flex-start;
   margin-bottom: 6px;
+   color:black;
 }
 
 /*
@@ -630,7 +631,7 @@ h1 {
   width: 43px;
   height: 43px;
   filter: brightness(0) invert(1);
-  color:black;
+ 
 }
 
 .footer-brand .brand-name {
@@ -638,6 +639,7 @@ h1 {
 }
 
 .footer-brand .brand-red {
+   color:black;
   color: #ff4763;
 }
 
