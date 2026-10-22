@@ -618,7 +618,6 @@ h1 {
 .footer-brand .brand {
   justify-content: flex-start;
   margin-bottom: 6px;
-   color:black;
 }
 
 /*
@@ -635,11 +634,11 @@ h1 {
 }
 
 .footer-brand .brand-name {
-  color: #fff;
+  color:black;
+  /* color: #fff; */
 }
 
 .footer-brand .brand-red {
-   color:black;
   color: #ff4763;
 }
 
