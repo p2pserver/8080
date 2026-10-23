@@ -629,13 +629,14 @@ h1 {
 .footer-brand-icon {
   width: 43px;
   height: 43px;
+   color:black;
   filter: brightness(0) invert(1);
  
 }
 
 .footer-brand .brand-name {
-  color:black;
-  /* color: #fff; */
+ 
+  color: #fff;
 }
 
 .footer-brand .brand-red {
