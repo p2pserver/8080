@@ -627,12 +627,16 @@ h1 {
   already contains the desired white artwork.
 */
 .footer-brand-icon {
+  display: block;
+  flex: 0 0 auto;
   width: 43px;
   height: 43px;
-   color:black;
-  filter: brightness(0) invert(1);
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
  
 }
+
 
 .footer-brand .brand-name {
  
